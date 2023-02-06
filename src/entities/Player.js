@@ -1,5 +1,7 @@
 import Phaser from 'phaser';
 
+import initAnimations from '../anims';
+
 export default class Player extends Phaser.Physics.Arcade.Sprite {
 
   constructor(scene, x, y) {
@@ -11,11 +13,16 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
     this.init();
     this.initEvents();
+
+    initAnimations(scene.anims);
   }
 
   init() { // Initialize all of the player variables/logic
     this.gravity = 500;
     this.playerSpeed = 200;
+
+    this.setSize(20, 30);
+    this.setOffset(10, 30);
 
     this.cursors = this.scene.input.keyboard.createCursorKeys();
     this.body.setGravityY(this.gravity);
@@ -23,12 +30,12 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
   }
 
   initEvents() {
-    this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this)
+    this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this);
   }
 
   update() {
     const { left, right } = this.cursors;
-    
+
     if (left.isDown) {
       this.setVelocityX(-this.playerSpeed);
     } else if (right.isDown) {
@@ -36,6 +43,8 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     } else {
       this.setVelocityX(0);
     }
+
+    this.play('player-idle', true);
   }
 
 }
