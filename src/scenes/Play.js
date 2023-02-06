@@ -27,8 +27,8 @@ export default class Play extends Phaser.Scene {
     // Gets tileset image that was created in prev helper function
     const tileset1 = map.getTileset('mainlevbuild');
     const tileset2 = map.getTileset('decorative_obj');
-    const platforms = map.createStaticLayer('platforms', tileset1);
-    const environment = map.createStaticLayer('environment', tileset2);
+    const platforms = map.createLayer('platforms', tileset1);
+    const environment = map.createLayer('environment', tileset2);
 
     return {
       platforms,
