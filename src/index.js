@@ -10,7 +10,7 @@ const HEIGHT = 600;
 const SHARED_CONFIG = {
   width: WIDTH,
   height: HEIGHT,
-  debug: false, // Change this to true to enable phaser debugging
+  debug: true, // Change this to true to enable phaser debugging
 };
 
 const Scenes = [
