@@ -14,9 +14,7 @@ export default class Play extends Phaser.Scene {
 
     this.player = this.createPlayer();
     
-
-    this.physics.add.collider(this.player, layers.platforms2);
-
+    this.player.addCollider(layers.platforms2);
 
   }
 

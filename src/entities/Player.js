@@ -2,6 +2,8 @@ import Phaser from 'phaser';
 
 import initAnimations from '../anims';
 
+import collidable from '../mixins/collidable';
+
 export default class Player extends Phaser.Physics.Arcade.Sprite {
 
   constructor(scene, x, y) {
@@ -10,6 +12,9 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     // Binds 'this' context to the scene
     scene.add.existing(this);
     scene.physics.add.existing(this);
+
+    // Include mixins
+    Object.assign(this, collidable);
 
     this.init();
     this.initEvents();
