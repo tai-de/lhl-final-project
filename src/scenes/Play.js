@@ -10,9 +10,13 @@ export default class Play extends Phaser.Scene {
     const map = this.createMap();
     const layers = this.createLayers(map);
 
-    const player = this.createPlayer();
+    this.player = this.createPlayer();
+    this.playerSpeed = 200;
 
-    this.physics.add.collider(player, layers.platforms2);
+    this.physics.add.collider(this.player, layers.platforms2);
+
+    this.cursors = this.input.keyboard.createCursorKeys();
+
   }
 
   // Make tilemap based on the preloaded JSON file
@@ -31,9 +35,9 @@ export default class Play extends Phaser.Scene {
     // Gets tileset image that was created in prev helper function
     const tileset1 = map.getTileset('mainlevbuild');
     const tileset2 = map.getTileset('decorative_obj');
+    const platforms2 = map.createLayer('platforms_collider', tileset1); // Collider layer for platforms/world objects
     const platforms = map.createLayer('platforms', tileset1);
     const environment = map.createLayer('environment', tileset2);
-    const platforms2 = map.createLayer('platforms_collider', tileset1);
 
     platforms2.setCollisionByExclusion(-1, true);
 
@@ -41,15 +45,28 @@ export default class Play extends Phaser.Scene {
       platforms,
       environment,
       platforms2,
-    }
+    };
   }
 
   createPlayer() {
     const player = this.physics.add.sprite(100, 300, 'player');
     player.body.setGravityY(500);
     player.setCollideWorldBounds(true);
-    
+
     return player;
+  }
+
+  update() {
+    const { left, right } = this.cursors;
+    if (left.isDown) {
+      this.player.setVelocityX(-this.playerSpeed);
+    } else if (right.isDown) {
+      this.player.setVelocityX(this.playerSpeed);
+    } else {
+      this.player.setVelocityX(0);
+    }
+
+
   }
 
 }
