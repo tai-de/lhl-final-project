@@ -37,9 +37,14 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.body.setGravityY(this.gravity);
     this.setCollideWorldBounds(true);
     this.health = 100;
-    this.playerHealth = new HealthBar(this.scene, 0, 0, this.health);
+    this.playerHealth = new HealthBar(
+      this.scene,
+      this.scene.config.topLeftCorner.x + 8,
+      this.scene.config.topLeftCorner.y + 8,
+      this.health
+    );
 
-    
+
     initAnimations(this.scene.anims);
   }
 
