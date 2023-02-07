@@ -17,11 +17,18 @@ export default class HealthBar{
 
   draw(x, y) {
     const {width, height} = this.size;
+    const margin = 2;
+
     this.bar.fillStyle(0x727872);
-    this.bar.fillRect(x, y, width, height);
+    this.bar.fillRect(x, y, width + margin, height + margin);
+    this.bar.fillStyle(0xffffff);
+    this.bar.fillRect(x + margin, y + margin, width - margin, height - margin);
+
+    const healthWidth = Math.floor(this.pixelsPerHealth * this.health);
+
+
+    this.bar.fillStyle(0x00ff00);
+    this.bar.fillRect(x + margin, y + margin, healthWidth - margin, height - margin);
   }
-
-
-
 
 }
