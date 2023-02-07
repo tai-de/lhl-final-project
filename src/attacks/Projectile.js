@@ -11,6 +11,7 @@ export default class Projectile extends Phaser.Physics.Arcade.Sprite {
     this.speed = 100;
     this.maxDistance = 200;
     this.traveledDistance = 0;
+    this.cooldown = 1000;
   }
 
   preUpdate(time, delta) {
