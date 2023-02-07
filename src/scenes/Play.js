@@ -29,24 +29,53 @@ export default class Play extends Phaser.Scene {
     this.createEndPoint(gameZones.end, player);
     this.setupCameraOn(player);
 
-    this.graphics = this.add.graphics();
-    this.line = new Phaser.Geom.Line();
-    this.graphics.lineStyle(1, 0x00ff00);
-    this.input.on('pointerdown', this.startDrawing, this);
-    this.input.on('pointerup', this.finishDrawing, this);
+    // this.plotting = false;
+    // this.graphics = this.add.graphics();
+    // this.line = new Phaser.Geom.Line();
+    // this.graphics.lineStyle(1, 0x00ff00);
+
+    // this.input.on('pointerdown', this.startDrawing, this);
+    // this.input.on('pointerup', pointer => this.finishDrawing(pointer, layers.platforms), this);
   }
 
-  startDrawing(pointer) {
-    this.line.x1 = pointer.worldX;
-    this.line.y1 = pointer.worldY;
-  }
+  // drawDebug(layer) {
+  //   const collideColor = new Phaser.Display.Color(243, 134, 48, 200)
+  //   layer.renderDebug(this.graphics, {
+  //     tileColor: null,
+  //     collideColor
+  //   })
+  // }
 
-  finishDrawing(pointer) {
-    this.line.x2 = pointer.worldX;
-    this.line.y2 = pointer.worldY;
-    this.graphics.strokeLineShape(this.line);
-    
-  }
+  // startDrawing(pointer) {
+  //   if (this.tileHits && this.tileHits.length > 0) {
+  //     this.tileHits.forEach(tile => {
+  //       tile.index !== -1 && tile.setCollision(false)
+  //     })
+  //   }
+  //   this.line.x1 = pointer.worldX;
+  //   this.line.y1 = pointer.worldY;
+  //   this.plotting = true;
+  // }
+
+  // finishDrawing(pointer, layer) {
+  //   this.line.x2 = pointer.worldX;
+  //   this.line.y2 = pointer.worldY;
+
+  //   this.graphics.clear();
+  //   this.graphics.strokeLineShape(this.line);
+
+  //   this.tileHits = layer.getTilesWithinShape(this.line)
+
+  //   if (this.tileHits.length > 0) {
+  //     this.tileHits.forEach(tile => {
+  //       tile.index !== -1 && tile.setCollision(true);
+  //     })
+  //   }
+
+  //   this.drawDebug(layer);
+
+  //   this.plotting = false;
+  // }
 
   // Make tilemap based on the preloaded JSON file
   // Add tileset images based on @tilesetFileName and @preloaded image key
@@ -137,7 +166,13 @@ export default class Play extends Phaser.Scene {
   }
 
   update() {
-
+     if(this.plotting){
+      const pointer = this.input.activePointer;
+      this.line.x2 = pointer.worldX;
+      this.line.y2 = pointer.worldY;
+      this.graphics.clear();
+      this.graphics.strokeLineShape(this.line);
+     }
 
   }
 
