@@ -41,6 +41,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
       this.scene,
       this.scene.config.topLeftCorner.x + 8,
       this.scene.config.topLeftCorner.y + 8,
+      2,
       this.health
     );
 
