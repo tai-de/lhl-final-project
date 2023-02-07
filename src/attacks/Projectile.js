@@ -7,11 +7,23 @@ export default class Projectile extends Phaser.Physics.Arcade.Sprite {
     // Binds 'this' context to the scene
     scene.add.existing(this);
     scene.physics.add.existing(this);
-    
+
     this.speed = 100;
+    this.maxDistance = 200;
+    this.traveledDistance = 0;
   }
 
-  shoot(){
+  preUpdate(time, delta) {
+    super.preUpdate(time, delta);
+
+    this.traveledDistance += this.body.deltaAbsX();
+
+    if (this.traveledDistance >= this.maxDistance) {
+      this.destroy();
+    }
+  }
+
+  shoot() {
     console.log('shoot');
     this.setVelocityX(this.speed);
   }

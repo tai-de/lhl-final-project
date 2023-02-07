@@ -37,6 +37,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.cursors = this.scene.input.keyboard.createCursorKeys();
     this.body.setGravityY(this.gravity);
     this.setCollideWorldBounds(true);
+    
     this.health = 100;
     this.playerHealth = new HealthBar(
       this.scene,
@@ -48,7 +49,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
     initAnimations(this.scene.anims);
 
-   this.scene.input.keyboard.on('keydown-X', () => {
+   this.scene.input.keyboard.on('keydown-SPACE', () => {
     const projectile = new Projectile(this.scene, this.x, this.y, 'fireball1');
     projectile.shoot();
    });
@@ -64,12 +65,12 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
   update() {
     if (this.hasBeenHit) { return; }
 
-    const { left, right, space } = this.cursors;
+    const { left, right, up } = this.cursors;
 
     const onFloor = this.body.onFloor();
 
     // Checking if space was just pressed to prevent duplicate
-    const isSpaceJustDown = Phaser.Input.Keyboard.JustDown(space);
+    const isUpJustDown = Phaser.Input.Keyboard.JustDown(up);
 
     // Regular L/R movement
     if (left.isDown) {
@@ -85,7 +86,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     }
 
     // Jumping only when on the floor
-    if (isSpaceJustDown && onFloor) {
+    if (isUpJustDown && onFloor) {
       this.setVelocityY(-this.playerSpeed * 2);
     }
 
