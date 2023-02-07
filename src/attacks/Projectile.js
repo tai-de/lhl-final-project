@@ -23,9 +23,13 @@ export default class Projectile extends Phaser.Physics.Arcade.Sprite {
     }
   }
 
-  shoot() {
+  shoot(x, y) {
     console.log('shoot');
+    this.setActive(true);
+    this.setVisible(true);
+    this.body.reset(x, y);
     this.setVelocityX(this.speed);
+
   }
 
 }

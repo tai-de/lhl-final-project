@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import HealthBar from '../hud/healthbar';
 import initAnimations from './anims/playerAnims';
-import Projectile from '../attacks/Projectile';
+import Projectiles from '../attacks/Projectiles';
 
 import collidable from '../mixins/collidable';
 
@@ -37,7 +37,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.cursors = this.scene.input.keyboard.createCursorKeys();
     this.body.setGravityY(this.gravity);
     this.setCollideWorldBounds(true);
-    
+
     this.health = 100;
     this.playerHealth = new HealthBar(
       this.scene,
@@ -49,13 +49,11 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
     initAnimations(this.scene.anims);
 
-   this.scene.input.keyboard.on('keydown-SPACE', () => {
-    const projectile = new Projectile(this.scene, this.x, this.y, 'fireball1');
-    projectile.shoot();
-   });
-   
+    this.projectiles = new Projectiles(this.scene);
+    this.scene.input.keyboard.on('keydown-SPACE', () => {
+      this.projectiles.shootProjectile(this);
+    });
 
-    
   }
 
   initEvents() {
@@ -69,7 +67,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
     const onFloor = this.body.onFloor();
 
-    // Checking if space was just pressed to prevent duplicate
+    // Checking if up was just pressed to prevent duplicate
     const isUpJustDown = Phaser.Input.Keyboard.JustDown(up);
 
     // Regular L/R movement
