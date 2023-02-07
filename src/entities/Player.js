@@ -24,11 +24,13 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.gravity = 500;
     this.playerSpeed = 200;
     this.jumpCount = 0;
+    this.hasBeenHit = false;
+    this.bounceVelocity = 250;
 
     this.lastDirection = Phaser.Physics.Arcade.FACING_RIGHT;
 
     this.setSize(20, 30);
-    this.setOffset(13, 13)
+    this.setOffset(13, 13);
     this.setOrigin(0.5, 1);
 
     this.cursors = this.scene.input.keyboard.createCursorKeys();
@@ -43,7 +45,10 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
   }
 
   update() {
+    if (this.hasBeenHit) { return; }
+
     const { left, right, space } = this.cursors;
+
     const onFloor = this.body.onFloor();
 
     // Checking if space was just pressed to prevent duplicate
@@ -74,8 +79,27 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
       this.play('jump', true);
   }
 
+  bounceOff() {
+    this.body.touching.right ?
+      this.setVelocityX(-this.bounceVelocity) :
+      this.body.touching.left ?
+        this.setVelocityX(this.bounceVelocity) :
+        this.setVelocityX(0);
+
+    setTimeout(() => {
+      this.setVelocityY(-this.bounceVelocity);
+    }, 0);
+  }
+
   takesHit(initiator) {
-    console.log('ive been hit');
+    if (this.hasBeenHit) { return; }
+    
+    this.hasBeenHit = true;
+    this.bounceOff();
+
+    this.scene.time.delayedCall(250, () => {
+      this.hasBeenHit = false;
+    })
   }
 
 }
