@@ -64,7 +64,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
     // Jumping only when on the floor
     if (isSpaceJustDown && onFloor) {
-      this.setVelocityY(-this.playerSpeed * 1.5);
+      this.setVelocityY(-this.playerSpeed * 2);
     }
 
     // Player animations

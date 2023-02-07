@@ -6,12 +6,14 @@ import PlayScene from './scenes/Play';
 const WIDTH = document.body.offsetWidth;
 const HEIGHT = 600;
 const MAPWIDTH = 1600;
+const ZOOMFACTOR = 1.5;
 
 // Shared configuration object will be passed through to all scenes
 const SHARED_CONFIG = {
   mapOffset: MAPWIDTH > WIDTH ? MAPWIDTH - WIDTH : 0,
   width: WIDTH,
   height: HEIGHT,
+  zoomFactor: ZOOMFACTOR,
   debug: true, // Change this to true to enable phaser debugging
 };
 
