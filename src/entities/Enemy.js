@@ -4,7 +4,7 @@ import collidable from "../mixins/collidable";
 export default class Enemies extends Phaser.Physics.Arcade.Sprite {
   constructor(scene, x, y, key) {
     super(scene, x, y, key);
-    
+
     // Binds 'this' context to the scene
     scene.add.existing(this);
     scene.physics.add.existing(this);
@@ -13,6 +13,7 @@ export default class Enemies extends Phaser.Physics.Arcade.Sprite {
     Object.assign(this, collidable);
 
     this.init();
+    this.initEvents();
   }
 
   init() {
@@ -23,5 +24,13 @@ export default class Enemies extends Phaser.Physics.Arcade.Sprite {
     this.setOrigin(0.5, 1);
     this.setSize(30, 24);
     this.setImmovable(true);
+  }
+
+  initEvents() {
+    this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this);
+  }
+
+  update(time, delta) {
+    this.setVelocityX(30);
   }
 } 
