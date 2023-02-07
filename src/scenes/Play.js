@@ -15,14 +15,17 @@ export default class Play extends Phaser.Scene {
     const layers = this.createLayers(map);
     const gameZones = this.getPlayerZones(layers.gameZones);
     const player = this.createPlayer(gameZones.start);
-    const enemy = this.createEnemy();
+    const enemies = this.createEnemies(layers.enemySpawns);
+
     player.addCollider(layers.platforms2);
-    this.createEnemyColliders(enemy, {
+
+    this.createEnemyColliders(enemies, {
       colliders: {
         platformColliders: layers.platforms2,
         player
       }
     });
+
     this.createEndPoint(gameZones.end, player);
     this.setupCameraOn(player);
   }
@@ -47,6 +50,7 @@ export default class Play extends Phaser.Scene {
     const platforms = map.createLayer('platforms', tileset1);
     const environment = map.createLayer('environment', tileset2);
     const gameZones = map.getObjectLayer('game_zones');
+    const enemySpawns = map.getObjectLayer('enemy_spawns');
 
     platforms2.setCollisionByExclusion(-1, true);
 
@@ -55,6 +59,7 @@ export default class Play extends Phaser.Scene {
       environment,
       platforms2,
       gameZones,
+      enemySpawns
     };
   }
 
@@ -71,14 +76,18 @@ export default class Play extends Phaser.Scene {
     return player;
   }
 
-  createEnemy() {
-    return new Bat(this, 550, 500);
+  createEnemies(spawnLayer) {
+    return spawnLayer.objects.map(point => {
+      return new Bat(this, point.x, point.y);
+    });
   }
 
-  createEnemyColliders(enemy, {colliders}) {
-     enemy
-      .addCollider(colliders.platformColliders)
-      .addCollider(colliders.player);
+  createEnemyColliders(enemies, { colliders }) {
+    enemies.forEach(enemy => {
+      enemy
+        .addCollider(colliders.platformColliders)
+        .addCollider(colliders.player);
+    });
   }
 
   setupCameraOn(player) {
