@@ -93,9 +93,9 @@ export default class Play extends Phaser.Scene {
     // Gets tileset image that was created in prev helper function
     const tileset1 = map.getTileset('mainlevbuild');
     const tileset2 = map.getTileset('decorative_obj');
+    const environment = map.createLayer('environment', tileset2);
     const platforms2 = map.createLayer('platforms_collider', tileset1).setAlpha(0); // Collider layer for platforms/world objects
     const platforms = map.createLayer('platforms', tileset1);
-    const environment = map.createLayer('environment', tileset2);
     const gameZones = map.getObjectLayer('game_zones');
     const enemySpawns = map.getObjectLayer('enemy_spawns');
 
