@@ -19,7 +19,8 @@ export default class Play extends Phaser.Scene {
     player.addCollider(layers.platforms2);
     this.createEnemyColliders(enemy, {
       colliders: {
-        platformColliders: layers.platforms2
+        platformColliders: layers.platforms2,
+        player
       }
     });
     this.createEndPoint(gameZones.end, player);
@@ -71,11 +72,13 @@ export default class Play extends Phaser.Scene {
   }
 
   createEnemy() {
-    return new Bat(this, 500, 200);
+    return new Bat(this, 550, 500);
   }
 
   createEnemyColliders(enemy, {colliders}) {
-     enemy.addCollider(colliders.platformColliders);
+     enemy
+      .addCollider(colliders.platformColliders)
+      .addCollider(colliders.player);
   }
 
   setupCameraOn(player) {
