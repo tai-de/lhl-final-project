@@ -18,15 +18,18 @@ export default class Projectiles extends Phaser.Physics.Arcade.Group {
     const projectile = this.getFirstDead(false);
 
     if (!projectile) { return; }
-
+    const center = initiator.getCenter();
+    let centerX = null;
     if (initiator.lastDirection === Phaser.Physics.Arcade.FACING_RIGHT) {
       projectile.speed = Math.abs(projectile.speed);
       projectile.setFlipX(false);
+      centerX = center.x + 10;
     } else {
       projectile.speed = -Math.abs(projectile.speed);
       projectile.setFlipX(true);
+      centerX = center.x - 10;
     }
 
-    projectile.shoot(initiator.x, initiator.y);
+    projectile.shoot(centerX, center.y + 5);
   }
 }
