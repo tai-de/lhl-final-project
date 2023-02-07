@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 
-import initAnimations from '../anims';
+import initAnimations from './anims/playerAnims';
 
 import collidable from '../mixins/collidable';
 
@@ -18,8 +18,6 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
     this.init();
     this.initEvents();
-
-    initAnimations(scene.anims);
   }
 
   init() { // Initialize all of the player variables/logic
@@ -30,11 +28,14 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.lastDirection = Phaser.Physics.Arcade.FACING_RIGHT;
 
     this.setSize(20, 30);
-    this.setOffset(10, 30);
+    this.setOffset(13, 13)
+    this.setOrigin(0.5, 1);
 
     this.cursors = this.scene.input.keyboard.createCursorKeys();
     this.body.setGravityY(this.gravity);
     this.setCollideWorldBounds(true);
+
+    initAnimations(this.scene.anims);
   }
 
   initEvents() {
@@ -63,15 +64,15 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
     // Jumping only when on the floor
     if (isSpaceJustDown && onFloor) {
-      this.setVelocityY(-this.playerSpeed * 1.75);
+      this.setVelocityY(-this.playerSpeed * 1.5);
     }
 
     // Player animations
-    onFloor ? 
+    onFloor ?
       this.body.velocity.x !== 0 ?
-        this.play('player-run', true) : this.play('player-idle', true) :
-      this.play('player-jump', true);
-    
+        this.play('run', true) : this.play('idle', true) :
+      this.play('jump', true);
+
   }
 
 }
