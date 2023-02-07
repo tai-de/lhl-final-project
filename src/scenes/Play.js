@@ -39,6 +39,7 @@ export default class Play extends Phaser.Scene {
     const platforms2 = map.createLayer('platforms_collider', tileset1).setAlpha(0); // Collider layer for platforms/world objects
     const platforms = map.createLayer('platforms', tileset1);
     const environment = map.createLayer('environment', tileset2);
+    const gameZones = map.getObjectLayer('game_zones').objects;
 
     platforms2.setCollisionByExclusion(-1, true);
 
@@ -46,6 +47,7 @@ export default class Play extends Phaser.Scene {
       platforms,
       environment,
       platforms2,
+      gameZones
     };
   }
 
