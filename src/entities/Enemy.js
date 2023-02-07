@@ -18,7 +18,7 @@ export default class Enemies extends Phaser.Physics.Arcade.Sprite {
 
   init() {
     this.gravity = 500;
-    this.speed = 100;
+    this.speed = 30;
     this.body.setGravityY(this.gravity);
     this.setCollideWorldBounds(true);
     this.setOrigin(0.5, 1);
@@ -33,10 +33,12 @@ export default class Enemies extends Phaser.Physics.Arcade.Sprite {
   }
 
   update(time, delta) {
-    this.setVelocityX(30);
+    this.setVelocityX(this.speed);
     const { ray, hasHits } = this.rayCast(this.body, this.platformCollidersLayer);
-    if (hasHits) {
-      console.log('Has Hits');
+    if (!hasHits) {
+      // console.log('Has Hits');
+      this.setFlipX(!this.flipX);
+      this.setVelocityX(this.speed = -this.speed) ;
     }
     this.rayGraphics.clear();
     this.rayGraphics.strokeLineShape(ray);
