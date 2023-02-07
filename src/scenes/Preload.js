@@ -24,6 +24,11 @@ export default class Preload extends Phaser.Scene {
       frameHeight: 32
     });
 
+    //Load fireball attack
+    this.load.image('fireball1', 'assets/Weapons/fireball_001.png');
+    this.load.image('fireball2', 'assets/Weapons/fireball_002.png');
+    this.load.image('fireball3', 'assets/Weapons/fireball_003.png');
+
   }
 
   create() {

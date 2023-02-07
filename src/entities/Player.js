@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import HealthBar from '../hud/healthbar';
 import initAnimations from './anims/playerAnims';
+import Projectile from '../attacks/Projectile';
 
 import collidable from '../mixins/collidable';
 
@@ -45,8 +46,15 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
       this.health
     );
 
-
     initAnimations(this.scene.anims);
+
+   this.scene.input.keyboard.on('keydown-X', () => {
+    const projectile = new Projectile(this.scene, this.x, this.y, 'fireball1');
+    projectile.shoot();
+   });
+   
+
+    
   }
 
   initEvents() {
