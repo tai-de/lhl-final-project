@@ -1,5 +1,7 @@
 import Bat from './Bat';
 
-export const ENEMYTYPES = {
+const ENEMYTYPES = {
   Bat,
 };
+
+export default ENEMYTYPES;

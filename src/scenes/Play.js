@@ -1,8 +1,7 @@
 import Phaser from 'phaser';
 
 import Player from '../entities/Player';
-import Bat from '../entities/Bat';
-import Enemies from '../entities/Enemy';
+import Enemies from '../groups/Enemies';
 
 export default class Play extends Phaser.Scene {
 
@@ -78,10 +77,10 @@ export default class Play extends Phaser.Scene {
   }
 
   createEnemies(spawnLayer) {
-    const enemies = new Enemies();
-    const enemyTypes = enemies.getTypes;
+    const enemies = new Enemies(this);
+    const enemyTypes = enemies.getTypes();
 
-    spawnLayer.objects.map(point => {
+    spawnLayer.objects.forEach(point => {
       const spawnType = point.properties && point.properties[0].value;
 
       const enemy = new enemyTypes[spawnType](this, point.x, point.y);
@@ -93,11 +92,9 @@ export default class Play extends Phaser.Scene {
   }
 
   createEnemyColliders(enemies, { colliders }) {
-    enemies.forEach(enemy => {
-      enemy
-        .addCollider(colliders.platformColliders)
-        .addCollider(colliders.player);
-    });
+    enemies
+      .addCollider(colliders.platformColliders)
+      .addCollider(colliders.player);
   }
 
   setupCameraOn(player) {
