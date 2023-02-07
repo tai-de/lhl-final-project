@@ -15,7 +15,7 @@ export default class Play extends Phaser.Scene {
     const layers = this.createLayers(map);
     const gameZones = this.getPlayerZones(layers.gameZones);
     const player = this.createPlayer(gameZones.start);
-    const enemies = this.createEnemies(layers.enemySpawns);
+    const enemies = this.createEnemies(layers.enemySpawns, layers.platforms2);
 
     player.addCollider(layers.platforms2);
 
@@ -123,15 +123,15 @@ export default class Play extends Phaser.Scene {
     return player;
   }
 
-  createEnemies(spawnLayer) {
+  createEnemies(spawnLayer, platformsColliders) {
     const enemies = new Enemies(this);
     const enemyTypes = enemies.getTypes();
 
-    spawnLayer.objects.forEach(point => {
+    spawnLayer.objects.forEach((point) => {
       const spawnType = point.properties && point.properties[0].value;
 
       const enemy = new enemyTypes[spawnType](this, point.x, point.y);
-
+      enemy.setPlatformColliders(platformsColliders);
       enemies.add(enemy);
     });
 
