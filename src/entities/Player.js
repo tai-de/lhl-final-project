@@ -4,6 +4,7 @@ import initAnimations from './anims/playerAnims';
 import Projectiles from '../attacks/Projectiles';
 
 import collidable from '../mixins/collidable';
+import anims from '../mixins/anims';
 
 export default class Player extends Phaser.Physics.Arcade.Sprite {
 
@@ -16,6 +17,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
     // Include mixins
     Object.assign(this, collidable);
+    Object.assign(this, anims);
 
     this.init();
     this.initEvents();
@@ -87,6 +89,10 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     // Jumping only when on the floor
     if (isUpJustDown && onFloor) {
       this.setVelocityY(-this.playerSpeed * 2);
+    }
+
+    if (this.isPlayingAnims('throw')) {
+      return;
     }
 
     // Player animations

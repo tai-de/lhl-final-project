@@ -19,14 +19,11 @@ export default class Preload extends Phaser.Scene {
     });
 
     // Throwing
-    this.load.image('player-throw1', 'assets/Player/Throw-attack/throw_attack01.png');
-    this.load.image('player-throw2', 'assets/Player/Throw-attack/throw_attack02.png');
-    this.load.image('player-throw3', 'assets/Player/Throw-attack/throw_attack03.png');
-    this.load.image('player-throw4', 'assets/Player/Throw-attack/throw_attack04.png');
-    this.load.image('player-throw5', 'assets/Player/Throw-attack/throw_attack05.png');
-    this.load.image('player-throw6', 'assets/Player/Throw-attack/throw_attack06.png');
-    this.load.image('player-throw7', 'assets/Player/Throw-attack/throw_attack07.png');
-
+    this.load.spritesheet('player-throw', 'assets/Player/Throw-attack/throw_attack.png', {
+      frameWidth: 48,
+      frameHeight: 48
+    });
+    
     // Enemy sprites
     // Bat / enemy01
     this.load.spritesheet('bat', 'assets/Enemies/Enemy01/enemy01_sheet.png', {

@@ -32,17 +32,12 @@ export default anims => {
 
   anims.create({
     key: 'throw',
-    frames: [
-      { key: 'player-throw1' },
-      { key: 'player-throw2' },
-      { key: 'player-throw3' },
-      { key: 'player-throw4' },
-      { key: 'player-throw5' },
-      { key: 'player-throw6' },
-      { key: 'player-throw7' },
-    ],
+    frames: anims.generateFrameNumbers('player-throw', {
+      start: 0,
+      end: 6,
+    }),
     frameRate: 14,
     repeat: 0,
-  })
+  });
 
 };
