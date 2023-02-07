@@ -31,4 +31,9 @@ export default class HealthBar{
     this.bar.fillRect(x + margin, y + margin, healthWidth - margin, height - margin);
   }
 
+  decrease(amount){
+    this.health -= amount;
+    this.draw(this.x, this.y);
+  }
+
 }

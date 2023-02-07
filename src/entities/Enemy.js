@@ -29,6 +29,7 @@ export default class Enemies extends Phaser.Physics.Arcade.Sprite {
     this.platformCollidersLayer = null;
     this.maxDistance = 100;
     this.currentDistance = 0;
+    this.damage = 20;
   }
 
   initEvents() {
