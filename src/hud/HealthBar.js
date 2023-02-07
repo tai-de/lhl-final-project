@@ -11,5 +11,14 @@ export default class HealthBar{
     this.pixelsPerHealth = this.size.width / this.health;
 
     scene.add.existing(this.bar);
+    this.draw(this.x, this.y);
   }
+
+  draw(x, y) {
+    const {width, height} = this.size;
+    this.bar.fillStyle(0x727872);
+    this.bar.fillRect(x, y, width, height);
+  }
+
+
 }
