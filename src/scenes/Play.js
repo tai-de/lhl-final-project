@@ -17,6 +17,7 @@ export default class Play extends Phaser.Scene {
 
     player.addCollider(layers.platforms2);
 
+    this.createEndPoint(gameZones.end, player);
     this.setupCameraOn(player);
   }
 
@@ -56,7 +57,7 @@ export default class Play extends Phaser.Scene {
     return {
       start: gameZones.find(zone => zone.name === 'startPoint'),
       end: gameZones.find(zone => zone.name === 'endPoint')
-    }
+    };
   }
 
   createPlayer(start) {
@@ -69,6 +70,19 @@ export default class Play extends Phaser.Scene {
     this.physics.world.setBounds(0, 0, width + mapOffset, height + 200);
     this.cameras.main.setBounds(0, 0, width + mapOffset, height).setZoom(zoomFactor);
     this.cameras.main.startFollow(player);
+  }
+
+  createEndPoint(end, player) {
+    // Add invisible sprite to the end point
+    const endSprite = this.physics.add.sprite(end.x, end.y, 'end')
+      .setAlpha(0)
+      .setSize(10, 200)
+      .setOrigin(0.5, 1);
+
+   const endOverlap = this.physics.add.overlap(endSprite, player, () => {
+    endOverlap.active = false;
+    console.log('endpoint');
+   });
   }
 
   update() {
