@@ -12,8 +12,8 @@ export default class Play extends Phaser.Scene {
   create() {
     const map = this.createMap();
     const layers = this.createLayers(map);
-
-    const player = this.createPlayer();
+    const gameZones = this.getPlayerZones(layers.gameZones);
+    const player = this.createPlayer(gameZones.start);
 
     player.addCollider(layers.platforms2);
 
@@ -39,7 +39,7 @@ export default class Play extends Phaser.Scene {
     const platforms2 = map.createLayer('platforms_collider', tileset1).setAlpha(0); // Collider layer for platforms/world objects
     const platforms = map.createLayer('platforms', tileset1);
     const environment = map.createLayer('environment', tileset2);
-    const gameZones = map.getObjectLayer('game_zones').objects;
+    const gameZones = map.getObjectLayer('game_zones');
 
     platforms2.setCollisionByExclusion(-1, true);
 
@@ -47,12 +47,20 @@ export default class Play extends Phaser.Scene {
       platforms,
       environment,
       platforms2,
-      gameZones
+      gameZones,
     };
   }
 
-  createPlayer() {
-    const player = new Player(this, 100, 300);
+  getPlayerZones(gameZonesLayer) {
+    const gameZones = gameZonesLayer.objects;
+    return {
+      start: gameZones.find(zone => zone.name === 'startPoint'),
+      end: gameZones.find(zone => zone.name === 'endPoint')
+    }
+  }
+
+  createPlayer(start) {
+    const player = new Player(this, start.x, start.y);
     return player;
   }
 
