@@ -17,6 +17,13 @@ export default class Preload extends Phaser.Scene {
       frameHeight: 48
     });
 
+    // Enemy sprites
+    // Bat / enemy01
+    this.load.spritesheet('bat', 'assets/Enemies/Enemy01/enemy01_sheet.png', {
+      frameWidth: 32,
+      frameHeight: 32
+    });
+
   }
 
   create() {

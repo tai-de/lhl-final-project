@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 
 import Player from '../entities/Player';
+import Bat from '../entities/Bat';
 
 export default class Play extends Phaser.Scene {
 
@@ -14,9 +15,13 @@ export default class Play extends Phaser.Scene {
     const layers = this.createLayers(map);
     const gameZones = this.getPlayerZones(layers.gameZones);
     const player = this.createPlayer(gameZones.start);
-
+    const enemy = this.createEnemy();
     player.addCollider(layers.platforms2);
-
+    this.createEnemyColliders(enemy, {
+      colliders: {
+        platformColliders: layers.platforms2
+      }
+    });
     this.createEndPoint(gameZones.end, player);
     this.setupCameraOn(player);
   }
@@ -65,6 +70,14 @@ export default class Play extends Phaser.Scene {
     return player;
   }
 
+  createEnemy() {
+    return new Bat(this, 500, 200);
+  }
+
+  createEnemyColliders(enemy, {colliders}) {
+     enemy.addCollider(colliders.platformColliders);
+  }
+
   setupCameraOn(player) {
     const { width, height, mapOffset, zoomFactor } = this.config;
     this.physics.world.setBounds(0, 0, width + mapOffset, height + 200);
@@ -79,10 +92,10 @@ export default class Play extends Phaser.Scene {
       .setSize(10, 200)
       .setOrigin(0.5, 1);
 
-   const endOverlap = this.physics.add.overlap(endSprite, player, () => {
-    endOverlap.active = false;
-    console.log('endpoint');
-   });
+    const endOverlap = this.physics.add.overlap(endSprite, player, () => {
+      endOverlap.active = false;
+      console.log('endpoint');
+    });
   }
 
   update() {
