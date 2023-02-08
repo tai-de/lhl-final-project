@@ -7,10 +7,18 @@ export default class MeleeWeapon extends Phaser.Physics.Arcade.Sprite {
     // Binds 'this' context to the scene
     scene.add.existing(this);
     scene.physics.add.existing(this);
-
+    
+    // this.setOrigin(0.5, 1);
     this.attackSpeed = 1000;
     this.damage = 10;
     this.weaponAnim = weaponName + '-anim';
+    
+    this.on('animationcomplete', (animation) => {
+      if(animation.key === this.weaponAnim){
+        this.activateWeapon(false);
+        this.body.reset(0, 0);
+      }
+    })
 
   }
 
@@ -18,7 +26,7 @@ export default class MeleeWeapon extends Phaser.Physics.Arcade.Sprite {
     this.wielder = wielder;
     this.activateWeapon(true);
     this.body.reset(wielder.x, wielder.y);
-    this.anims.play(this.weaponAnim, true);
+    this.anims.play(this.weaponAnim, true).setOrigin(0.5, 1);
   }
 
   activateWeapon(isActive) {
