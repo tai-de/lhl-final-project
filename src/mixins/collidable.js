@@ -5,6 +5,11 @@ export default {
     return this;
   },
 
+  addOverlap(otherObject, callback) {
+    this.scene.physics.add.overlap(this, otherObject, callback, null, this);
+    return this;
+  },
+
   bodyPositionDiffX: 0,
   prevRay: null,
   prevHasHit: null,

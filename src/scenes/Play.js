@@ -146,7 +146,8 @@ export default class Play extends Phaser.Scene {
     enemies
       .addCollider(colliders.platformColliders)
       .addCollider(colliders.player, this.onPlayerCollision)
-      .addCollider(colliders.player.projectiles, this.onHits);
+      .addCollider(colliders.player.projectiles, this.onHits)
+      .addOverlap(colliders.player.meleeWeapon, this.onHits);
   }
 
   onHits(entity, source) {

@@ -1,3 +1,5 @@
+import Phaser from 'phaser';
+
 import SpriteEffect from './SpriteEffect';
 
 export default class EffectManager {
