@@ -20,4 +20,25 @@ export default anims => {
     repeat: 0,
   });
 
+  anims.create({
+    key: 'fireball',
+    frames: [
+      { key: 'fireball1' },
+      { key: 'fireball2' },
+      { key: 'fireball3' }
+    ],
+    frameRate: 5,
+    repeat: -1,
+  });
+
+  anims.create({
+    key: 'iceball',
+    frames: [
+      { key: 'iceball1' },
+      { key: 'iceball2' }
+    ],
+    frameRate: 6,
+    repeat: -1,
+  });
+
 };

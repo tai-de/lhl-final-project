@@ -46,6 +46,10 @@ export default class Preload extends Phaser.Scene {
     this.load.image('fireball2', 'assets/Weapons/fireball_002.png');
     this.load.image('fireball3', 'assets/Weapons/fireball_003.png');
 
+    //Load iceball attack
+    this.load.image('iceball1', 'assets/Weapons/iceball_001.png');
+    this.load.image('iceball2', 'assets/Weapons/iceball_002.png');
+
     //Load hit effect
     this.load.spritesheet('hitsheet1', 'assets/Weapons/hit_effect_sheet.png', {
       frameWidth: 32,

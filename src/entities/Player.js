@@ -54,11 +54,11 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
     initAnimations(this.scene.anims);
 
-    this.projectiles = new Projectiles(this.scene);
+    this.projectiles = new Projectiles(this.scene, 'fireball1');
     this.meleeWeapon = new MeleeWeapon(this.scene, 0, 0, 'sword-attack');
     this.timeFromLastSwing = null;
 
-    this.level = 2; // <---- REPLACE WHEN WE FIGURE OUT SWITCHING LEVELS
+    this.level = 1; // <---- REPLACE WHEN WE FIGURE OUT SWITCHING LEVELS
 
     this.scene.input.keyboard.on('keydown-SPACE', () => {
       switch (this.level) {
