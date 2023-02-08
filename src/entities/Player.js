@@ -4,6 +4,8 @@ import initAnimations from './anims/playerAnims';
 import Projectiles from '../attacks/Projectiles';
 import MeleeWeapon from '../attacks/MeleeWeapon';
 
+import getTimestamp from '../utils/functions';
+
 import collidable from '../mixins/collidable';
 import anims from '../mixins/anims';
 
@@ -54,6 +56,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
     this.projectiles = new Projectiles(this.scene);
     this.meleeWeapon = new MeleeWeapon(this.scene, 0, 0, 'sword-attack');
+    this.timeFromLastSwing = null;
 
     this.level = 2; // <---- REPLACE WHEN WE FIGURE OUT SWITCHING LEVELS
 
@@ -65,8 +68,12 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
           break;
         }
         case 2: {
+          if(this.timeFromLastSwing && this.timeFromLastSwing + this.meleeWeapon.attackSpeed > getTimestamp()){
+            return;
+          }
           this.play('sword-attack-anim', true);
           this.meleeWeapon.swing(this);
+          this.timeFromLastSwing = getTimestamp();
         }
 
       }

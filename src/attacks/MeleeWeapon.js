@@ -11,7 +11,7 @@ export default class MeleeWeapon extends Phaser.Physics.Arcade.Sprite {
     scene.physics.add.existing(this);
 
     // this.setOrigin(0.5, 1);
-    this.attackSpeed = 1000;
+    this.attackSpeed = 500;
     this.damage = 10;
     this.weaponAnim = weaponName + '-anim';
 
