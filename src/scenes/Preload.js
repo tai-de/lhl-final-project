@@ -23,7 +23,7 @@ export default class Preload extends Phaser.Scene {
       frameWidth: 48,
       frameHeight: 48
     });
-    
+
     // Enemy sprites
     // Bat / enemy01
     this.load.spritesheet('bat', 'assets/Enemies/Enemy01/enemy01_sheet.png', {
@@ -36,6 +36,11 @@ export default class Preload extends Phaser.Scene {
     this.load.image('fireball2', 'assets/Weapons/fireball_002.png');
     this.load.image('fireball3', 'assets/Weapons/fireball_003.png');
 
+    //Load hit effect
+    this.load.spritesheet('hitsheet1', 'assets/Weapons/hit_effect_sheet.png', {
+      frameWidth: 32,
+      frameHeight: 32
+    });
   }
 
   create() {

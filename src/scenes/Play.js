@@ -3,6 +3,8 @@ import Phaser from 'phaser';
 import Player from '../entities/Player';
 import Enemies from '../groups/Enemies';
 
+import initAnims from '../anims';
+
 export default class Play extends Phaser.Scene {
 
   constructor(config) {
@@ -28,6 +30,8 @@ export default class Play extends Phaser.Scene {
 
     this.createEndPoint(gameZones.end, player);
     this.setupCameraOn(player);
+
+    initAnims(this.anims);
 
     // this.plotting = false;
     // this.graphics = this.add.graphics();
