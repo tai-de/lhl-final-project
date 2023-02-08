@@ -62,6 +62,15 @@ export default class Preload extends Phaser.Scene {
       frameHeight: 32,
       spacing: 16
     });
+
+    //Load diamond
+    this.load.image('diamond1', 'assets/Objects/diamond_01.png');
+    this.load.image('diamond2', 'assets/Objects/diamond_02.png');
+    this.load.image('diamond3', 'assets/Objects/diamond_03.png');
+    this.load.image('diamond4', 'assets/Objects/diamond_04.png');
+    this.load.image('diamond5', 'assets/Objects/diamond_05.png');
+    this.load.image('diamond6', 'assets/Objects/diamond_06.png');
+
   }
 
   create() {

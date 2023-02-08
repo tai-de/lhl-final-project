@@ -18,6 +18,7 @@ export default class Play extends Phaser.Scene {
     const gameZones = this.getPlayerZones(layers.gameZones);
     const player = this.createPlayer(gameZones.start);
     const enemies = this.createEnemies(layers.enemySpawns, layers.platforms2);
+    const collectables = this.createCollectables(layers.collectables);
 
     this.createPlayerColliders(player, {
       colliders: {
@@ -55,11 +56,12 @@ export default class Play extends Phaser.Scene {
     // Gets tileset image that was created in prev helper function
     const tileset1 = map.getTileset('mainlevbuild');
     const tileset2 = map.getTileset('decorative_obj');
-    const environment = map.createLayer('environment', tileset2);
+    const environment = map.createLayer('environment', tileset2).setDepth(-2);
     const platforms2 = map.createLayer('platforms_collider', tileset1).setAlpha(0); // Collider layer for platforms/world objects
     const platforms = map.createLayer('platforms', tileset1);
     const gameZones = map.getObjectLayer('game_zones');
     const enemySpawns = map.getObjectLayer('enemy_spawns');
+    const collectables = map.getObjectLayer('collectables');
 
     platforms2.setCollisionByExclusion(-1, true);
 
@@ -68,8 +70,17 @@ export default class Play extends Phaser.Scene {
       environment,
       platforms2,
       gameZones,
-      enemySpawns
+      enemySpawns,
+      collectables
     };
+  }
+
+  createCollectables(collectablesLayer) {
+    const collectables = this.physics.add.staticGroup();
+    collectablesLayer.objects.forEach((collectable) => {
+      collectables.get(collectable.x, collectable.y, 'diamond1').setDepth(-1);
+    });
+    return collectables;
   }
 
   getPlayerZones(gameZonesLayer) {
