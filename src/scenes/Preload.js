@@ -30,6 +30,10 @@ export default class Preload extends Phaser.Scene {
       frameWidth: 32,
       frameHeight: 32
     });
+    
+    this.load.image('bat-hit1', 'assets/Enemies/Enemy01/hit01.png');
+    this.load.image('bat-hit2', 'assets/Enemies/Enemy01/hit02.png');
+    this.load.image('bat-hit3', 'assets/Enemies/Enemy01/hit03.png');
 
     //Load fireball attack
     this.load.image('fireball1', 'assets/Weapons/fireball_001.png');
