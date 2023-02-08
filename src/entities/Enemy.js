@@ -76,6 +76,12 @@ export default class Enemies extends Phaser.Physics.Arcade.Sprite {
     this.platformCollidersLayer = platformCollidersLayer;
   }
 
+  // Empty function to prevent game crash
+  // when Player collides with Enemy
+  // Can be used to have Enemy perform some
+  // other action on Player collision if needed
+  deliversHit(target) { }
+
   takesHit(source) {
     source.deliversHit(this);
     this.health -= source.damage;

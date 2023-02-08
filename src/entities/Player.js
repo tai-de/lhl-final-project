@@ -151,9 +151,13 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
     this.hasBeenHit = true;
     this.bounceOff();
+    
     const hitAnim = this.playDamageAnim();
     this.health -= initiator.damage;
     this.playerHealth.decrease(initiator.damage);
+
+    initiator.deliversHit(this);
+
     this.scene.time.delayedCall(500, () => {
       this.hasBeenHit = false;
       hitAnim.stop();
