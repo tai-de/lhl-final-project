@@ -35,7 +35,7 @@ export default class Snake extends Enemy {
     }
 
     if (this.timeFromLastAttack + this.attackDelay <= time) {
-      this.projectiles.shootProjectile(this);
+      this.projectiles.shootProjectile(this, 'iceball');
       this.timeFromLastAttack = time;
       this.attackDelay = Phaser.Math.Between(1000, 3000);
     }
@@ -50,4 +50,4 @@ export default class Snake extends Enemy {
     this.play('snake-hurt', true);
   }
 
-}
+} 

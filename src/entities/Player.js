@@ -64,7 +64,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
       switch (this.level) {
         case 1: {
           this.play('throw', true);
-          this.projectiles.shootProjectile(this);
+          this.projectiles.shootProjectile(this, 'fireball');
           break;
         }
         case 2: {

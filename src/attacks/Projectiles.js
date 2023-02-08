@@ -17,7 +17,7 @@ export default class Projectiles extends Phaser.Physics.Arcade.Group {
     this.timeFromLastShoot = null;
   }
 
-  shootProjectile(initiator) {
+  shootProjectile(initiator, anim) {
     const projectile = this.getFirstDead(false);
 
     if (!projectile) { return; }
@@ -40,7 +40,7 @@ export default class Projectiles extends Phaser.Physics.Arcade.Group {
       centerX = center.x - 10;
     }
 
-    projectile.shoot(centerX, center.y + 5);
+    projectile.shoot(centerX, center.y + 5, anim);
     this.timeFromLastShoot = getTimestamp();
   }
 }
