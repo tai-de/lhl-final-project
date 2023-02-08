@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import HealthBar from '../hud/healthbar';
 import initAnimations from './anims/playerAnims';
 import Projectiles from '../attacks/Projectiles';
+import MeleeWeapon from '../attacks/MeleeWeapon';
 
 import collidable from '../mixins/collidable';
 import anims from '../mixins/anims';
@@ -52,9 +53,24 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     initAnimations(this.scene.anims);
 
     this.projectiles = new Projectiles(this.scene);
+    this.meleeWeapon = new MeleeWeapon(this.scene, 0, 0, 'sword-attack');
+
+    this.level = 2; // <---- REPLACE WHEN WE FIGURE OUT SWITCHING LEVELS
+
     this.scene.input.keyboard.on('keydown-SPACE', () => {
-      this.play('throw', true);
-      this.projectiles.shootProjectile(this);
+      switch (this.level) {
+        case 1: {
+          this.play('throw', true);
+          this.projectiles.shootProjectile(this);
+          break;
+        }
+        case 2: {
+          this.play('sword-attack', true);
+          this.meleeWeapon.swing(this);
+        }
+
+      }
+
     });
 
   }
