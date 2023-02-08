@@ -82,9 +82,7 @@ export default class Play extends Phaser.Scene {
   createCollectables(collectablesLayer) {
     const collectables = new Collectables(this).setDepth(-1);
 
-    collectablesLayer.objects.forEach((collectable) => {
-      collectables.get(collectable.x, collectable.y, 'diamond1');
-    });
+    collectables.addFromLayer(collectablesLayer);
 
     collectables.playAnimation('diamond');
 
@@ -106,6 +104,7 @@ export default class Play extends Phaser.Scene {
 
   onCollect(player, collectable) {
     collectable.disableBody(true, true);
+    console.log(collectable.score);
   }
 
   createPlayerColliders(player, { colliders }) {

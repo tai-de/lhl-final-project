@@ -64,6 +64,7 @@ export default class Preload extends Phaser.Scene {
     });
 
     //Load diamond
+    this.load.image('diamond', 'assets/Objects/diamond_01.png');
     this.load.image('diamond1', 'assets/Objects/diamond_01.png');
     this.load.image('diamond2', 'assets/Objects/diamond_02.png');
     this.load.image('diamond3', 'assets/Objects/diamond_03.png');

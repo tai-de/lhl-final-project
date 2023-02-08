@@ -296,6 +296,12 @@
                  "height":14,
                  "id":9,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"score",
+                         "type":"int",
+                         "value":10
+                        }],
                  "rotation":0,
                  "visible":true,
                  "width":16,
@@ -411,6 +417,17 @@
                  "y":464
                 }],
          "opacity":1,
+         "properties":[
+                {
+                 "name":"score",
+                 "type":"int",
+                 "value":1
+                }, 
+                {
+                 "name":"type",
+                 "type":"string",
+                 "value":"diamond"
+                }],
          "type":"objectgroup",
          "visible":true,
          "x":0,
