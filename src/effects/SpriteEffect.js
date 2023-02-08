@@ -17,6 +17,11 @@ export default class SpriteEffect extends Phaser.Physics.Arcade.Sprite {
     }, this);
   }
 
+  preUpdate(time, delta) {
+    super.preUpdate(time, delta);
+    this.placeEffect();
+  }
+
   playOn(target) {
     this.target = target;
     this.play(this.effectName, true);
