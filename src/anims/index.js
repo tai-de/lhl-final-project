@@ -41,4 +41,18 @@ export default anims => {
     repeat: -1,
   });
 
+  anims.create({
+    key: 'diamond',
+    frames: [
+      { key: 'diamond1' },
+      { key: 'diamond2' },
+      { key: 'diamond3' },
+      { key: 'diamond4' },
+      { key: 'diamond5' },
+      { key: 'diamond6' }
+    ],
+    frameRate: 5,
+    repeat: -1,
+  });
+
 };

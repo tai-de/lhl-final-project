@@ -14,6 +14,9 @@ export default class Play extends Phaser.Scene {
 
   create() {
     const map = this.createMap();
+
+    initAnims(this.anims);
+    
     const layers = this.createLayers(map);
     const gameZones = this.getPlayerZones(layers.gameZones);
     const player = this.createPlayer(gameZones.start);
@@ -23,7 +26,8 @@ export default class Play extends Phaser.Scene {
     this.createPlayerColliders(player, {
       colliders: {
         platformColliders: layers.platforms2,
-        projectiles: enemies.getProjectiles()
+        projectiles: enemies.getProjectiles(),
+        collectables
       }
     });
 
@@ -36,8 +40,6 @@ export default class Play extends Phaser.Scene {
 
     this.createEndPoint(gameZones.end, player);
     this.setupCameraOn(player);
-
-    initAnims(this.anims);
   }
 
   // Make tilemap based on the preloaded JSON file
@@ -80,6 +82,7 @@ export default class Play extends Phaser.Scene {
     collectablesLayer.objects.forEach((collectable) => {
       collectables.get(collectable.x, collectable.y, 'diamond1').setDepth(-1);
     });
+    collectables.playAnimation('diamond');
     return collectables;
   }
 
@@ -96,10 +99,15 @@ export default class Play extends Phaser.Scene {
     return player;
   }
 
+  onCollect(player, collectable) {
+    collectable.disableBody(true, true);
+  }
+
   createPlayerColliders(player, { colliders }) {
     player
       .addCollider(colliders.platformColliders)
-      .addCollider(colliders.projectiles, this.onHits);
+      .addCollider(colliders.projectiles, this.onHits)
+      .addOverlap(colliders.collectables, this.onCollect);
   }
 
   createEnemies(spawnLayer, platformsColliders) {
