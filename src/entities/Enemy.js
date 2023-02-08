@@ -40,6 +40,16 @@ export default class Enemies extends Phaser.Physics.Arcade.Sprite {
   }
 
   update(time, delta) {
+
+    if(this.health <= 0){
+      this.scene.events.removeListener(Phaser.Scenes.Events.UPDATE, this.update, this);
+      this.setActive(false);
+      this.rayGraphics.clear();
+      this.destroy();
+      return;
+    }
+
+    
     this.currentDistance += Math.abs(this.body.deltaX());
 
     const { ray, hasHits } = this.rayCast(this.body, this.platformCollidersLayer);
@@ -63,7 +73,7 @@ export default class Enemies extends Phaser.Physics.Arcade.Sprite {
     this.health -= source.damage;
 
     if (this.health <= 0) {
-      console.log('enemy dead');
+      this.setTint('0xff0000');
     }
   }
 

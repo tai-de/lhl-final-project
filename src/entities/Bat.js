@@ -14,6 +14,8 @@ export default class Bat extends Enemy {
   update(time, delta) {
     super.update(time, delta);
 
+    if (!this.active) { return; }
+
     if (this.isPlayingAnims('bat-hurt')) { return; }
 
     this.play('bat-idle', true);
