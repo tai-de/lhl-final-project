@@ -141,11 +141,17 @@ export default class Play extends Phaser.Scene {
   createEnemyColliders(enemies, { colliders }) {
     enemies
       .addCollider(colliders.platformColliders)
-      .addCollider(colliders.player, this.onPlayerCollision);
+      .addCollider(colliders.player, this.onPlayerCollision)
+      .addCollider(colliders.player.projectiles, this.onHits);
+  }
+
+  onHits(entity, source) {
+    entity.takesHit(source);
   }
   
   onPlayerCollision(enemy, player) {
     player.takesHit(enemy);
+
   }
 
   setupCameraOn(player) {

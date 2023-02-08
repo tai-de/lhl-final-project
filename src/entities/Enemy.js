@@ -30,6 +30,7 @@ export default class Enemies extends Phaser.Physics.Arcade.Sprite {
     this.maxDistance = 100;
     this.currentDistance = 0;
     this.damage = 20;
+    this.health = 40;
   }
 
   initEvents() {
@@ -38,7 +39,7 @@ export default class Enemies extends Phaser.Physics.Arcade.Sprite {
 
   update(time, delta) {
     this.currentDistance += Math.abs(this.body.deltaX());
-    
+
     const { ray, hasHits } = this.rayCast(this.body, this.platformCollidersLayer);
     if ((!hasHits || this.currentDistance >= this.maxDistance || this.body.deltaX() === 0) && this.timeFromLastTurn + 100 < time) {
       // console.log('Has Hits');
@@ -53,6 +54,17 @@ export default class Enemies extends Phaser.Physics.Arcade.Sprite {
 
   setPlatformColliders(platformCollidersLayer) {
     this.platformCollidersLayer = platformCollidersLayer;
+  }
+
+  takesHit(source) {
+    this.health -= source.damage;
+
+    source.setActive(false);
+    source.setVisible(false);
+
+    if (this.health <= 0) {
+      console.log('enemy dead');
+    }
   }
 
 } 
