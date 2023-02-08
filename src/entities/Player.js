@@ -65,7 +65,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
           break;
         }
         case 2: {
-          this.play('sword-attack', true);
+          this.play('sword-attack-anim', true);
           this.meleeWeapon.swing(this);
         }
 
