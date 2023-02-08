@@ -14,7 +14,7 @@ export default {
   prevRay: null,
   prevHasHit: null,
 
-  rayCast(body, layer, rayLength = 30, precision) {
+  rayCast(body, layer, rayLength = 50, precision) {
     const { x, y, width, halfHeight } = body;
 
     this.bodyPositionDiffX += body.x - body.prev.x;

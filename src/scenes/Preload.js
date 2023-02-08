@@ -30,6 +30,12 @@ export default class Preload extends Phaser.Scene {
       frameWidth: 32,
       frameHeight: 32
     });
+
+    this.load.spritesheet('snake', 'assets/Enemies/Enemy05/enemy05_sheet.png', {
+      frameWidth: 32,
+      frameHeight: 64,
+      spacing: 32
+    });
     
     this.load.image('bat-hit1', 'assets/Enemies/Enemy01/hit01.png');
     this.load.image('bat-hit2', 'assets/Enemies/Enemy01/hit02.png');

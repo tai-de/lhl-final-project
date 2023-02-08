@@ -1,5 +1,3 @@
-import Phaser from "phaser";
-
 import Enemy from "./Enemy";
 
 import initAnims from './anims/batAnims';
@@ -9,6 +7,11 @@ export default class Bat extends Enemy {
     super(scene, x, y, 'bat');
 
     initAnims(scene.anims);
+  }
+
+  init () {
+    super.init();
+    this.setSize(30, 24);
   }
 
   update(time, delta) {

@@ -22,17 +22,25 @@ export default class Enemies extends Phaser.Physics.Arcade.Sprite {
     this.gravity = 500;
     this.speed = 30;
     this.timeFromLastTurn = 0;
+    this.maxDistance = 100;
+    this.currentDistance = 0;
+
+    this.health = 40;
+    this.damage = 20;
+
+    this.platformCollidersLayer = null;
+    this.rayGraphics = this.scene.add.graphics({
+      lineStyle: {
+        width: 2,
+        color: 0xEEfe00
+      }
+    },);
+
     this.body.setGravityY(this.gravity);
     this.setCollideWorldBounds(true);
     this.setOrigin(0.5, 1);
-    this.setSize(30, 24);
     this.setImmovable(true);
-    this.rayGraphics = this.scene.add.graphics({ lineStyle: { width: 2, color: 0xEEfe00 } },);
-    this.platformCollidersLayer = null;
-    this.maxDistance = 100;
-    this.currentDistance = 0;
-    this.damage = 20;
-    this.health = 40;
+    this.setVelocityX(this.speed);
   }
 
   initEvents() {
@@ -41,7 +49,7 @@ export default class Enemies extends Phaser.Physics.Arcade.Sprite {
 
   update(time, delta) {
 
-    if(this.health <= 0){
+    if (this.health <= 0) {
       this.scene.events.removeListener(Phaser.Scenes.Events.UPDATE, this.update, this);
       this.setActive(false);
       this.rayGraphics.clear();
@@ -49,7 +57,7 @@ export default class Enemies extends Phaser.Physics.Arcade.Sprite {
       return;
     }
 
-    
+
     this.currentDistance += Math.abs(this.body.deltaX());
 
     const { ray, hasHits } = this.rayCast(this.body, this.platformCollidersLayer);
