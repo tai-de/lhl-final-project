@@ -2,8 +2,10 @@ import Phaser from 'phaser';
 
 import Player from '../entities/Player';
 import Enemies from '../groups/Enemies';
-import Collectable from '../collectables/Collectable';
+
 import Collectables from '../groups/Collectables';
+
+import Hud from '../hud';
 
 import initAnims from '../anims';
 
@@ -15,6 +17,8 @@ export default class Play extends Phaser.Scene {
   }
 
   create() {
+    this.score = 0;
+    
     const map = this.createMap();
 
     initAnims(this.anims);
@@ -24,6 +28,8 @@ export default class Play extends Phaser.Scene {
     const player = this.createPlayer(gameZones.start);
     const enemies = this.createEnemies(layers.enemySpawns, layers.platforms2);
     const collectables = this.createCollectables(layers.collectables);
+    new Hud(this, 0, 0);
+
 
     this.createPlayerColliders(player, {
       colliders: {
@@ -105,13 +111,14 @@ export default class Play extends Phaser.Scene {
   onCollect(player, collectable) {
     collectable.disableBody(true, true);
     console.log(collectable.score);
+    this.score += collectable.score;
   }
 
   createPlayerColliders(player, { colliders }) {
     player
       .addCollider(colliders.platformColliders)
       .addCollider(colliders.projectiles, this.onHits)
-      .addOverlap(colliders.collectables, this.onCollect);
+      .addOverlap(colliders.collectables, this.onCollect, this);
   }
 
   createEnemies(spawnLayer, platformsColliders) {

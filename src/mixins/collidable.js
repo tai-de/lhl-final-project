@@ -5,8 +5,8 @@ export default {
     return this;
   },
 
-  addOverlap(otherObject, callback) {
-    this.scene.physics.add.overlap(this, otherObject, callback, null, this);
+  addOverlap(otherObject, callback, context) {
+    this.scene.physics.add.overlap(this, otherObject, callback, null, context || this);
     return this;
   },
 
