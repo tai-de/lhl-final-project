@@ -35,6 +35,57 @@
       max-height: 75%;
     }
 
+    article,
+    article>* {
+      /* border: 1px solid black; */
+    }
+
+    .enemy-section {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .enemy-image-container {
+      width: 20%;
+      height: 100%;
+      text-align: center;
+    }
+
+    .enemy-image {
+      transform: scale(2);
+      image-rendering: pixelated;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: crisp-edges;
+    }
+
+    .enemy-info-container {
+      width: 80%;
+    }
+
+    .credits-section,
+    .credits-section>* {
+      border: 1px solid black;
+    }
+    .credits-section {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .credits-bio {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .credits-bio-header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
   </style>
 </head>
 
@@ -45,8 +96,13 @@
       <span class="navbar-brand px-5 user-select-none">GAMENAME</span>
       <ul class="navbar-nav me-auto fs-6">
         <li class=" nav-item pe-3">
-          <a type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#featuresModal">
-            Features
+          <a type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#controlsModal">
+            Controls
+          </a>
+        </li>
+        <li class=" nav-item pe-3">
+          <a type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#enemiesModal">
+            Enemies
           </a>
         </li>
         <li class=" nav-item pe-3">
@@ -58,25 +114,64 @@
     </div>
   </nav>
 
-
-  <!-- FEATURES MODAL -->
-  <div class="modal fade" id="featuresModal" tabindex="-1" aria-labelledby="featuresModal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+  <!-- CONTROLS MODAL -->
+  <div class="modal fade" id="controlsModal" tabindex="-1" aria-labelledby="controlsModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-md">
       <div class="modal-content bg-light"> <!-- bg color of modal-->
         <div class="modal-header">
-          <h1 class="modal-title text-black-50 fs-5" id="featuresModal">Game Features</h1>
+          <h1 class="modal-title text-black-50 fs-5" id="controlsModal">Controls</h1>
           <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
         <div class="modal-body">
-          <h5>hello</h5>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae ipsa doloribus quaerat facilis vel
-            fugiat. Nesciunt soluta distinctio voluptate natus unde, pariatur quaerat suscipit sit. Vel fuga voluptatum
-            architecto iusto.</p>
+          <h5>Movement</h5>
+          <ul>
+            <li>LEFT / RIGHT - Move</li>
+            <li>UP - Jump</li>
+          </ul>
 
-          <h5>hello</h5>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae ipsa doloribus quaerat facilis vel
-            fugiat. Nesciunt soluta distinctio voluptate natus unde, pariatur quaerat suscipit sit. Vel fuga voluptatum
-            architecto iusto.</p>
+          <h5>Attacks</h5>
+          <p>Your current attack changes depending on the level.</p>
+          <ul>
+            <li>SPACE - Attack</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENEMIES MODAL -->
+  <div class="modal fade" id="enemiesModal" tabindex="-1" aria-labelledby="enemiesModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+      <div class="modal-content bg-light"> <!-- bg color of modal-->
+        <div class="modal-header">
+          <h1 class="modal-title text-black-50 fs-5" id="enemiesModal">Enemies</h1>
+          <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+        <div class="modal-body">
+          <article class="enemy-section">
+            <div class="enemy-image-container">
+              <img class="enemy-image" src="/assets/Enemies/Enemy01/fly07.png" />
+            </div>
+            <div class="enemy-info-container">
+              <h5>Bat</h5>
+              <p>The bat is a patroling enemy. It won't go out of its way to attack you, but getting hit by a bat will
+                leave you with some damage.</p>
+            </div>
+          </article>
+
+          <hr />
+
+          <article class="enemy-section">
+            <div class="enemy-image-container">
+              <img class="enemy-image" src="/assets/Enemies/Enemy05/idle00.png" />
+            </div>
+            <div class="enemy-info-container">
+              <h5>Snake</h5>
+              <p>The snake is a magical being with the ability to shoot ice beams. Watch out, as it shoots icy
+                projectiles which do significant damage!</p>
+            </div>
         </div>
         <div class="modal-footer">
         </div>
@@ -85,8 +180,7 @@
   </div>
 
   <!-- CREDITS MODAL -->
-  <div class="modal fade pt-5" id="creditsModal" tabindex="-1" aria-labelledby="creditsModal"
-    aria-hidden="true">
+  <div class="modal fade pt-5" id="creditsModal" tabindex="-1" aria-labelledby="creditsModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
       <div class="modal-content bg-light"> <!-- bg color of modal-->
         <div class="modal-header">
@@ -94,11 +188,30 @@
           <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
         <div class="modal-body">
-          <h5>Tai Delisle</h5>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae ipsa doloribus quaerat facilis vel
-            fugiat. Nesciunt soluta distinctio voluptate natus unde, pariatur quaerat suscipit sit. Vel fuga voluptatum
-            architecto iusto.</p>
-          <p>Socials: <a class="text-success" target="_blank" href="https://github.com/tai-de">GitHub</a> | <a class="text-success" target="_blank" href="https://www.linkedin.com/in/tai-de/">LinkedIn</a></p>
+          <article class="credits-section">
+            <img src="/assets/Enemies/Enemy05/idle00.png" />
+
+            <div class="credits-bio">
+              <div class="credits-bio-header">
+                <span class="fs-5">Tai Delisle</span>
+
+                <span class="fs-6">Connect: <a class="text-success" target="_blank"
+                    href="https://github.com/tai-de">GitHub</a> | <a class="text-success" target="_blank"
+                    href="https://www.linkedin.com/in/tai-de/">LinkedIn</a></span>
+              </div>
+
+              <div class="credits-bio-content">
+                <span class="credits-bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae ipsa
+                  doloribus
+                  quaerat facilis vel
+                  fugiat. Nesciunt soluta distinctio voluptate natus unde, pariatur quaerat suscipit sit. Vel fuga
+                  voluptatum
+                  architecto iusto.</span>
+              </div>
+            </div>
+          </article>
+
+          <hr />
 
           <h5>Edward Lee</h5>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae ipsa doloribus quaerat facilis vel
@@ -106,6 +219,8 @@
             architecto iusto.</p>
           <p>Socials: GitHub | LinkedIn</p>
 
+          <hr />
+          
           <h5>Art & Resources</h5>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae ipsa doloribus quaerat facilis vel
             fugiat. Nesciunt soluta distinctio voluptate natus unde, pariatur quaerat suscipit sit. Vel fuga voluptatum
