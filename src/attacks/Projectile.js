@@ -41,10 +41,26 @@ export default class Projectile extends Phaser.Physics.Arcade.Sprite {
     this.body.reset(x, y);
     this.setVelocityX(this.speed);
     anim && this.play(anim, true);
+    this.scene.tweens.add({
+      targets: this,
+      scaleY: 0.75,
+      duration: 100,
+      repeat: -1,
+      yoyo: true,
+      ease: 'linear',
+    });
+    this.scene.tweens.add({
+      targets: this,
+      alpha: 0.5,
+      duration: 100,
+      repeat: -1,
+      yoyo: true,
+      ease: 'linear',
+    });
   }
 
   deliversHit(target) {
-    const impactPosition = { x: this.x , y: this.y }
+    const impactPosition = { x: this.x, y: this.y };
     this.activateProjectile(false);
     this.traveledDistance = 0;
     this.body.reset(0, 0);
