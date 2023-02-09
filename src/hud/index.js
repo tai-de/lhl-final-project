@@ -15,10 +15,6 @@ export default class Hud extends Phaser.GameObjects.Container {
 
   setupList() {
     this.fontSize = 20;
-    const scoreBoard = this.scene.add.text(0, 0, '0', {
-      fontSize: `${this.fontSize}px`,
-      fill: '#fff'
-    });
 
     // const scoreBoard1 = this.scene.add.text(0, 0, 'Hello', {
     //   fontSize: `${this.fontSize}px`,
@@ -31,6 +27,8 @@ export default class Hud extends Phaser.GameObjects.Container {
     //   fill: '#fff'
     // });
 
+    const scoreBoard = this.createScoreBoard();
+
     this.add([scoreBoard]); // Add more items to the array to display on screen
 
     let lineHeight = 0;
@@ -41,6 +39,22 @@ export default class Hud extends Phaser.GameObjects.Container {
       item.setPosition(item.x, item.y + lineHeight);
       lineHeight += 20;
     })
+  }
+
+  createScoreBoard() {
+
+    const scoreText = this.scene.add.text(0, 0, '0', {
+      fontSize: `${this.fontSize}px`,
+      fill: '#fff'
+    });
+    const scoreImage = this.scene.add.image(scoreText.width + 5, 0, 'diamond')
+      .setOrigin(0)
+      .setScale(1.3);
+
+    const scoreBoard = this.scene.add.container(0, 0, [scoreText, scoreImage]);
+
+    return scoreBoard;
+
   }
 
 }
