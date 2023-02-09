@@ -153,8 +153,8 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.bounceOff();
     
     const hitAnim = this.playDamageAnim();
-    this.health -= initiator.damage;
-    this.playerHealth.decrease(initiator.damage);
+    this.health -= initiator.damage || initiator.properties.damage || 0;
+    this.playerHealth.setHealth(this.health);
 
     initiator.deliversHit && initiator.deliversHit(this);
 

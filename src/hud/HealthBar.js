@@ -42,8 +42,8 @@ export default class HealthBar {
     this.bar.setScrollFactor(0, 0).setScale(scale);
   }
 
-  decrease(amount) {
-    this.health -= amount;
+  setHealth(amount) {
+    this.health = amount;
     this.draw(this.x, this.y, this.scale);
   }
 
