@@ -50,6 +50,7 @@ export default class Play extends Phaser.Scene {
       }
     });
 
+    this.createBackButton();
     this.createEndPoint(gameZones.end, player);
     this.setupCameraOn(player);
 
@@ -282,9 +283,29 @@ export default class Play extends Phaser.Scene {
 
   }
 
+  createBackButton() {
+    const backText = this.add.text(this.config.bottomRightCorner.x - 30, this.config.bottomRightCorner.y - 10, 'Back to Menu', { fontSize: '18px', fill: '#fff' })
+      .setDepth(100)
+      .setScrollFactor(0)
+      .setOrigin(1)
+      .setInteractive();
 
-  update() {
+    const backButton = this.add.image(this.config.bottomRightCorner.x, this.config.bottomRightCorner.y - 5, 'back')
+      .setOrigin(1)
+      .setScrollFactor(0)
+      .setScale(1.25)
+      .setInteractive();
 
+    backText.input.cursor = 'pointer';
+    backButton.input.cursor = 'pointer';
+
+    backText.on('pointerup', () => {
+      this.scene.start('MenuScene');
+    });
+
+    backButton.on('pointerup', () => {
+      this.scene.start('MenuScene');
+    });
   }
 
   getCurrentLevel() {

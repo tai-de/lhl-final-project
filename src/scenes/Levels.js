@@ -26,6 +26,7 @@ export default class LevelScene extends BaseScene {
   setupMenuEvents(menuItem) {
     const textObject = menuItem.textObject;
     textObject.setInteractive();
+    textObject.input.cursor = 'pointer';
 
     textObject.on('pointerout', () => {
       textObject.setStyle({ fill: '#fff' });

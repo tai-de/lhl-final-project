@@ -14,12 +14,17 @@ export default class BaseScene extends Phaser.Scene {
   }
 
   create() {
-    this.add.image(0, 0, 'menu-bg').setOrigin(0);
+    this.add.image(this.screenCenter.x, this.screenCenter.y, 'menu-bg')
+      .setOrigin(0.5)
+      .setScale(1.25);
+
     if (this.config.canGoBack) {
       const backButton = this.add.image(this.config.width, this.config.height, 'back')
         .setOrigin(1)
         .setScale(this.config.zoomFactor)
         .setInteractive();
+
+      backButton.input.cursor = 'pointer';
 
       backButton.on('pointerup', () => {
         this.scene.start('MenuScene');
