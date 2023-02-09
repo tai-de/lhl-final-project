@@ -36,7 +36,8 @@ export default class Play extends Phaser.Scene {
       colliders: {
         platformColliders: layers.platforms2,
         projectiles: enemies.getProjectiles(),
-        collectables
+        collectables,
+        traps: layers.traps
       }
     });
 
@@ -73,8 +74,10 @@ export default class Play extends Phaser.Scene {
     const gameZones = map.getObjectLayer('game_zones');
     const enemySpawns = map.getObjectLayer('enemy_spawns');
     const collectables = map.getObjectLayer('collectables');
+    const traps = map.createLayer('traps', tileset1);
 
     platforms2.setCollisionByExclusion(-1, true);
+    traps.setCollisionByExclusion(-1);
 
     return {
       platforms,
@@ -82,7 +85,8 @@ export default class Play extends Phaser.Scene {
       platforms2,
       gameZones,
       enemySpawns,
-      collectables
+      collectables,
+      traps,
     };
   }
 
@@ -119,6 +123,7 @@ export default class Play extends Phaser.Scene {
     player
       .addCollider(colliders.platformColliders)
       .addCollider(colliders.projectiles, this.onHits)
+      .addCollider(colliders.traps, this.onHits)
       .addOverlap(colliders.collectables, this.onCollect, this);
   }
 
