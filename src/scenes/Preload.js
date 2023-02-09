@@ -85,6 +85,7 @@ export default class Preload extends Phaser.Scene {
 
   startGame() {
     this.registry.set('level', 1);
+    this.registry.set('levels-unlocked', 2);
     this.scene.start('MenuScene');
   }
 
