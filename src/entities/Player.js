@@ -90,7 +90,11 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
   update() {
     if (this.hasBeenHit || !this.body) { return; }
-
+    
+    if (this.getBounds().top > this.scene.config.height) {
+      EventEmitter.emit('PLAYER_LOSE');
+      return;
+    }
     const { left, right, up } = this.cursors;
 
     const onFloor = this.body.onFloor();
