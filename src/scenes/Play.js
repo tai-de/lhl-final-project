@@ -18,9 +18,9 @@ export default class Play extends Phaser.Scene {
     this.config = config;
   }
 
-  create() {
+  create({ gameStatus }) {
     this.score = 0;
-    
+
     const map = this.createMap();
 
     initAnims(this.anims);
@@ -30,7 +30,7 @@ export default class Play extends Phaser.Scene {
     const player = this.createPlayer(gameZones.start);
     const enemies = this.createEnemies(layers.enemySpawns, layers.platforms2);
     const collectables = this.createCollectables(layers.collectables);
-    
+
     this.hud = new Hud(this, 0, 0);
 
 
@@ -50,10 +50,11 @@ export default class Play extends Phaser.Scene {
       }
     });
 
-    this.createGameEvents();
-
     this.createEndPoint(gameZones.end, player);
     this.setupCameraOn(player);
+
+    if (gameStatus === 'PLAYER_LOSE') { return; }
+    this.createGameEvents();
   }
 
   // Make tilemap based on the preloaded JSON file
@@ -97,7 +98,8 @@ export default class Play extends Phaser.Scene {
   createGameEvents() {
     EventEmitter.on('PLAYER_LOSE', () => {
       console.log('player lost');
-    })
+      this.scene.restart({ gameStatus: 'PLAYER_LOSE' });
+    });
   }
 
   createCollectables(collectablesLayer) {

@@ -48,6 +48,8 @@ export default class Enemies extends Phaser.Physics.Arcade.Sprite {
   }
 
   update(time, delta) {
+    
+    if (!this.body) { return; }
 
     if (this.health <= 0) {
       this.scene.events.removeListener(Phaser.Scenes.Events.UPDATE, this.update, this);
@@ -56,7 +58,6 @@ export default class Enemies extends Phaser.Physics.Arcade.Sprite {
       this.destroy();
       return;
     }
-
 
     this.currentDistance += Math.abs(this.body.deltaX());
 

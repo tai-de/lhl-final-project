@@ -45,7 +45,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.body.setGravityY(this.gravity);
     this.setCollideWorldBounds(true);
 
-    this.health = 100;
+    this.health = 10;
     this.playerHealth = new HealthBar(
       this.scene,
       this.scene.config.topLeftCorner.x + 8,
@@ -89,7 +89,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
   }
 
   update() {
-    if (this.hasBeenHit) { return; }
+    if (this.hasBeenHit || !this.body) { return; }
 
     const { left, right, up } = this.cursors;
 
