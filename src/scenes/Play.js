@@ -32,7 +32,7 @@ export default class Play extends Phaser.Scene {
     const collectables = this.createCollectables(layers.collectables);
 
     this.hud = new Hud(this, 0, 0);
-
+    this.createBackground(map);
 
     this.createPlayerColliders(player, {
       colliders: {
@@ -93,6 +93,15 @@ export default class Play extends Phaser.Scene {
       collectables,
       traps,
     };
+  }
+
+  createBackground(map) {
+    const backgroundObject = map.getObjectLayer('distance_bg').objects[0];
+    this.add.tileSprite(backgroundObject.x, backgroundObject.y, this.config.width, backgroundObject.height, 'background-day3')
+    .setOrigin(0, 1)
+    .setDepth(-10)
+    .setScale(1.5)
+    .setScrollFactor(0, 1);
   }
 
   createGameEvents() {
