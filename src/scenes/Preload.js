@@ -75,11 +75,14 @@ export default class Preload extends Phaser.Scene {
     this.load.image('diamond5', 'assets/Objects/diamond_05.png');
     this.load.image('diamond6', 'assets/Objects/diamond_06.png');
 
+    this.load.once('complete', () => {
+      this.startGame();
+    })
   }
 
-  create() {
+  startGame() {
+    this.registry.set('level', 1);
     this.scene.start('PlayScene');
-
   }
 
 }

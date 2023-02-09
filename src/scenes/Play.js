@@ -64,7 +64,7 @@ export default class Play extends Phaser.Scene {
    */
 
   createMap() {
-    const map = this.make.tilemap({ key: 'level-2' });
+    const map = this.make.tilemap({ key: `level-${this.getCurrentLevel()}` });
 
     map.addTilesetImage('mainlevbuild', 'tileset-1-main');
     map.addTilesetImage('decorative_obj', 'tileset-1-objs');
@@ -123,7 +123,6 @@ export default class Play extends Phaser.Scene {
    */
   createGameEvents() {
     EventEmitter.on('PLAYER_LOSE', () => {
-      console.log('player lost');
       this.scene.restart({ gameStatus: 'PLAYER_LOSE' });
     });
   }
@@ -277,13 +276,19 @@ export default class Play extends Phaser.Scene {
 
     const endOverlap = this.physics.add.overlap(endSprite, player, () => {
       endOverlap.active = false;
-      console.log('endpoint');
+      this.registry.inc('level', 1);
+      this.scene.restart({ gameStatus: 'LEVEL_COMPLETE' });
     });
 
   }
 
+
   update() {
 
+  }
+
+  getCurrentLevel() {
+    return this.registry.get('level') || 1;
   }
 
 }
