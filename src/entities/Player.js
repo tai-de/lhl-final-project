@@ -6,6 +6,8 @@ import MeleeWeapon from '../attacks/MeleeWeapon';
 
 import getTimestamp from '../utils/functions';
 
+import EventEmitter from '../events/Emitter';
+
 import collidable from '../mixins/collidable';
 import anims from '../mixins/anims';
 
@@ -68,7 +70,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
           break;
         }
         case 2: {
-          if(this.timeFromLastSwing && this.timeFromLastSwing + this.meleeWeapon.attackSpeed > getTimestamp()){
+          if (this.timeFromLastSwing && this.timeFromLastSwing + this.meleeWeapon.attackSpeed > getTimestamp()) {
             return;
           }
           this.play('sword-attack-anim', true);
@@ -149,11 +151,16 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
   takesHit(initiator) {
     if (this.hasBeenHit) { return; }
 
+    this.health -= initiator.damage || initiator.properties.damage || 0;
+    if (this.health <= 0) {
+      EventEmitter.emit('PLAYER_LOSE');
+      return;
+    }
+
     this.hasBeenHit = true;
     this.bounceOff();
-    
+
     const hitAnim = this.playDamageAnim();
-    this.health -= initiator.damage || initiator.properties.damage || 0;
     this.playerHealth.setHealth(this.health);
 
     initiator.deliversHit && initiator.deliversHit(this);

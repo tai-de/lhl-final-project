@@ -7,6 +7,8 @@ import Collectables from '../groups/Collectables';
 
 import Hud from '../hud';
 
+import EventEmitter from '../events/Emitter';
+
 import initAnims from '../anims';
 
 export default class Play extends Phaser.Scene {
@@ -48,6 +50,8 @@ export default class Play extends Phaser.Scene {
       }
     });
 
+    this.createGameEvents();
+
     this.createEndPoint(gameZones.end, player);
     this.setupCameraOn(player);
   }
@@ -88,6 +92,12 @@ export default class Play extends Phaser.Scene {
       collectables,
       traps,
     };
+  }
+
+  createGameEvents() {
+    EventEmitter.on('PLAYER_LOSE', () => {
+      console.log('player lost');
+    })
   }
 
   createCollectables(collectablesLayer) {
