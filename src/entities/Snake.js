@@ -45,6 +45,11 @@ export default class Snake extends Enemy {
     this.play('snake-idle', true);
   }
 
+  /**
+   * Method to handle the #takesHit invocation from a source object,
+   * including any animations for the Enemy object to play.
+   * @param {object} source GameObject instance of the source of damage
+   */
   takesHit(source) {
     super.takesHit(source);
     this.play('snake-hurt', true);

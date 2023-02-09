@@ -48,7 +48,7 @@ export default class Enemies extends Phaser.Physics.Arcade.Sprite {
   }
 
   update(time, delta) {
-    
+
     if (!this.body) { return; }
 
     if (this.health <= 0) {
@@ -69,10 +69,18 @@ export default class Enemies extends Phaser.Physics.Arcade.Sprite {
       this.timeFromLastTurn = time;
       this.currentDistance = 0;
     }
-    this.rayGraphics.clear();
-    this.rayGraphics.strokeLineShape(ray);
+
+    if (this.scene.config.debug && ray) {
+      this.rayGraphics.clear();
+      this.rayGraphics.strokeLineShape(ray);
+
+    }
   }
 
+  /**
+   * Sets an instance variable to contain the collidable layer for enemies
+   * @param {object} platformCollidersLayer Phaser Tilemap layer
+   */
   setPlatformColliders(platformCollidersLayer) {
     this.platformCollidersLayer = platformCollidersLayer;
   }
@@ -83,6 +91,10 @@ export default class Enemies extends Phaser.Physics.Arcade.Sprite {
   // other action on Player collision if needed
   deliversHit(target) { }
 
+  /**
+   * Method to handle the #takesHit invocation from a source object
+   * @param {object} source GameObject instance of the source of damage
+   */
   takesHit(source) {
     source.deliversHit(this);
     this.health -= source.damage;

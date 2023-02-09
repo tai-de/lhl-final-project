@@ -90,7 +90,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
   update() {
     if (this.hasBeenHit || !this.body) { return; }
-    
+
     if (this.getBounds().top > this.scene.config.height) {
       EventEmitter.emit('PLAYER_LOSE');
       return;
@@ -131,6 +131,10 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
       this.play('jump', true);
   }
 
+  /**
+   * Plays an effect when the player takes damage
+   * @returns Phaser tweens animation
+   */
   playDamageAnim() {
     return this.scene.tweens.add({
       targets: this,
@@ -140,6 +144,9 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     });
   }
 
+  /**
+   * Method to handle any interactions caused when a Player collides with an object
+   */
   bounceOff() {
     this.body.touching.right ?
       this.setVelocityX(-this.bounceVelocity) :
@@ -152,6 +159,10 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     }, 0);
   }
 
+  /**
+   * Method to handle the #takesHit invocation from a source object
+   * @param {object} source GameObject instance of the initiator of damage
+   */
   takesHit(initiator) {
     if (this.hasBeenHit) { return; }
 

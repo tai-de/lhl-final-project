@@ -24,6 +24,11 @@ export default class Bat extends Enemy {
     this.play('bat-idle', true);
   }
 
+  /**
+   * Method to handle the #takesHit invocation from a source object,
+   * including any animations for the Enemy object to play.
+   * @param {object} source GameObject instance of the source of damage
+   */
   takesHit(source) {
     super.takesHit(source);
     this.play('bat-hurt', true);

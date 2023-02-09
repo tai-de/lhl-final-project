@@ -10,6 +10,10 @@ export default class Collectables extends Phaser.Physics.Arcade.StaticGroup {
     });
   }
 
+  /**
+   * Adds Collectable instances to the group based on the tilemap JSON file
+   * @param {object} layer Phaser Tilemap Layer
+   */
   addFromLayer(layer) {
     const { score: defaultScore, type } = this.mapProperties(layer.properties);
 
@@ -23,6 +27,11 @@ export default class Collectables extends Phaser.Physics.Arcade.StaticGroup {
     });
   }
 
+  /**
+   * Returns an object containing all custom properties found in a given properties array
+   * @param {array} propertiesArray Array of tilemap JSON properties
+   * @returns 
+   */
   mapProperties(propertiesArray) {
     if (!propertiesArray || propertiesArray.length === 0) { return {}; }
 

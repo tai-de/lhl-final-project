@@ -13,6 +13,9 @@ export default class Hud extends Phaser.GameObjects.Container {
     this.setupList();
   }
 
+  /**
+   * Method on the Hud Container handle the creation of display items
+   */
   setupList() {
     this.fontSize = 20;
 
@@ -31,6 +34,10 @@ export default class Hud extends Phaser.GameObjects.Container {
     })
   }
 
+  /**
+   * Creates a container with the a scoreText and scoreImage instance
+   * @returns Phaser GameObjects Container
+   */
   createScoreBoard() {
 
     const scoreText = this.scene.add.text(0, 0, '0', {
@@ -46,6 +53,10 @@ export default class Hud extends Phaser.GameObjects.Container {
     return scoreBoard;
   }
 
+  /**
+   * Updates the scoreBoard container with the given score value
+   * @param {number} score Player score
+   */
   updateScoreBoard(score){
     const [scoreText, scoreImage] = this.getByName('scoreBoard').list;
     scoreText.setText(score);

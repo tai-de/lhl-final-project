@@ -16,6 +16,12 @@ export default class HealthBar {
     this.draw(this.x, this.y, this.scale);
   }
 
+  /**
+   * Creates a HealthBar container on the screen
+   * @param {number} x X coordinate of the game
+   * @param {number} y Y coordinate of the game
+   * @param {number} scale scale factor
+   */
   draw(x, y, scale) {
     const { width, height } = this.size;
     const margin = 2;
@@ -42,6 +48,10 @@ export default class HealthBar {
     this.bar.setScrollFactor(0, 0).setScale(scale);
   }
 
+  /**
+   * Sets the health value to the target amount
+   * @param {number} amount Current health value
+   */
   setHealth(amount) {
     this.health = amount;
     this.draw(this.x, this.y, this.scale);
