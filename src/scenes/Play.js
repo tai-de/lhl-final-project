@@ -28,7 +28,8 @@ export default class Play extends Phaser.Scene {
     const player = this.createPlayer(gameZones.start);
     const enemies = this.createEnemies(layers.enemySpawns, layers.platforms2);
     const collectables = this.createCollectables(layers.collectables);
-    new Hud(this, 0, 0);
+    
+    this.hud = new Hud(this, 0, 0);
 
 
     this.createPlayerColliders(player, {
@@ -110,8 +111,8 @@ export default class Play extends Phaser.Scene {
 
   onCollect(player, collectable) {
     collectable.disableBody(true, true);
-    console.log(collectable.score);
     this.score += collectable.score;
+    this.hud.updateScoreBoard(this.score);
   }
 
   createPlayerColliders(player, { colliders }) {
