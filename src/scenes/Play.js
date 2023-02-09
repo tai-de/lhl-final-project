@@ -57,8 +57,12 @@ export default class Play extends Phaser.Scene {
     this.createGameEvents();
   }
 
-  // Make tilemap based on the preloaded JSON file
-  // Add tileset images based on @tilesetFileName and @preloaded image key
+  /**
+   * Method to create a Phaser Tilemap instance and 
+   * add the associated tileset images
+   * @returns Phaser Tilemap
+   */
+
   createMap() {
     const map = this.make.tilemap({ key: 'level-1' });
 
@@ -68,7 +72,12 @@ export default class Play extends Phaser.Scene {
     return map;
   }
 
-  // Create layers based on the map file
+  /**
+   * Method to create tilemap layers based on the
+   * configuration of the tilemap JSON file
+   * @param {object} map Phaser Tilemap instance
+   * @returns object referencing the tilemap's layers
+   */
   createLayers(map) {
     // Gets tileset image that was created in prev helper function
     const tileset1 = map.getTileset('mainlevbuild');
@@ -95,15 +104,23 @@ export default class Play extends Phaser.Scene {
     };
   }
 
+  /**
+   * Method to a background image based on an object
+   * layer from the tilemap JSON file
+   * @param {object} map Phaser Tilemap instance
+   */
   createBackground(map) {
     const backgroundObject = map.getObjectLayer('distance_bg').objects[0];
     this.add.tileSprite(backgroundObject.x, backgroundObject.y, this.config.width, backgroundObject.height, 'background-day3')
-    .setOrigin(0, 1)
-    .setDepth(-10)
-    .setScale(1.5)
-    .setScrollFactor(0, 1);
+      .setOrigin(0, 1)
+      .setDepth(-10)
+      .setScale(1.5)
+      .setScrollFactor(0, 1);
   }
 
+  /**
+   * Method to set up event listeners on the custom EventEmitter instance
+   */
   createGameEvents() {
     EventEmitter.on('PLAYER_LOSE', () => {
       console.log('player lost');
@@ -111,6 +128,12 @@ export default class Play extends Phaser.Scene {
     });
   }
 
+  /**
+   * Method to create collectables group / objects based
+   * on an object layer from the tilemap JSON file
+   * @param {object} collectablesLayer Phaser Tilemap Layer
+   * @returns 
+   */
   createCollectables(collectablesLayer) {
     const collectables = new Collectables(this).setDepth(-1);
 
@@ -121,6 +144,12 @@ export default class Play extends Phaser.Scene {
     return collectables;
   }
 
+  /**
+   * Method to get and store the startPoint and endPoint objects
+   * from the tilemap JSON file
+   * @param {object} gameZonesLayer Phaser Tilemap Layer
+   * @returns 
+   */
   getPlayerZones(gameZonesLayer) {
     const gameZones = gameZonesLayer.objects;
     return {
@@ -129,17 +158,35 @@ export default class Play extends Phaser.Scene {
     };
   }
 
+  /**
+   * Method to create a new Player instance at the given start position
+   * @param {object} startZoneObject Phaser object containing the startZone object from the tilemap JSON file
+   * @returns 
+   */
   createPlayer(start) {
     const player = new Player(this, start.x, start.y);
     return player;
   }
 
+  /**
+   * Method used when the Player has overlapped with a collectable item.
+   * This disables the collectable's physics body, increases the Player's
+   * score variable, and tells the HUD to update to the new score.
+   * @param {object} player Player instance
+   * @param {object} collectable Collectable instance
+   */
   onCollect(player, collectable) {
     collectable.disableBody(true, true);
     this.score += collectable.score;
     this.hud.updateScoreBoard(this.score);
   }
 
+  /**
+   * Method used to create colliders and overlap listeners for the Player,
+   * based on a collection of tilemap layers
+   * @param {object} player Player instance
+   * @param {object} colliders  Object containing a colliders key which holds an object of Phaser Tilemap Layers that the Player should have collider or overlap listeners for
+   */
   createPlayerColliders(player, { colliders }) {
     player
       .addCollider(colliders.platformColliders)
@@ -148,6 +195,13 @@ export default class Play extends Phaser.Scene {
       .addOverlap(colliders.collectables, this.onCollect, this);
   }
 
+  /**
+   * Method to create new Enemies group and instances based on the
+   * tilemap JSON file and add platform colliders
+   * @param {object} spawnLayer Phaser Tilemap layer containing enemy spawn points as objects
+   * @param {object} platformsColliders Phaser Tilemap Layer for the platform colliders
+   * @returns 
+   */
   createEnemies(spawnLayer, platformsColliders) {
     const enemies = new Enemies(this);
     const enemyTypes = enemies.getTypes();
@@ -163,6 +217,12 @@ export default class Play extends Phaser.Scene {
     return enemies;
   }
 
+  /**
+   * Method used to create colliders and overlap listeners for the Enemies,
+   * based on a collection of tilemap layers
+   * @param {object} player Enemies group instance
+   * @param {object} colliders  Object containing a colliders key which holds an object of Phaser Tilemap Layers that the Enemies should have collider or overlap listeners for
+   */
   createEnemyColliders(enemies, { colliders }) {
     enemies
       .addCollider(colliders.platformColliders)
@@ -171,15 +231,30 @@ export default class Play extends Phaser.Scene {
       .addOverlap(colliders.player.meleeWeapon, this.onHits);
   }
 
+  /**
+   * Method to call a GameObject's #takesHit method
+   * @param {object} entity Player or other Phaser GameObject instance that has taken damage
+   * @param {object} source Player or other Phaser GameObject instance that has dealt damage
+   */
   onHits(entity, source) {
     entity.takesHit(source);
   }
 
+  /**
+   * Method that handles the Player receiving damage from a given Enemy
+   * @param {object} enemy Enemy instance
+   * @param {object} player Player instance
+   */
   onPlayerCollision(enemy, player) {
     player.takesHit(enemy);
 
   }
 
+  /**
+   * Method to set the Phaser.Physics.World bounds as well as the
+   * Phaser main camera bounds before calling it to follow the player
+   * @param {object} player Player instance
+   */
   setupCameraOn(player) {
     const { width, height, mapOffset, zoomFactor } = this.config;
     this.physics.world.setBounds(0, 0, width + mapOffset, height + 200);
@@ -187,6 +262,12 @@ export default class Play extends Phaser.Scene {
     this.cameras.main.startFollow(player);
   }
 
+  /**
+   * Method to create the endZone area and add an overlap sprite
+   * to trigger any end of level events
+   * @param {object} endZoneObject Phaser object containing the endZone object from the tilemap JSON file
+   * @param {object} player 
+   */
   createEndPoint(end, player) {
     // Add invisible sprite to the end point
     const endSprite = this.physics.add.sprite(end.x, end.y, 'end')
@@ -202,13 +283,6 @@ export default class Play extends Phaser.Scene {
   }
 
   update() {
-    if (this.plotting) {
-      const pointer = this.input.activePointer;
-      this.line.x2 = pointer.worldX;
-      this.line.y2 = pointer.worldY;
-      this.graphics.clear();
-      this.graphics.strokeLineShape(this.line);
-    }
 
   }
 
