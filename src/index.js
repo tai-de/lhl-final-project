@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 
 import PreloadScene from './scenes/Preload';
 import PlayScene from './scenes/Play';
+import MenuScene from './scenes/MenuScene';
 
 const WIDTH = document.body.offsetWidth;
 const HEIGHT = 600;
@@ -27,6 +28,7 @@ const SHARED_CONFIG = {
 
 const Scenes = [
   PreloadScene,
+  MenuScene,
   PlayScene,
 ];
 

@@ -7,6 +7,9 @@ export default class Preload extends Phaser.Scene {
   }
 
   preload() {
+    this.load.image('menu-bg', 'assets/menu-bg.png');
+    this.load.image('back', 'assets/back.png');
+
     this.load.tilemapTiledJSON('level-1', 'assets/map-level-1.json');
     this.load.tilemapTiledJSON('level-2', 'assets/map-level-2.json');
     this.load.image('tileset-1-main', 'assets/Environment/mainlevbuild.png');
@@ -82,7 +85,7 @@ export default class Preload extends Phaser.Scene {
 
   startGame() {
     this.registry.set('level', 1);
-    this.scene.start('PlayScene');
+    this.scene.start('MenuScene');
   }
 
 }
