@@ -64,7 +64,7 @@ export default class Play extends Phaser.Scene {
    */
 
   createMap() {
-    const map = this.make.tilemap({ key: 'level-1' });
+    const map = this.make.tilemap({ key: 'level-2' });
 
     map.addTilesetImage('mainlevbuild', 'tileset-1-main');
     map.addTilesetImage('decorative_obj', 'tileset-1-objs');
@@ -114,8 +114,8 @@ export default class Play extends Phaser.Scene {
     this.add.tileSprite(backgroundObject.x, backgroundObject.y, this.config.width, backgroundObject.height, 'background-day3')
       .setOrigin(0, 1)
       .setDepth(-10)
-      .setScale(1.5)
-      .setScrollFactor(0, 1);
+      .setScale(1.75)
+      .setScrollFactor(1, 0);
   }
 
   /**

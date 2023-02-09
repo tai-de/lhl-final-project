@@ -66,8 +66,9 @@
 
     .credits-section,
     .credits-section>* {
-      border: 1px solid black;
+      /* border: 1px solid black; */
     }
+
     .credits-section {
       display: flex;
       flex-direction: row;
@@ -78,6 +79,21 @@
     .credits-bio {
       display: flex;
       flex-direction: column;
+    }
+
+    .credits-section>* {
+      flex-grow: 1;
+    }
+
+    .credits-img {
+      flex-grow: 2;
+    }
+
+    .credits-img>img {
+      transform: scale(2);
+      image-rendering: pixelated;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: crisp-edges;
     }
 
     .credits-bio-header {
@@ -189,19 +205,20 @@
         </div>
         <div class="modal-body">
           <article class="credits-section">
-            <img src="/assets/Enemies/Enemy05/idle00.png" />
-
+            <div class="credits-img w-100">
+              <img src="/assets/Enemies/Enemy03/idle01.png"" />
+            </div>
             <div class="credits-bio">
               <div class="credits-bio-header">
                 <span class="fs-5">Tai Delisle</span>
 
-                <span class="fs-6">Connect: <a class="text-success" target="_blank"
+                <span class="text-muted" style="font-size: 0.75rem;">Connect: <a class="text-success" target="_blank"
                     href="https://github.com/tai-de">GitHub</a> | <a class="text-success" target="_blank"
                     href="https://www.linkedin.com/in/tai-de/">LinkedIn</a></span>
               </div>
 
               <div class="credits-bio-content">
-                <span class="credits-bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae ipsa
+                <span class="credits-bio ps-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae ipsa
                   doloribus
                   quaerat facilis vel
                   fugiat. Nesciunt soluta distinctio voluptate natus unde, pariatur quaerat suscipit sit. Vel fuga
@@ -213,14 +230,6 @@
 
           <hr />
 
-          <h5>Edward Lee</h5>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae ipsa doloribus quaerat facilis vel
-            fugiat. Nesciunt soluta distinctio voluptate natus unde, pariatur quaerat suscipit sit. Vel fuga voluptatum
-            architecto iusto.</p>
-          <p>Socials: GitHub | LinkedIn</p>
-
-          <hr />
-          
           <h5>Art & Resources</h5>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae ipsa doloribus quaerat facilis vel
             fugiat. Nesciunt soluta distinctio voluptate natus unde, pariatur quaerat suscipit sit. Vel fuga voluptatum
