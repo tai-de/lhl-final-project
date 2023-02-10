@@ -18,6 +18,10 @@ export default class Preload extends Phaser.Scene {
     this.load.image('background-day1', 'assets/Environment/background_day1.png');
     this.load.image('background-day3', 'assets/Environment/background_day3.png');
 
+    this.load.audio('music-level-1', 'assets/Music/stranger-things.mp3');
+    this.load.audio('music-level-2', 'assets/Music/neon-gaming.mp3');
+    this.load.audio('fireball', 'assets/Music/fireball-woosh.mp3');
+
     // Player sprites
     // Idle run and jump
     this.load.spritesheet('player', 'assets/Player/Idle-run-jump/player_sheet.png', {
@@ -43,7 +47,7 @@ export default class Preload extends Phaser.Scene {
       frameHeight: 64,
       spacing: 32
     });
-    
+
     this.load.image('bat-hit1', 'assets/Enemies/Enemy01/hit01.png');
     this.load.image('bat-hit2', 'assets/Enemies/Enemy01/hit02.png');
     this.load.image('bat-hit3', 'assets/Enemies/Enemy01/hit03.png');
@@ -81,7 +85,7 @@ export default class Preload extends Phaser.Scene {
 
     this.load.once('complete', () => {
       this.startGame();
-    })
+    });
   }
 
   startGame() {

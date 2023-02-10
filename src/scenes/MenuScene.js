@@ -15,6 +15,8 @@ export default class MenuScene extends BaseScene {
     super.create();
 
     this.createMenu(this.menu, this.setupMenuEvents.bind(this));
+
+    this.createResetButton();
   }
 
   setupMenuEvents(menuItem) {
@@ -36,6 +38,21 @@ export default class MenuScene extends BaseScene {
       if (menuItem.text === 'Exit') {
         this.game.destroy(true);
       }
+    });
+  }
+
+  createResetButton() {
+    const resetLS = this.add.text(30, this.config.height - 10, 'Reset localStorage', { fontSize: '18px', fill: '#fff' })
+      .setDepth(100)
+      .setScrollFactor(0)
+      .setOrigin(0, 1)
+      .setInteractive();
+
+    resetLS.input.cursor = 'pointer';
+
+    resetLS.on('pointerup', () => {
+      localStorage.removeItem('levels-unlocked');
+      localStorage.removeItem('score');
     });
   }
 }

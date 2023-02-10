@@ -42,6 +42,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.setOrigin(0.5, 1);
 
     this.cursors = this.scene.input.keyboard.createCursorKeys();
+
     this.body.setGravityY(this.gravity);
     this.setCollideWorldBounds(true);
 
@@ -60,26 +61,26 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.meleeWeapon = new MeleeWeapon(this.scene, 0, 0, 'sword-attack');
     this.timeFromLastSwing = null;
 
-    this.level = 1; // <---- REPLACE WHEN WE FIGURE OUT SWITCHING LEVELS
+    this.maxLevel = localStorage.getItem('levels-unlocked') || 1;
+
+    this.fireball = this.scene.sound.add('fireball');
 
     this.scene.input.keyboard.on('keydown-SPACE', () => {
-      switch (this.level) {
-        case 1: {
-          this.play('throw', true);
-          this.projectiles.shootProjectile(this, 'fireball');
-          break;
-        }
-        case 2: {
-          if (this.timeFromLastSwing && this.timeFromLastSwing + this.meleeWeapon.attackSpeed > getTimestamp()) {
-            return;
-          }
-          this.play('sword-attack-anim', true);
-          this.meleeWeapon.swing(this);
-          this.timeFromLastSwing = getTimestamp();
-        }
-
+      if (this.timeFromLastSwing && this.timeFromLastSwing + this.meleeWeapon.attackSpeed > getTimestamp()) {
+        return;
       }
 
+      this.play('sword-attack-anim', true);
+      this.meleeWeapon.swing(this);
+      this.timeFromLastSwing = getTimestamp();
+    });
+
+    this.scene.input.keyboard.on('keydown-X', () => {
+      if (this.maxLevel < 2) { return; } // Restricts fireball to having completed level 1
+
+      this.play('throw', true);
+      this.fireball.play();
+      this.projectiles.shootProjectile(this, 'fireball');
     });
 
   }

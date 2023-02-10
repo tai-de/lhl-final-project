@@ -19,7 +19,56 @@ export default class Play extends Phaser.Scene {
   }
 
   create({ gameStatus }) {
-    this.score = localStorage.getItem('score') || 0;
+    this.score = Number(localStorage.getItem('score')) || 0;
+
+    const musicConfig = {
+      mute: false,
+      volume: 1,
+      rate: 1,
+      detune: 0,
+      seek: 0,
+      loop: false,
+      delay: 0
+    };
+
+    this.sound.stopAll();
+    this.sound.add(`music-level-${this.getCurrentLevel()}`, musicConfig)
+      .play();
+
+    // if(this.getCurrentLevel() === 2){
+    //   this.music.stop();
+    //   this.music2.play(musicConfig);
+    //   console.log('after playing 2');
+    // }
+
+    // if(this.getCurrentLevel() === 1){
+    //   this.music2.stop();
+    //   this.music.play(musicConfig);
+    // }
+
+    //  console.log(this.getCurrentLevel());
+    //   if (!this.sound.locked)
+    // {
+    // 	// already unlocked so play
+    // 	if(this.getCurrentLevel() === 1){
+    //     this.music.play(musicConfig);
+    //   }
+    //   if(this.getCurrentLevel() === 2){
+    //     this.music2.play(musicConfig);
+    //   }
+    // }
+    // else
+    // {
+    // 	// wait for 'unlocked' to fire and then play
+    // 	this.sound.once(Phaser.Sound.Events.UNLOCKED, () => {
+    // 		if(this.getCurrentLevel() === 1){
+    //       this.music.play(musicConfig);
+    //     }
+    //     if(this.getCurrentLevel() === 2){
+    //       this.music2.play(musicConfig);
+    //     }
+    // 	})
+    // }
 
     const map = this.createMap();
 
