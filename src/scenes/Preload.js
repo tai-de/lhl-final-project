@@ -21,6 +21,7 @@ export default class Preload extends Phaser.Scene {
     this.load.audio('music-level-1', 'assets/Music/stranger-things.mp3');
     this.load.audio('music-level-2', 'assets/Music/neon-gaming.mp3');
     this.load.audio('fireball', 'assets/Music/fireball-woosh.mp3');
+    this.load.audio('slash', 'assets/Music/slash.mp3');
 
     // Player sprites
     // Idle run and jump

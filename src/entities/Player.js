@@ -64,6 +64,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.maxLevel = localStorage.getItem('levels-unlocked') || 1;
 
     this.fireball = this.scene.sound.add('fireball');
+    this.slash = this.scene.sound.add('slash');
 
     this.scene.input.keyboard.on('keydown-SPACE', () => {
       if (this.timeFromLastSwing && this.timeFromLastSwing + this.meleeWeapon.attackSpeed > getTimestamp()) {
@@ -71,6 +72,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
       }
 
       this.play('sword-attack-anim', true);
+      this.slash.play();
       this.meleeWeapon.swing(this);
       this.timeFromLastSwing = getTimestamp();
     });
