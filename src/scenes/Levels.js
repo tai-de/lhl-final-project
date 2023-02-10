@@ -12,7 +12,7 @@ export default class LevelScene extends BaseScene {
 
     const levels = this.registry.get('levels-unlocked');
 
-    for (let i = 1; i <= levels; i++) {
+    for (let i = 1; i < levels; i++) {
       this.menu.push({
         scene: 'PlayScene',
         text: `Level ${i}`,
