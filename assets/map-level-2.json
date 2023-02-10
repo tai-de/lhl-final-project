@@ -4,6 +4,29 @@
  "layers":[
         {
          "draworder":"topdown",
+         "id":11,
+         "name":"distance",
+         "objects":[
+                {
+                 "class":"",
+                 "gid":6721,
+                 "height":368,
+                 "id":43,
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":640,
+                 "x":0,
+                 "y":640
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
          "id":10,
          "name":"distance_bg",
          "objects":[
@@ -609,8 +632,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":11,
- "nextobjectid":43,
+ "nextlayerid":12,
+ "nextobjectid":44,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.9.2",
@@ -818,6 +841,29 @@
                 {
                  "id":0,
                  "image":"Environment\/background_day3.png",
+                 "imageheight":368,
+                 "imagewidth":640
+                }],
+         "tilewidth":640
+        }, 
+        {
+         "columns":0,
+         "firstgid":6721,
+         "grid":
+            {
+             "height":1,
+             "orientation":"orthogonal",
+             "width":1
+            },
+         "margin":0,
+         "name":"background_day1",
+         "spacing":0,
+         "tilecount":1,
+         "tileheight":368,
+         "tiles":[
+                {
+                 "id":0,
+                 "image":"Environment\/background_day1.png",
                  "imageheight":368,
                  "imagewidth":640
                 }],
