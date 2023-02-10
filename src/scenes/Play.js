@@ -111,12 +111,21 @@ export default class Play extends Phaser.Scene {
    * @param {object} map Phaser Tilemap instance
    */
   createBackground(map) {
+    const backgroundFar = map.getObjectLayer('distance').objects[0];
+
     const backgroundObject = map.getObjectLayer('distance_bg').objects[0];
-    this.add.tileSprite(backgroundObject.x, backgroundObject.y, this.config.width, backgroundObject.height, 'background-day3')
-      .setOrigin(0, 1)
-      .setDepth(-10)
+
+    this.add.tileSprite(0, 0, this.config.width * 1.5, this.config.height, 'background-day1')
+      .setOrigin(0)
+      .setDepth(-11)
       .setScale(1.75)
-      .setScrollFactor(1, 0);
+      .setScrollFactor(0, );
+
+    this.add.tileSprite(0, 0, this.config.width, backgroundObject.height, 'background-day3')
+      .setOrigin(0)
+      .setDepth(-10)
+      .setScale(2.5)
+      .setScrollFactor(0, 1);
   }
 
   /**
@@ -260,6 +269,7 @@ export default class Play extends Phaser.Scene {
     this.physics.world.setBounds(0, 0, width + mapOffset, height + 200);
     this.cameras.main.setBounds(0, 0, width + mapOffset, height).setZoom(zoomFactor);
     this.cameras.main.startFollow(player);
+    this.cameras.main.roundPixels = true;
   }
 
   /**
