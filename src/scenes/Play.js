@@ -20,6 +20,7 @@ export default class Play extends Phaser.Scene {
 
   create({ gameStatus }) {
     this.score = Number(localStorage.getItem('score')) || 0;
+    this.kills = Number(localStorage.getItem('kills')) || 0;
 
     this.createBgMusic();
 
@@ -278,7 +279,6 @@ export default class Play extends Phaser.Scene {
    */
   onPlayerCollision(enemy, player) {
     player.takesHit(enemy);
-
   }
 
   /**
@@ -311,6 +311,7 @@ export default class Play extends Phaser.Scene {
       endOverlap.active = false;
 
       localStorage.setItem('score', this.score);
+      localStorage.setItem('kills', this.kills);
       localStorage.setItem('levels-completed', this.getCurrentLevel());
 
       if (this.registry.get('level') === this.config.finalLevel) {
