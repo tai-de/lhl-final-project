@@ -27,6 +27,8 @@ export default class Enemies extends Phaser.Physics.Arcade.Sprite {
 
     this.health = 40;
     this.damage = 20;
+    this.damageText = null;
+    this.damageTextAnim = null;
 
     this.platformCollidersLayer = null;
     this.rayGraphics = this.scene.add.graphics({
@@ -57,6 +59,12 @@ export default class Enemies extends Phaser.Physics.Arcade.Sprite {
       this.rayGraphics.clear();
       this.destroy();
       return;
+    }
+
+    if (this.damageText) {
+      this.damageText.setPosition(this.x, this.getBounds().top - 5).setOrigin(0.5, 1);
+
+      this.animDamageText();
     }
 
     this.currentDistance += Math.abs(this.body.deltaX());
@@ -102,6 +110,33 @@ export default class Enemies extends Phaser.Physics.Arcade.Sprite {
     if (this.health <= 0) {
       this.setTint('0xff0000');
     }
+
+    let fontOptions = { font: "12px Arial", fill: "#fff", align: "center" };
+    this.damageText = this.scene.add.text(0, 0, `-${source.damage}`, fontOptions);
+  }
+
+  animDamageText() {
+    console.log('damage text');
+    this.scene.tweens.add({
+      targets: this.damageText,
+      alpha: 0,
+      duration: 1000,
+      repeat: 0,
+      ease: 'linear',
+      onComplete: () => {
+        this.damageTextAnim.stop();
+        this.damageText = null;
+      }
+    });
+
+    this.damageTextAnim = this.scene.tweens.add({
+      targets: this.damageText,
+      x: this.x - 5,
+      duration: 500,
+      repeat: -1,
+      yoyo: true,
+      ease: 'linear',
+    });
   }
 
 } 
