@@ -61,10 +61,13 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.meleeWeapon = new MeleeWeapon(this.scene, 0, 0, 'sword-attack');
     this.timeFromLastSwing = null;
 
-    this.maxLevel = localStorage.getItem('levels-unlocked') || 1;
+    this.completedLevels = localStorage.getItem('levels-completed') || 0;
 
     this.fireball = this.scene.sound.add('fireball');
     this.slash = this.scene.sound.add('slash');
+    this.jump = this.scene.sound.add('jump', {volume: 0.4});
+    this.playerHit = this.scene.sound.add('player-hit');
+    this.playerDeath = this.scene.sound.add('player-death');
 
     this.scene.input.keyboard.on('keydown-SPACE', () => {
       if (this.timeFromLastSwing && this.timeFromLastSwing + this.meleeWeapon.attackSpeed > getTimestamp()) {
@@ -78,7 +81,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     });
 
     this.scene.input.keyboard.on('keydown-X', () => {
-      if (this.maxLevel < 2) { return; } // Restricts fireball to having completed level 1
+      if (this.completedLevels < 1) { return; } // Restricts fireball to having completed level 1
 
       this.play('throw', true);
       this.fireball.play();
@@ -121,6 +124,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     // Jumping only when on the floor
     if (isUpJustDown && onFloor) {
       this.setVelocityY(-this.playerSpeed * 2);
+      this.jump.play();
     }
 
     if (this.isPlayingAnims('throw')) {
@@ -171,14 +175,21 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
     this.health -= initiator.damage || initiator.properties.damage || 0;
     if (this.health <= 0) {
-      EventEmitter.emit('PLAYER_LOSE');
-      return;
+      this.playerDeath.play();
+
+       setTimeout(
+        EventEmitter.emit('PLAYER_LOSE'), 3000);
+      
+        return 
+      
+      
     }
 
     this.hasBeenHit = true;
     this.bounceOff();
 
     const hitAnim = this.playDamageAnim();
+    this.playerHit.play();
     this.playerHealth.setHealth(this.health);
 
     initiator.deliversHit && initiator.deliversHit(this);

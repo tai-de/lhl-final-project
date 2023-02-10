@@ -21,54 +21,7 @@ export default class Play extends Phaser.Scene {
   create({ gameStatus }) {
     this.score = Number(localStorage.getItem('score')) || 0;
 
-    const musicConfig = {
-      mute: false,
-      volume: 1,
-      rate: 1,
-      detune: 0,
-      seek: 0,
-      loop: false,
-      delay: 0
-    };
-
-    this.sound.stopAll();
-    this.sound.add(`music-level-${this.getCurrentLevel()}`, musicConfig)
-      .play();
-
-    // if(this.getCurrentLevel() === 2){
-    //   this.music.stop();
-    //   this.music2.play(musicConfig);
-    //   console.log('after playing 2');
-    // }
-
-    // if(this.getCurrentLevel() === 1){
-    //   this.music2.stop();
-    //   this.music.play(musicConfig);
-    // }
-
-    //  console.log(this.getCurrentLevel());
-    //   if (!this.sound.locked)
-    // {
-    // 	// already unlocked so play
-    // 	if(this.getCurrentLevel() === 1){
-    //     this.music.play(musicConfig);
-    //   }
-    //   if(this.getCurrentLevel() === 2){
-    //     this.music2.play(musicConfig);
-    //   }
-    // }
-    // else
-    // {
-    // 	// wait for 'unlocked' to fire and then play
-    // 	this.sound.once(Phaser.Sound.Events.UNLOCKED, () => {
-    // 		if(this.getCurrentLevel() === 1){
-    //       this.music.play(musicConfig);
-    //     }
-    //     if(this.getCurrentLevel() === 2){
-    //       this.music2.play(musicConfig);
-    //     }
-    // 	})
-    // }
+    this.createBgMusic();
 
     const map = this.createMap();
 
@@ -102,9 +55,29 @@ export default class Play extends Phaser.Scene {
     this.createBackButton();
     this.createEndPoint(gameZones.end, player);
     this.setupCameraOn(player);
+    this.collectItem = this.sound.add('collect-item');
 
     if (gameStatus === 'PLAYER_LOSE') { return; }
     this.createGameEvents();
+  }
+
+  /**
+   * Cretes background music based on current level
+   */
+  createBgMusic() {
+    const musicConfig = {
+      mute: false,
+      volume: 0.5,
+      rate: 1,
+      detune: 0,
+      seek: 0,
+      loop: false,
+      delay: 0
+    };
+
+    this.sound.stopAll();
+    this.sound.add(`music-level-${this.getCurrentLevel()}`, musicConfig)
+      .play();
   }
 
   /**
@@ -112,7 +85,6 @@ export default class Play extends Phaser.Scene {
    * add the associated tileset images
    * @returns Phaser Tilemap
    */
-
   createMap() {
     const map = this.make.tilemap({ key: `level-${this.getCurrentLevel()}` });
 
@@ -236,6 +208,7 @@ export default class Play extends Phaser.Scene {
   onCollect(player, collectable) {
     collectable.disableBody(true, true);
     this.score += collectable.score;
+    this.collectItem.play();
     this.hud.updateScoreBoard(this.score);
   }
 
@@ -338,7 +311,7 @@ export default class Play extends Phaser.Scene {
       endOverlap.active = false;
 
       localStorage.setItem('score', this.score);
-      localStorage.setItem('levels-unlocked', this.getCurrentLevel());
+      localStorage.setItem('levels-completed', this.getCurrentLevel());
 
       if (this.registry.get('level') === this.config.finalLevel) {
         this.scene.start('CreditsScene');

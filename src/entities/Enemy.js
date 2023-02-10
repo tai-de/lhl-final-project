@@ -43,6 +43,8 @@ export default class Enemies extends Phaser.Physics.Arcade.Sprite {
     this.setOrigin(0.5, 1);
     this.setImmovable(true);
     this.setVelocityX(this.speed);
+    this.enemyHit = this.scene.sound.add('enemy-hit');
+    this.enemyDeath = this.scene.sound.add('enemy-death');
   }
 
   initEvents() {
@@ -54,6 +56,7 @@ export default class Enemies extends Phaser.Physics.Arcade.Sprite {
     if (!this.body) { return; }
 
     if (this.health <= 0) {
+      this.enemyDeath.play();
       this.scene.events.removeListener(Phaser.Scenes.Events.UPDATE, this.update, this);
       this.setActive(false);
       this.rayGraphics.clear();
@@ -106,6 +109,7 @@ export default class Enemies extends Phaser.Physics.Arcade.Sprite {
   takesHit(source) {
     source.deliversHit(this);
     this.health -= source.damage;
+    this.enemyHit.play();
 
     if (this.health <= 0) {
       this.setTint('0xff0000');

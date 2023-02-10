@@ -22,6 +22,12 @@ export default class Preload extends Phaser.Scene {
     this.load.audio('music-level-2', 'assets/Music/neon-gaming.mp3');
     this.load.audio('fireball', 'assets/Music/fireball-woosh.mp3');
     this.load.audio('slash', 'assets/Music/slash.mp3');
+    this.load.audio('jump', 'assets/Music/jump.mp3');
+    this.load.audio('collect-item', 'assets/Music/collectitem.mp3');
+    this.load.audio('enemy-hit', 'assets/Music/enemy-hit.mp3');
+    this.load.audio('player-hit', 'assets/Music/player-hit.mp3');
+    this.load.audio('enemy-death', 'assets/Music/enemy-death.mp3');
+    this.load.audio('player-death', 'assets/Music/player-death.mp3');
 
     // Player sprites
     // Idle run and jump
@@ -91,7 +97,7 @@ export default class Preload extends Phaser.Scene {
 
   startGame() {
     this.registry.set('level', 1);
-    this.registry.set('levels-unlocked', 1);
+    this.registry.set('levels-completed', 0);
     this.scene.start('MenuScene');
   }
 
