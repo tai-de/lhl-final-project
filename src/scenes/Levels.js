@@ -10,9 +10,9 @@ export default class LevelScene extends BaseScene {
 
     this.menu = [];
 
-    const levels = this.registry.get('levels-unlocked');
+    const levels = localStorage.getItem('levels-unlocked') || 1;
 
-    for (let i = 1; i < levels; i++) {
+    for (let i = 1; i <= levels; i++) {
       this.menu.push({
         scene: 'PlayScene',
         text: `Level ${i}`,
