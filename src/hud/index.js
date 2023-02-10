@@ -40,7 +40,7 @@ export default class Hud extends Phaser.GameObjects.Container {
    */
   createScoreBoard() {
 
-    const scoreText = this.scene.add.text(0, 0, '0', {
+    const scoreText = this.scene.add.text(0, 0, localStorage.getItem('score') || 0, {
       fontSize: `${this.fontSize}px`,
       fill: '#fff'
     });

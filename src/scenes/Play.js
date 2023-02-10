@@ -19,7 +19,7 @@ export default class Play extends Phaser.Scene {
   }
 
   create({ gameStatus }) {
-    this.score = 0;
+    this.score = localStorage.getItem('score') || 0;
 
     const map = this.createMap();
 
@@ -119,7 +119,7 @@ export default class Play extends Phaser.Scene {
       .setOrigin(0)
       .setDepth(-11)
       .setScale(1.75)
-      .setScrollFactor(0, );
+      .setScrollFactor(0,);
 
     this.add.tileSprite(0, 0, this.config.width, backgroundObject.height, 'background-day3')
       .setOrigin(0)
@@ -287,6 +287,9 @@ export default class Play extends Phaser.Scene {
 
     const endOverlap = this.physics.add.overlap(endSprite, player, () => {
       endOverlap.active = false;
+
+      localStorage.setItem('score', this.score);
+      localStorage.setItem('levels-unlocked', this.getCurrentLevel());
 
       if (this.registry.get('level') === this.config.finalLevel) {
         this.scene.start('CreditsScene');
