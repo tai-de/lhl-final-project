@@ -2,18 +2,34 @@ import Phaser from "phaser";
 
 export default class HealthBar {
   constructor(scene, x, y, scale = 1, health) {
+    this.healthText = scene.add.text(scene.config.topLeftCorner.x + 15, scene.config.topLeftCorner.y + 10, `Health: ${health}/${health}`, {
+      fontSize: `14px`,
+      fill: '#fff'
+    })
+      .setOrigin(0, 0)
+      .setDepth(9)
+      .setScrollFactor(0, 0);
+
+    this.barFrame = scene.add.image(scene.config.topLeftCorner.x + 10, scene.config.topLeftCorner.y + 25, 'hp-bar-frame')
+      .setOrigin(0, 0)
+      .setDepth(9)
+      .setScale(3)
+      .setScrollFactor(0, 0);
+
     this.bar = new Phaser.GameObjects.Graphics(scene).setDepth(10);
     this.bar.setScrollFactor(0, 0);
 
     this.x = x / scale;
     this.y = y / scale;
     this.scale = scale;
+    this.maxHealth = health;
     this.health = health;
-    this.size = { width: 40, height: 8 };
+    this.size = { width: 70, height: 7 };
     this.pixelsPerHealth = this.size.width / this.health;
 
     scene.add.existing(this.bar);
-    this.draw(this.x, this.y, this.scale);
+
+    this.draw(this.x, this.y + 7, this.scale);
   }
 
   /**
@@ -24,10 +40,10 @@ export default class HealthBar {
    */
   draw(x, y, scale) {
     const { width, height } = this.size;
-    const margin = 2;
+    const margin = 3;
 
-    this.bar.fillStyle(0x727872);
-    this.bar.fillRect(x, y, width + margin, height + margin);
+    // this.bar.fillStyle(0x727872);
+    // this.bar.fillRect(x, y, width + margin, height + margin);
     this.bar.fillStyle(0xffffff);
     this.bar.fillRect(x + margin, y + margin, width - margin, height - margin);
 
@@ -54,7 +70,8 @@ export default class HealthBar {
    */
   setHealth(amount) {
     this.health = amount;
-    this.draw(this.x, this.y, this.scale);
+    this.healthText.setText(`Health: ${amount}/${this.maxHealth}`)
+    this.draw(this.x, this.y + 7, this.scale);
   }
 
 }
