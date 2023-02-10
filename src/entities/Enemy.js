@@ -116,7 +116,6 @@ export default class Enemies extends Phaser.Physics.Arcade.Sprite {
   }
 
   animDamageText() {
-    console.log('damage text');
     this.scene.tweens.add({
       targets: this.damageText,
       alpha: 0,
