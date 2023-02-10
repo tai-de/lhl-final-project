@@ -4,6 +4,7 @@ import PreloadScene from './scenes/Preload';
 import PlayScene from './scenes/Play';
 import MenuScene from './scenes/MenuScene';
 import LevelScene from './scenes/Levels';
+import CreditsScene from './scenes/Credits';
 
 const WIDTH = document.body.offsetWidth;
 const HEIGHT = 600;
@@ -28,7 +29,8 @@ const SHARED_CONFIG = {
   bottomRightCorner: {
     x: (WIDTH / ZOOMFACTOR) + ((WIDTH - (WIDTH / ZOOMFACTOR)) / 2),
     y: (HEIGHT / ZOOMFACTOR) + ((HEIGHT - (HEIGHT / ZOOMFACTOR)) / 2)
-  }
+  },
+  finalLevel: 2,
 };
 
 const Scenes = [
@@ -36,6 +38,7 @@ const Scenes = [
   MenuScene,
   LevelScene,
   PlayScene,
+  CreditsScene,
 ];
 
 // Function to create Scene instances for all of the Scenes imported above
