@@ -5,7 +5,7 @@ export default class CreditsScene extends BaseScene {
     super('CreditsScene', { ...config, canGoBack: true });
 
     this.menu = [
-      { scene: null, text: 'You won! Thanks for playing.' },
+      { scene: null, text: 'Thanks for playing.' },
       { scene: null, text: 'Created by:' },
       { scene: null, text: 'Tai & Edward' }
     ];

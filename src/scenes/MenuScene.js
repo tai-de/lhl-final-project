@@ -7,7 +7,7 @@ export default class MenuScene extends BaseScene {
     this.menu = [
       { scene: 'PlayScene', text: 'Start' },
       { scene: 'LevelScene', text: 'Levels' },
-      { scene: null, text: 'Exit' }
+      { scene: 'CreditsScene', text: 'Credits' }
     ];
   }
 
@@ -21,7 +21,7 @@ export default class MenuScene extends BaseScene {
     const textObject = menuItem.textObject;
     textObject.setInteractive();
     textObject.input.cursor = 'pointer';
-    
+
     textObject.on('pointerout', () => {
       textObject.setStyle({ fill: '#fff' });
     });
