@@ -51,8 +51,7 @@ export default class MenuScene extends BaseScene {
     resetLS.input.cursor = 'pointer';
 
     resetLS.on('pointerup', () => {
-      localStorage.removeItem('levels-unlocked');
-      localStorage.removeItem('score');
+      localStorage.clear();
     });
   }
 }
