@@ -114,7 +114,7 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"Goblin"
+                         "value":"Snake"
                         }],
                  "rotation":0,
                  "visible":true,
@@ -132,7 +132,7 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"Bat"
+                         "value":"Goblin"
                         }],
                  "rotation":0,
                  "visible":true,
