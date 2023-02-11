@@ -36,12 +36,10 @@ export default class MeleeWeapon extends Phaser.Physics.Arcade.Sprite {
 
     if (this.wielder.lastDirection === Phaser.Physics.Arcade.FACING_RIGHT) {
       this.setFlipX(false);
-      this.setOffset(18, 0); // Offset of the hit box / debug
-      this.body.reset((this.wielder.x + this.wielder.width / 2) - 11, this.wielder.y);
+      this.body.reset(this.wielder.x + 64, this.wielder.y - 10);
     } else {
       this.setFlipX(true); 
-      this.setOffset(0, 0);
-      this.body.reset((this.wielder.x - this.wielder.width / 2) + 10, this.wielder.y);
+      this.body.reset(this.wielder.x + 24, this.wielder.y - 10);
     }
   }
 

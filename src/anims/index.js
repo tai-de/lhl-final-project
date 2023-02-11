@@ -22,11 +22,10 @@ export default anims => {
 
   anims.create({
     key: 'fireball',
-    frames: [
-      { key: 'fireball1' },
-      { key: 'fireball2' },
-      { key: 'fireball3' }
-    ],
+    frames: anims.generateFrameNumbers('fireball', {
+      start: 0,
+      end: 8,
+    }),
     frameRate: 5,
     repeat: -1,
   });
@@ -39,6 +38,16 @@ export default anims => {
     ],
     frameRate: 6,
     repeat: -1,
+  });
+
+  anims.create({
+    key: 'bomb',
+    frames: anims.generateFrameNumbers('bomb', {
+      start: 0,
+      end: 18,
+    }),
+    frameRate: 19,
+    repeat: 0,
   });
 
   anims.create({

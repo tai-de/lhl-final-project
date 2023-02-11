@@ -38,16 +38,29 @@ export default class Preload extends Phaser.Scene {
     this.load.audio('enemy-death', 'assets/Music/enemy-death.mp3');
     this.load.audio('player-death', 'assets/Music/player-death.mp3');
 
-    // Player sprites
-    // Idle run and jump
-    this.load.spritesheet('player', 'assets/Player/Idle-run-jump/player_sheet.png', {
-      frameWidth: 48,
+    // New Player sprites
+    this.load.spritesheet('player-normal-idle', 'assets/Player/player-normal-idle.png', {
+      frameWidth: 64,
       frameHeight: 48
     });
 
-    // Throwing
-    this.load.spritesheet('player-throw', 'assets/Player/Throw-attack/throw_attack.png', {
-      frameWidth: 48,
+    this.load.spritesheet('player-normal-run', 'assets/Player/player-normal-run.png', {
+      frameWidth: 64,
+      frameHeight: 48
+    });
+
+    this.load.spritesheet('player-normal-jump', 'assets/Player/player-normal-jump.png', {
+      frameWidth: 64,
+      frameHeight: 58
+    });
+
+    this.load.spritesheet('player-normal-swing', 'assets/Player/player-normal-swing.png', {
+      frameWidth: 64,
+      frameHeight: 48
+    });
+
+    this.load.spritesheet('player-normal-spell', 'assets/Player/player-normal-spell.png', {
+      frameWidth: 64,
       frameHeight: 48
     });
 
@@ -58,24 +71,39 @@ export default class Preload extends Phaser.Scene {
       frameHeight: 32
     });
 
+    // Snake
     this.load.spritesheet('snake', 'assets/Enemies/Enemy05/enemy05_sheet.png', {
       frameWidth: 32,
       frameHeight: 64,
       spacing: 32
     });
+    
+    // Goblin
+    this.load.spritesheet('goblin', 'assets/Enemies/Goblin/goblin-sheet.png', {
+      frameWidth: 48,
+      frameHeight: 48
+    });
+
 
     this.load.image('bat-hit1', 'assets/Enemies/Enemy01/hit01.png');
     this.load.image('bat-hit2', 'assets/Enemies/Enemy01/hit02.png');
     this.load.image('bat-hit3', 'assets/Enemies/Enemy01/hit03.png');
 
     //Load fireball attack
-    this.load.image('fireball1', 'assets/Weapons/fireball_001.png');
-    this.load.image('fireball2', 'assets/Weapons/fireball_002.png');
-    this.load.image('fireball3', 'assets/Weapons/fireball_003.png');
+    this.load.spritesheet('fireball', 'assets/Weapons/FireBall-Sheet.png', {
+      frameWidth: 32,
+      frameHeight: 32
+    });
 
     //Load iceball attack
     this.load.image('iceball1', 'assets/Weapons/iceball_001.png');
     this.load.image('iceball2', 'assets/Weapons/iceball_002.png');
+
+    //Load bomb
+    this.load.spritesheet('bomb', 'assets/Enemies/Goblin/Bomb_sprite.png', {
+      frameWidth: 100,
+      frameHeight: 100
+    });
 
     //Load hit effect
     this.load.spritesheet('hitsheet1', 'assets/Weapons/hit_effect_sheet.png', {
@@ -83,12 +111,11 @@ export default class Preload extends Phaser.Scene {
       frameHeight: 32
     });
 
-    //Load sword attack
-    this.load.spritesheet('swordsheet1', 'assets/Weapons/sword_sheet_1.png', {
-      frameWidth: 52,
-      frameHeight: 32,
-      spacing: 16
+    this.load.spritesheet('swordsheet1', 'assets/Player/player-normal-swing-effect.png', {
+      frameWidth: 52, // This is actually an empty file. It's just a placeholder so the sprite effect has a collider box
+      frameHeight: 32
     });
+
 
     //Load diamond
     this.load.image('diamond', 'assets/Objects/diamond_01.png');
@@ -107,7 +134,7 @@ export default class Preload extends Phaser.Scene {
   startGame() {
     this.registry.set('level', 1);
     this.registry.set('levels-completed', 0);
-    this.scene.start('MenuScene');
+    this.scene.start('PlayScene');
   }
 
 }
