@@ -17,8 +17,8 @@ export default class Preload extends Phaser.Scene {
 
     this.load.image('background-day1', 'assets/Environment/background_day1.png');
     this.load.image('background-day3', 'assets/Environment/background_day3.png');
-    this.load.image('background-day1', 'assets/Environment/2.png');
-    this.load.image('background-day3', 'assets/Environment/3.png');
+    this.load.image('background-night1', 'assets/Environment/2.png');
+    this.load.image('background-night2', 'assets/Environment/3.png');
     this.load.image('background1', 'assets/Environment/4.png');
     this.load.image('background2', 'assets/Environment/5.png');
     this.load.image('background3', 'assets/Environment/6.png');

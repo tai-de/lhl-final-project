@@ -137,13 +137,13 @@ export default class Play extends Phaser.Scene {
 
     const backgroundObject = map.getObjectLayer('distance_bg').objects[0];
 
-    this.add.tileSprite(0, 0, this.config.width * 2,  this.config.height, 'background-day1')
+    this.add.tileSprite(0, 0, this.config.width * 2,  this.config.height, 'background-night1')
       .setOrigin(0)
       .setDepth(-20)
       .setScale(0.6)
       .setScrollFactor(0.1, 1);
 
-    this.add.tileSprite(0, 0, this.config.width,  this.config.height, 'background-day3')
+    this.add.tileSprite(0, 0, this.config.width,  this.config.height, 'background-night2')
       .setOrigin(0)
       .setDepth(-15)
       .setScale(1)
