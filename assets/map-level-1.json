@@ -6,22 +6,10 @@
          "draworder":"topdown",
          "id":11,
          "name":"distance",
-         "objects":[
-                {
-                 "class":"",
-                 "gid":6403,
-                 "height":368,
-                 "id":38,
-                 "name":"",
-                 "rotation":0,
-                 "visible":true,
-                 "width":640,
-                 "x":0,
-                 "y":640
-                }],
+         "objects":[],
          "opacity":1,
          "type":"objectgroup",
-         "visible":true,
+         "visible":false,
          "x":0,
          "y":0
         }, 
@@ -32,18 +20,124 @@
          "objects":[
                 {
                  "class":"",
-                 "gid":6402,
-                 "height":575.2,
-                 "id":37,
+                 "gid":6403,
+                 "height":368,
+                 "id":42,
                  "name":"",
                  "rotation":0,
-                 "visible":true,
-                 "width":953.333333333333,
-                 "x":0,
-                 "y":572
+                 "visible":false,
+                 "width":640,
+                 "x":-0.213191205862756,
+                 "y":641.541126428535
+                }, 
+                {
+                 "class":"",
+                 "gid":6403,
+                 "height":640.228770563214,
+                 "id":44,
+                 "name":"",
+                 "rotation":0,
+                 "visible":false,
+                 "width":1181.17767642085,
+                 "x":296.506944088556,
+                 "y":639.901194075744
                 }],
+         "offsetx":-300,
+         "offsety":0,
          "opacity":1,
          "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "id":12,
+         "image":"Environment\/2.png",
+         "name":"bg1",
+         "offsetx":-809.947214677394,
+         "offsety":-106.595602931379,
+         "opacity":1,
+         "parallaxx":0.4,
+         "repeatx":true,
+         "type":"imagelayer",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "id":13,
+         "image":"Environment\/3.png",
+         "name":"bg2",
+         "offsetx":-11.4795264695331,
+         "offsety":-50.837902936504,
+         "opacity":0.93,
+         "repeatx":true,
+         "type":"imagelayer",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "id":14,
+         "image":"Environment\/4.png",
+         "name":"bg3",
+         "offsetx":-101.675805873008,
+         "offsety":-175.472761748578,
+         "opacity":1,
+         "repeatx":true,
+         "type":"imagelayer",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "id":15,
+         "image":"Environment\/5.png",
+         "name":"bg4",
+         "offsetx":21.3191205862759,
+         "offsety":-200.071747040434,
+         "opacity":1,
+         "repeatx":true,
+         "type":"imagelayer",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "id":16,
+         "image":"Environment\/6.png",
+         "name":"bg5",
+         "offsetx":59.0375647004561,
+         "offsety":-175.472761748578,
+         "opacity":0.64,
+         "repeatx":true,
+         "type":"imagelayer",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "id":18,
+         "image":"Environment\/7.png",
+         "name":"bg6",
+         "offsetx":83.6365499923127,
+         "offsety":-332.906267616461,
+         "opacity":1,
+         "repeatx":true,
+         "type":"imagelayer",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "id":23,
+         "image":"Environment\/8.png",
+         "name":"bg7",
+         "offsetx":3.27986470558085,
+         "offsety":-333.029108799262,
+         "opacity":1,
+         "repeatx":true,
+         "type":"imagelayer",
          "visible":true,
          "x":0,
          "y":0
@@ -132,7 +226,7 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"Goblin"
+                         "value":"Bat"
                         }],
                  "rotation":0,
                  "visible":true,
@@ -566,8 +660,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":12,
- "nextobjectid":39,
+ "nextlayerid":24,
+ "nextobjectid":45,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.9.2",
@@ -792,19 +886,102 @@
          "margin":0,
          "name":"background_day1",
          "spacing":0,
-         "tilecount":1,
-         "tileheight":368,
+         "tilecount":6,
+         "tileheight":1080,
          "tiles":[
                 {
                  "id":0,
-                 "image":"Environment\/background_day1.png",
+                 "image":"\/\/wsl$\/LHL\/home\/labber\/lhl-final-project\/assets\/Environment\/background_day1.png",
                  "imageheight":368,
                  "imagewidth":640
+                }, 
+                {
+                 "id":1,
+                 "image":"Environment\/2.png",
+                 "imageheight":1080,
+                 "imagewidth":1980
+                }, 
+                {
+                 "id":2,
+                 "image":"Environment\/3.png",
+                 "imageheight":1080,
+                 "imagewidth":1980
+                }, 
+                {
+                 "id":3,
+                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/4.png",
+                 "imageheight":1080,
+                 "imagewidth":1980
+                }, 
+                {
+                 "id":4,
+                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/7.png",
+                 "imageheight":1080,
+                 "imagewidth":1980
+                }, 
+                {
+                 "id":5,
+                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/8.png",
+                 "imageheight":1080,
+                 "imagewidth":1980
                 }],
-         "tilewidth":640
+         "tilewidth":1980
+        }, 
+        {
+         "columns":0,
+         "firstgid":6409,
+         "grid":
+            {
+             "height":1,
+             "orientation":"orthogonal",
+             "width":1
+            },
+         "margin":0,
+         "name":"background_day1",
+         "spacing":0,
+         "tilecount":6,
+         "tileheight":1080,
+         "tiles":[
+                {
+                 "id":0,
+                 "image":"\/\/wsl$\/LHL\/home\/labber\/lhl-final-project\/assets\/Environment\/background_day1.png",
+                 "imageheight":368,
+                 "imagewidth":640
+                }, 
+                {
+                 "id":1,
+                 "image":"Environment\/2.png",
+                 "imageheight":1080,
+                 "imagewidth":1980
+                }, 
+                {
+                 "id":2,
+                 "image":"Environment\/3.png",
+                 "imageheight":1080,
+                 "imagewidth":1980
+                }, 
+                {
+                 "id":3,
+                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/4.png",
+                 "imageheight":1080,
+                 "imagewidth":1980
+                }, 
+                {
+                 "id":4,
+                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/7.png",
+                 "imageheight":1080,
+                 "imagewidth":1980
+                }, 
+                {
+                 "id":5,
+                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/8.png",
+                 "imageheight":1080,
+                 "imagewidth":1980
+                }],
+         "tilewidth":1980
         }],
  "tilewidth":16,
  "type":"map",
  "version":"1.9",
  "width":100
-}
+                }

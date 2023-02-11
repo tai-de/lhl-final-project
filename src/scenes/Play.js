@@ -137,17 +137,47 @@ export default class Play extends Phaser.Scene {
 
     const backgroundObject = map.getObjectLayer('distance_bg').objects[0];
 
-    this.add.tileSprite(0, 0, this.config.width * 1.5, this.config.height, 'background-day1')
+    this.add.tileSprite(0, 0, this.config.width * 2,  this.config.height, 'background-day1')
       .setOrigin(0)
-      .setDepth(-11)
-      .setScale(1.75)
-      .setScrollFactor(0,);
+      .setDepth(-20)
+      .setScale(0.6)
+      .setScrollFactor(0.1, 1);
 
-    this.add.tileSprite(0, 0, this.config.width, backgroundObject.height, 'background-day3')
+    this.add.tileSprite(0, 0, this.config.width,  this.config.height, 'background-day3')
+      .setOrigin(0)
+      .setDepth(-15)
+      .setScale(1)
+      .setScrollFactor(0.3, 1);
+
+      this.add.tileSprite(0, 0, this.config.width * 2,  this.config.height * 2.5, 'background1')
+      .setOrigin(0)
+      .setDepth(-12)
+      .setScale(0.7)
+      .setScrollFactor(0.45, 1);
+
+      this.add.tileSprite(0, 0, this.config.width * 2,  backgroundObject.height * 4, 'background2')
       .setOrigin(0)
       .setDepth(-10)
-      .setScale(2.5)
-      .setScrollFactor(0, 1);
+      .setScale(0.7)
+      .setScrollFactor(0.65, 1);
+
+      this.add.tileSprite(0, 0, this.config.width * 4,  backgroundObject.height * 4, 'background3')
+      .setOrigin(0)
+      .setDepth(-9)
+      .setScale(1)
+      .setScrollFactor(0.75, 1);
+
+      this.add.tileSprite(0, 0, this.config.width * 2,  this.config.height * 2, 'background4')
+      .setOrigin(0)
+      .setDepth(-8)
+      .setScale(.6)
+      .setScrollFactor(0.85, 1);
+
+      this.add.tileSprite(0, 0, this.config.width * 2,  this.config.height * 2, 'background5')
+      .setOrigin(0)
+      .setDepth(-8)
+      .setScale(.6)
+      .setScrollFactor(0.90, 1);
   }
 
   /**
