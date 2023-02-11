@@ -41,6 +41,16 @@ export default anims => {
   });
 
   anims.create({
+    key: 'bomb',
+    frames: anims.generateFrameNumbers('bomb', {
+      start: 0,
+      end: 18,
+    }),
+    frameRate: 19,
+    repeat: 0,
+  });
+
+  anims.create({
     key: 'diamond',
     frames: [
       { key: 'diamond1' },

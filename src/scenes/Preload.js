@@ -66,11 +66,19 @@ export default class Preload extends Phaser.Scene {
       frameHeight: 32
     });
 
+    // Snake
     this.load.spritesheet('snake', 'assets/Enemies/Enemy05/enemy05_sheet.png', {
       frameWidth: 32,
       frameHeight: 64,
       spacing: 32
     });
+    
+    // Goblin
+    this.load.spritesheet('goblin', 'assets/Enemies/Goblin/goblin-sheet.png', {
+      frameWidth: 48,
+      frameHeight: 48
+    });
+
 
     this.load.image('bat-hit1', 'assets/Enemies/Enemy01/hit01.png');
     this.load.image('bat-hit2', 'assets/Enemies/Enemy01/hit02.png');
@@ -85,6 +93,12 @@ export default class Preload extends Phaser.Scene {
     //Load iceball attack
     this.load.image('iceball1', 'assets/Weapons/iceball_001.png');
     this.load.image('iceball2', 'assets/Weapons/iceball_002.png');
+
+    //Load bomb
+    this.load.spritesheet('bomb', 'assets/Enemies/Goblin/Bomb_sprite.png', {
+      frameWidth: 100,
+      frameHeight: 100
+    });
 
     //Load hit effect
     this.load.spritesheet('hitsheet1', 'assets/Weapons/hit_effect_sheet.png', {

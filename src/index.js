@@ -17,7 +17,7 @@ const SHARED_CONFIG = {
   width: WIDTH,
   height: HEIGHT,
   zoomFactor: ZOOMFACTOR,
-  debug: false, // Change this to true to enable phaser debugging
+  debug: true, // Change this to true to enable phaser debugging
   topLeftCorner: { // This calculates the x,y top left based on zoom factor & game size (determined by doc.body.offsetW)
     x: (WIDTH - (WIDTH / ZOOMFACTOR)) / 2,
     y: (HEIGHT - (HEIGHT / ZOOMFACTOR)) / 2
