@@ -9,15 +9,15 @@
          "objects":[
                 {
                  "class":"",
-                 "gid":6721,
-                 "height":368,
-                 "id":43,
+                 "gid":6404,
+                 "height":395.658719847023,
+                 "id":45,
                  "name":"",
                  "rotation":0,
                  "visible":true,
-                 "width":640,
-                 "x":0,
-                 "y":640
+                 "width":715.208897482675,
+                 "x":2.16594946485714,
+                 "y":397.732047959925
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -32,15 +32,62 @@
          "objects":[
                 {
                  "class":"",
-                 "gid":6402,
-                 "height":368,
-                 "id":37,
+                 "gid":6405,
+                 "height":267.922428463312,
+                 "id":46,
                  "name":"",
                  "rotation":0,
                  "visible":true,
-                 "width":640,
-                 "x":0,
-                 "y":640
+                 "width":661.351926626198,
+                 "x":19.038541273251,
+                 "y":364.344614618863
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":12,
+         "name":"distance2",
+         "objects":[
+                {
+                 "class":"",
+                 "gid":6406,
+                 "height":370.787298504205,
+                 "id":47,
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":658.921557905236,
+                 "x":30.6576480544169,
+                 "y":438.538910932334
+                }, 
+                {
+                 "class":"",
+                 "gid":6407,
+                 "height":336.684364611693,
+                 "id":48,
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":771.951202084675,
+                 "x":-29.1877513305054,
+                 "y":395.787752983156
+                }, 
+                {
+                 "class":"",
+                 "gid":6408,
+                 "height":292.525537099335,
+                 "id":49,
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":636.569942852306,
+                 "x":9.58537909620429,
+                 "y":449.578617810422
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -632,8 +679,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":12,
- "nextobjectid":44,
+ "nextlayerid":13,
+ "nextobjectid":51,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.9.2",
@@ -642,7 +689,7 @@
         {
          "columns":64,
          "firstgid":1,
-         "image":"Environment\/mainlevbuild.png",
+         "image":"\/\/wsl$\/LHL\/home\/labber\/lhl-final-project\/assets\/Environment\/mainlevbuild.png",
          "imageheight":1024,
          "imagewidth":1024,
          "margin":0,
@@ -800,7 +847,7 @@
         {
          "columns":64,
          "firstgid":4097,
-         "image":"Environment\/decorative_obj.png",
+         "image":"\/\/wsl$\/LHL\/home\/labber\/lhl-final-project\/assets\/Environment\/decorative_obj.png",
          "imageheight":576,
          "imagewidth":1024,
          "margin":0,
@@ -813,7 +860,7 @@
         {
          "columns":1,
          "firstgid":6401,
-         "image":"Objects\/diamond_01.png",
+         "image":"\/\/wsl$\/LHL\/home\/labber\/lhl-final-project\/assets\/Objects\/diamond_01.png",
          "imageheight":14,
          "imagewidth":16,
          "margin":0,
@@ -840,7 +887,7 @@
          "tiles":[
                 {
                  "id":0,
-                 "image":"Environment\/background_day3.png",
+                 "image":"\/\/wsl$\/LHL\/home\/labber\/lhl-final-project\/assets\/Environment\/background_day3.png",
                  "imageheight":368,
                  "imagewidth":640
                 }],
@@ -848,7 +895,7 @@
         }, 
         {
          "columns":0,
-         "firstgid":6721,
+         "firstgid":6403,
          "grid":
             {
              "height":1,
@@ -858,16 +905,46 @@
          "margin":0,
          "name":"background_day1",
          "spacing":0,
-         "tilecount":1,
-         "tileheight":368,
+         "tilecount":6,
+         "tileheight":1080,
          "tiles":[
                 {
                  "id":0,
-                 "image":"Environment\/background_day1.png",
+                 "image":"\/\/wsl$\/LHL\/home\/labber\/lhl-final-project\/assets\/Environment\/background_day1.png",
                  "imageheight":368,
                  "imagewidth":640
+                }, 
+                {
+                 "id":1,
+                 "image":"Environment\/2.png",
+                 "imageheight":1080,
+                 "imagewidth":1980
+                }, 
+                {
+                 "id":2,
+                 "image":"Environment\/3.png",
+                 "imageheight":1080,
+                 "imagewidth":1980
+                }, 
+                {
+                 "id":3,
+                 "image":"Environment\/4.png",
+                 "imageheight":1080,
+                 "imagewidth":1980
+                }, 
+                {
+                 "id":4,
+                 "image":"Environment\/7.png",
+                 "imageheight":1080,
+                 "imagewidth":1980
+                }, 
+                {
+                 "id":5,
+                 "image":"Environment\/8.png",
+                 "imageheight":1080,
+                 "imagewidth":1980
                 }],
-         "tilewidth":640
+         "tilewidth":1980
         }],
  "tilewidth":16,
  "type":"map",
