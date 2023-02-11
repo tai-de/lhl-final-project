@@ -1,10 +1,11 @@
 export default anims => {
 
+  // New player sprite
   anims.create({
     key: 'idle',
-    frames: anims.generateFrameNumbers('player', {
+    frames: anims.generateFrameNumbers('player-normal-idle', {
       start: 0,
-      end: 8,
+      end: 7,
     }),
     frameRate: 8,
     repeat: -1,
@@ -12,9 +13,9 @@ export default anims => {
 
   anims.create({
     key: 'run',
-    frames: anims.generateFrameNumbers('player', {
-      start: 9,
-      end: 16,
+    frames: anims.generateFrameNumbers('player-normal-run', {
+      start: 0,
+      end: 7,
     }),
     frameRate: 8,
     repeat: -1,
@@ -22,22 +23,31 @@ export default anims => {
 
   anims.create({
     key: 'jump',
-    frames: anims.generateFrameNumbers('player', {
-      start: 18,
-      end: 24,
+    frames: anims.generateFrameNumbers('player-normal-jump', {
+      start: 0,
+      end: 8,
     }),
-    frameRate: 4,
+    frameRate: 7,
+    repeat: 0,
+  });
+
+  anims.create({
+    key: 'sword',
+    frames: anims.generateFrameNumbers('player-normal-swing', {
+      start: 0,
+      end: 2,
+    }),
+    frameRate: 12,
     repeat: 0,
   });
 
   anims.create({
     key: 'throw',
-    frames: anims.generateFrameNumbers('player-throw', {
+    frames: anims.generateFrameNumbers('player-normal-spell', {
       start: 0,
-      end: 6,
+      end: 8,
     }),
-    frameRate: 14,
+    frameRate: 18,
     repeat: 0,
   });
-
 };

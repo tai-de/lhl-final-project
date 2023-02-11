@@ -49,14 +49,6 @@ export default class Projectile extends Phaser.Physics.Arcade.Sprite {
       yoyo: true,
       ease: 'linear',
     });
-    this.scene.tweens.add({
-      targets: this,
-      alpha: 0.5,
-      duration: 100,
-      repeat: -1,
-      yoyo: true,
-      ease: 'linear',
-    });
   }
 
   deliversHit(target) {

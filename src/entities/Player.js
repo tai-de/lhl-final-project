@@ -37,9 +37,10 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
     this.lastDirection = Phaser.Physics.Arcade.FACING_RIGHT;
 
-    this.setSize(20, 30);
-    this.setOffset(13, 13);
+    this.setSize(16, 40);
+    this.setOffset(24, 8);
     this.setOrigin(0.5, 1);
+    this.setScale(1.1);
 
     this.cursors = this.scene.input.keyboard.createCursorKeys();
 
@@ -65,7 +66,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
     this.fireball = this.scene.sound.add('fireball');
     this.slash = this.scene.sound.add('slash');
-    this.jump = this.scene.sound.add('jump', {volume: 0.4});
+    this.jump = this.scene.sound.add('jump', { volume: 0.4 });
     this.playerHit = this.scene.sound.add('player-hit');
     this.playerDeath = this.scene.sound.add('player-death');
 
@@ -74,7 +75,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         return;
       }
 
-      this.play('sword-attack-anim', true);
+      this.play('sword', true);
       this.slash.play();
       this.meleeWeapon.swing(this);
       this.timeFromLastSwing = getTimestamp();
@@ -84,8 +85,11 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
       if (this.completedLevels < 1) { return; } // Restricts fireball to having completed level 1
 
       this.play('throw', true);
-      this.fireball.play();
-      this.projectiles.shootProjectile(this, 'fireball');
+
+      setTimeout(() => {
+        this.fireball.play();
+        this.projectiles.shootProjectile(this, 'fireball');
+      }, 400);
     });
 
   }
@@ -112,10 +116,12 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     if (left.isDown) {
       this.setVelocityX(-this.playerSpeed);
       this.setFlipX(true);
+      this.setOrigin(0, 1);
       this.lastDirection = Phaser.Physics.Arcade.FACING_LEFT;
     } else if (right.isDown) {
       this.setVelocityX(this.playerSpeed);
       this.setFlipX(false);
+      this.setOrigin(0, 1);
       this.lastDirection = Phaser.Physics.Arcade.FACING_RIGHT;
     } else {
       this.setVelocityX(0);
@@ -127,7 +133,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
       this.jump.play();
     }
 
-    if (this.isPlayingAnims('throw')) {
+    if (this.isPlayingAnims('throw') || this.isPlayingAnims('sword')) {
       return;
     }
 
@@ -177,12 +183,12 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     if (this.health <= 0) {
       this.playerDeath.play();
 
-       setTimeout(
+      setTimeout(
         EventEmitter.emit('PLAYER_LOSE'), 3000);
-      
-        return 
-      
-      
+
+      return;
+
+
     }
 
     this.hasBeenHit = true;
