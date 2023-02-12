@@ -11,7 +11,8 @@ We coded 90% of the game via Live Share / pair programming. It was crucial for u
 ### Credits: Art & Resources
 
 - [**Szadi art**](https://szadiart.itch.io/): Player/enemy sprites & tilesets
-- 
+- [**Saukgp art**](https://saurabhkgp.itch.io/): Background
+- [**Sound effects**](https://pixabay.com/): Game music/sound effects
 - 
 
 ## Screenshots
