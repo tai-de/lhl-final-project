@@ -95,6 +95,12 @@ export default class Preload extends Phaser.Scene {
       frameHeight: 64
     });
 
+    // Mushroom
+    this.load.spritesheet('mushroom', 'assets/Enemies/Mushroom/mushroom-sheet.png', {
+      frameWidth: 48,
+      frameHeight: 48
+    });
+
     this.load.image('bat-hit1', 'assets/Enemies/Enemy01/hit01.png');
     this.load.image('bat-hit2', 'assets/Enemies/Enemy01/hit02.png');
     this.load.image('bat-hit3', 'assets/Enemies/Enemy01/hit03.png');
