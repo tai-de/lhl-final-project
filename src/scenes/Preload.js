@@ -73,7 +73,7 @@ export default class Preload extends Phaser.Scene {
     // Bat / enemy01
     this.load.spritesheet('bat', 'assets/Enemies/Enemy01/enemy01_sheet.png', {
       frameWidth: 32,
-      frameHeight: 32
+      frameHeight: 48
     });
 
     // Snake
