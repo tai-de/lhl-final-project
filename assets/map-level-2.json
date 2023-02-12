@@ -211,6 +211,42 @@
                  "width":0,
                  "x":1472,
                  "y":176
+                }, 
+                {
+                 "class":"",
+                 "height":0,
+                 "id":44,
+                 "name":"Spawn",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"Plant"
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":0,
+                 "x":240,
+                 "y":400
+                }, 
+                {
+                 "class":"",
+                 "height":0,
+                 "id":45,
+                 "name":"Spawn",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"Plant"
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":0,
+                 "x":1171.77777777778,
+                 "y":271.333333333333
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -633,7 +669,7 @@
          "y":0
         }],
  "nextlayerid":12,
- "nextobjectid":44,
+ "nextobjectid":46,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.9.2",

@@ -101,6 +101,12 @@ export default class Preload extends Phaser.Scene {
       frameHeight: 48
     });
 
+    // Plant
+    this.load.spritesheet('plant', 'assets/Enemies/Enemy03/plant-sheet.png', {
+      frameWidth: 32,
+      frameHeight: 48
+    });
+
     this.load.image('bat-hit1', 'assets/Enemies/Enemy01/hit01.png');
     this.load.image('bat-hit2', 'assets/Enemies/Enemy01/hit02.png');
     this.load.image('bat-hit3', 'assets/Enemies/Enemy01/hit03.png');

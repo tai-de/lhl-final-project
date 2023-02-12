@@ -73,6 +73,8 @@ export default class Enemies extends Phaser.Physics.Arcade.Sprite {
       this.animDamageText();
     }
 
+    if (!this.speed) { return; } // Prevent enemies with speed=0 from rayCasting/moving around
+
     this.currentDistance += Math.abs(this.body.deltaX());
 
     const { ray, hasHits } = this.rayCast(this.body, this.platformCollidersLayer);

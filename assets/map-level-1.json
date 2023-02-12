@@ -305,6 +305,60 @@
                  "width":0,
                  "x":1424,
                  "y":512
+                }, 
+                {
+                 "class":"",
+                 "height":0,
+                 "id":45,
+                 "name":"Spawn",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"Plant"
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":0,
+                 "x":816,
+                 "y":544
+                }, 
+                {
+                 "class":"",
+                 "height":0,
+                 "id":46,
+                 "name":"Spawn",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"Plant"
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":0,
+                 "x":672,
+                 "y":544
+                }, 
+                {
+                 "class":"",
+                 "height":0,
+                 "id":47,
+                 "name":"Spawn",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"Plant"
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":0,
+                 "x":976,
+                 "y":240
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -661,7 +715,7 @@
          "y":0
         }],
  "nextlayerid":24,
- "nextobjectid":45,
+ "nextobjectid":48,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.9.2",
