@@ -137,43 +137,43 @@ export default class Play extends Phaser.Scene {
 
     const backgroundObject = map.getObjectLayer('distance_bg').objects[0];
 
-    this.add.tileSprite(0, 0, this.config.width * 2,  this.config.height, 'background-night1')
+    this.add.tileSprite(0, 0, this.config.width * 2, this.config.height, 'background-night1')
       .setOrigin(0)
       .setDepth(-20)
       .setScale(0.6)
       .setScrollFactor(0.1, 1);
 
-    this.add.tileSprite(0, 0, this.config.width,  this.config.height, 'background-night2')
+    this.add.tileSprite(0, 0, this.config.width, this.config.height, 'background-night2')
       .setOrigin(0)
       .setDepth(-15)
       .setScale(1)
       .setScrollFactor(0.3, 1);
 
-      this.add.tileSprite(0, 0, this.config.width * 2,  this.config.height * 2.5, 'background1')
+    this.add.tileSprite(0, 0, this.config.width * 2, this.config.height * 2.5, 'background1')
       .setOrigin(0)
       .setDepth(-12)
       .setScale(0.7)
       .setScrollFactor(0.45, 1);
 
-      this.add.tileSprite(0, 0, this.config.width * 2,  backgroundObject.height * 4, 'background2')
+    this.add.tileSprite(0, 0, this.config.width * 2, backgroundObject.height * 4, 'background2')
       .setOrigin(0)
       .setDepth(-10)
       .setScale(0.7)
       .setScrollFactor(0.65, 1);
 
-      this.add.tileSprite(0, 0, this.config.width * 4,  backgroundObject.height * 4, 'background3')
+    this.add.tileSprite(0, 0, this.config.width * 4, backgroundObject.height * 4, 'background3')
       .setOrigin(0)
       .setDepth(-9)
       .setScale(1)
       .setScrollFactor(0.75, 1);
 
-      this.add.tileSprite(0, 0, this.config.width * 2,  this.config.height * 2, 'background4')
+    this.add.tileSprite(0, 0, this.config.width * 2, this.config.height * 2, 'background4')
       .setOrigin(0)
       .setDepth(-8)
       .setScale(.6)
       .setScrollFactor(0.85, 1);
 
-      this.add.tileSprite(0, 0, this.config.width * 2,  this.config.height * 2, 'background5')
+    this.add.tileSprite(0, 0, this.config.width * 2, this.config.height * 2, 'background5')
       .setOrigin(0)
       .setDepth(-8)
       .setScale(.6)
@@ -189,7 +189,7 @@ export default class Play extends Phaser.Scene {
     });
 
     EventEmitter.on('ENEMY_KILLED', () => {
-      this.hud.updateKillBoard(this.kills += 1)
+      this.hud.updateKillBoard(this.kills += 1);
     });
   }
 
@@ -204,12 +204,13 @@ export default class Play extends Phaser.Scene {
 
     collectables.addFromLayer(collectablesLayer);
 
+    // Customize the gem color per level (orange, blue, yellow, purple, red, or green)
     const collectablesColor = {
       1: 'gem-blue',
       2: 'gem-orange',
-    }
+    };
 
-    collectables.playAnimation(collectablesColor[this.getCurrentLevel()]);
+    collectables.playAnimation(collectablesColor[this.getCurrentLevel()] || 'gem-blue');
 
     return collectables;
   }
@@ -365,6 +366,9 @@ export default class Play extends Phaser.Scene {
 
   }
 
+  /**
+   * Method to create the Back to Menu button on the PlayScene
+   */
   createBackButton() {
     const backText = this.add.text(this.config.bottomRightCorner.x - 30, this.config.bottomRightCorner.y - 10, 'Back to Menu', { fontSize: '18px', fill: '#fff' })
       .setDepth(100)
@@ -390,6 +394,10 @@ export default class Play extends Phaser.Scene {
     });
   }
 
+  /**
+   * Helper to determine the current PlayScene level
+   * @returns PlayScene current level per Phaser registry
+   */
   getCurrentLevel() {
     return this.registry.get('level') || 1;
   }
