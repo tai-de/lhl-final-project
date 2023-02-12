@@ -89,6 +89,11 @@ export default class Preload extends Phaser.Scene {
       frameHeight: 48
     });
 
+    // Flying eye
+    this.load.spritesheet('flying-eye', 'assets/Enemies/Flying_eye/flying-eye-sheet.png', {
+      frameWidth: 48,
+      frameHeight: 64
+    });
 
     this.load.image('bat-hit1', 'assets/Enemies/Enemy01/hit01.png');
     this.load.image('bat-hit2', 'assets/Enemies/Enemy01/hit02.png');
@@ -108,6 +113,12 @@ export default class Preload extends Phaser.Scene {
     this.load.spritesheet('bomb', 'assets/Enemies/Goblin/Bomb_sprite.png', {
       frameWidth: 100,
       frameHeight: 100
+    });
+
+    //Load bomb2 (eye for flying-eye enemy)
+    this.load.spritesheet('eye', 'assets/Enemies/Flying_eye/projectile_sprite.png', {
+      frameWidth: 48,
+      frameHeight: 48
     });
 
     //Load hit effect
@@ -139,7 +150,7 @@ export default class Preload extends Phaser.Scene {
   startGame() {
     this.registry.set('level', 1);
     this.registry.set('levels-completed', 0);
-    this.scene.start('MenuScene');
+    this.scene.start('PlayScene');
   }
 
 }

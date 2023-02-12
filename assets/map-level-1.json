@@ -208,7 +208,7 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"Snake"
+                         "value":"FlyingEye"
                         }],
                  "rotation":0,
                  "visible":true,
@@ -891,9 +891,7 @@
          "tiles":[
                 {
                  "id":0,
-                 "image":"\/\/wsl$\/LHL\/home\/labber\/lhl-final-project\/assets\/Environment\/background_day1.png",
-                 "imageheight":368,
-                 "imagewidth":640
+                 "image":"..\/..\/..\/..\/..\/wsl$\/LHL\/home\/labber\/lhl-final-project\/assets\/Environment\/background_day1.png"
                 }, 
                 {
                  "id":1,
@@ -909,21 +907,15 @@
                 }, 
                 {
                  "id":3,
-                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/4.png",
-                 "imageheight":1080,
-                 "imagewidth":1980
+                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/4.png"
                 }, 
                 {
                  "id":4,
-                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/7.png",
-                 "imageheight":1080,
-                 "imagewidth":1980
+                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/7.png"
                 }, 
                 {
                  "id":5,
-                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/8.png",
-                 "imageheight":1080,
-                 "imagewidth":1980
+                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/8.png"
                 }],
          "tilewidth":1980
         }, 
@@ -944,9 +936,7 @@
          "tiles":[
                 {
                  "id":0,
-                 "image":"\/\/wsl$\/LHL\/home\/labber\/lhl-final-project\/assets\/Environment\/background_day1.png",
-                 "imageheight":368,
-                 "imagewidth":640
+                 "image":"..\/..\/..\/..\/..\/wsl$\/LHL\/home\/labber\/lhl-final-project\/assets\/Environment\/background_day1.png"
                 }, 
                 {
                  "id":1,
@@ -962,21 +952,15 @@
                 }, 
                 {
                  "id":3,
-                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/4.png",
-                 "imageheight":1080,
-                 "imagewidth":1980
+                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/4.png"
                 }, 
                 {
                  "id":4,
-                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/7.png",
-                 "imageheight":1080,
-                 "imagewidth":1980
+                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/7.png"
                 }, 
                 {
                  "id":5,
-                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/8.png",
-                 "imageheight":1080,
-                 "imagewidth":1980
+                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/8.png"
                 }],
          "tilewidth":1980
         }],
@@ -984,4 +968,4 @@
  "type":"map",
  "version":"1.9",
  "width":100
-                }
+}
