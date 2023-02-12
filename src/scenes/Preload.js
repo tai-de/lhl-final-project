@@ -11,6 +11,7 @@ export default class Preload extends Phaser.Scene {
     this.load.image('back', 'assets/back.png');
     this.load.image('play', 'assets/Menu/play.png')
     this.load.image('levels', 'assets/Menu/levels.png')
+    this.load.image('credits', 'assets/Menu/credits.png')
 
     this.load.tilemapTiledJSON('level-1', 'assets/map-level-1.json');
     this.load.tilemapTiledJSON('level-2', 'assets/map-level-2.json');
@@ -138,7 +139,7 @@ export default class Preload extends Phaser.Scene {
   startGame() {
     this.registry.set('level', 1);
     this.registry.set('levels-completed', 0);
-    this.scene.start('PlayScene');
+    this.scene.start('MenuScene');
   }
 
 }
