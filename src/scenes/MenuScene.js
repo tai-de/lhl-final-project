@@ -18,6 +18,7 @@ export default class MenuScene extends BaseScene {
 
     this.createResetButton();
     this.createPlayButton();
+    this.createLevelsButton();
   }
 
   setupMenuEvents(menuItem) {
@@ -57,15 +58,30 @@ export default class MenuScene extends BaseScene {
   }
 
   createPlayButton() {
-    const playButton = this.add.image((this.config.width / 2) - 200, this.config.height / 2 - 200 , 'play')
-      .setDepth(101)
+    const playButton = this.add.image((this.config.width / 2) - 200, (this.config.height / 10) * 4  , 'play')
+      .setDepth(100)
       .setOrigin(0, 1)
-      .setInteractive();
+      .setInteractive()
+      .setScale(0.8);
 
     playButton.input.cursor = 'pointer';
 
     playButton.on('pointerup', () => {
       this.scene.start('PlayScene');
+    });
+  }
+
+  createLevelsButton() {
+    const playButton = this.add.image((this.config.width / 2) - 200, (this.config.height / 10) * 5.5, 'levels')
+      .setDepth(100)
+      .setOrigin(0, 1)
+      .setInteractive()
+      .setScale(0.8);
+
+    playButton.input.cursor = 'pointer';
+
+    playButton.on('pointerup', () => {
+      this.scene.start('LevelScene');
     });
   }
 }
