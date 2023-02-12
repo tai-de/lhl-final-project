@@ -14,9 +14,10 @@ export default class MenuScene extends BaseScene {
   create() {
     super.create();
 
-    this.createMenu(this.menu, this.setupMenuEvents.bind(this));
+    // this.createMenu(this.menu, this.setupMenuEvents.bind(this));
 
     this.createResetButton();
+    this.createPlayButton();
   }
 
   setupMenuEvents(menuItem) {
@@ -52,6 +53,19 @@ export default class MenuScene extends BaseScene {
 
     resetLS.on('pointerup', () => {
       localStorage.clear();
+    });
+  }
+
+  createPlayButton() {
+    const playButton = this.add.image((this.config.width / 2) - 200, this.config.height / 2 - 200 , 'play')
+      .setDepth(101)
+      .setOrigin(0, 1)
+      .setInteractive();
+
+    playButton.input.cursor = 'pointer';
+
+    playButton.on('pointerup', () => {
+      this.scene.start('PlayScene');
     });
   }
 }
