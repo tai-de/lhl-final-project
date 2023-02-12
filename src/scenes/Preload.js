@@ -139,14 +139,35 @@ export default class Preload extends Phaser.Scene {
     });
 
 
-    //Load diamond
+    //Load diamond (for scoreboard)
     this.load.image('diamond', 'assets/Objects/diamond_01.png');
-    this.load.image('diamond1', 'assets/Objects/diamond_01.png');
-    this.load.image('diamond2', 'assets/Objects/diamond_02.png');
-    this.load.image('diamond3', 'assets/Objects/diamond_03.png');
-    this.load.image('diamond4', 'assets/Objects/diamond_04.png');
-    this.load.image('diamond5', 'assets/Objects/diamond_05.png');
-    this.load.image('diamond6', 'assets/Objects/diamond_06.png');
+
+    // Load new gems
+    this.load.spritesheet('gem-orange', 'assets/Objects/gem01orange.png', {
+      frameWidth: 16,
+      frameHeight: 16
+    });
+    this.load.spritesheet('gem-blue', 'assets/Objects/gem02blue.png', {
+      frameWidth: 16,
+      frameHeight: 16
+    });
+    this.load.spritesheet('gem-yellow', 'assets/Objects/gem03yellow.png', {
+      frameWidth: 16,
+      frameHeight: 16
+    });
+    this.load.spritesheet('gem-purple', 'assets/Objects/gem04purple.png', {
+      frameWidth: 16,
+      frameHeight: 16
+    });
+    this.load.spritesheet('gem-red', 'assets/Objects/gem05red.png', {
+      frameWidth: 16,
+      frameHeight: 16
+    });
+    this.load.spritesheet('gem-green', 'assets/Objects/gem06green.png', {
+      frameWidth: 16,
+      frameHeight: 16
+    });
+
 
     this.load.once('complete', () => {
       this.startGame();

@@ -61,17 +61,64 @@ export default anims => {
   });
 
   anims.create({
-    key: 'diamond',
-    frames: [
-      { key: 'diamond1' },
-      { key: 'diamond2' },
-      { key: 'diamond3' },
-      { key: 'diamond4' },
-      { key: 'diamond5' },
-      { key: 'diamond6' }
-    ],
+    key: 'gem-orange',
+    frames: anims.generateFrameNumbers('gem-orange', {
+      start: 0,
+      end: 7,
+    }),
     frameRate: 5,
     repeat: -1,
   });
+
+  anims.create({
+    key: 'gem-blue',
+    frames: anims.generateFrameNumbers('gem-blue', {
+      start: 0,
+      end: 7,
+    }),
+    frameRate: 5,
+    repeat: -1,
+  });
+
+  anims.create({
+    key: 'gem-yellow',
+    frames: anims.generateFrameNumbers('gem-yellow', {
+      start: 0,
+      end: 7,
+    }),
+    frameRate: 5,
+    repeat: -1,
+  });
+
+  anims.create({
+    key: 'gem-purple',
+    frames: anims.generateFrameNumbers('gem-purple', {
+      start: 0,
+      end: 7,
+    }),
+    frameRate: 5,
+    repeat: -1,
+  });
+
+  anims.create({
+    key: 'gem-red',
+    frames: anims.generateFrameNumbers('gem-red', {
+      start: 0,
+      end: 7,
+    }),
+    frameRate: 5,
+    repeat: -1,
+  });
+
+  anims.create({
+    key: 'gem-green',
+    frames: anims.generateFrameNumbers('gem-green', {
+      start: 0,
+      end: 7,
+    }),
+    frameRate: 5,
+    repeat: -1,
+  });
+
 
 };

@@ -30,9 +30,9 @@ export default class Play extends Phaser.Scene {
 
     const layers = this.createLayers(map);
     const gameZones = this.getPlayerZones(layers.gameZones);
+    const collectables = this.createCollectables(layers.collectables);
     const player = this.createPlayer(gameZones.start);
     const enemies = this.createEnemies(layers.enemySpawns, layers.platforms2);
-    const collectables = this.createCollectables(layers.collectables);
 
     this.hud = new Hud(this, 0, 0);
     this.createBackground(map);
@@ -200,11 +200,16 @@ export default class Play extends Phaser.Scene {
    * @returns 
    */
   createCollectables(collectablesLayer) {
-    const collectables = new Collectables(this).setDepth(-1);
+    const collectables = new Collectables(this).setDepth(-5);
 
     collectables.addFromLayer(collectablesLayer);
 
-    collectables.playAnimation('diamond');
+    const collectablesColor = {
+      1: 'gem-blue',
+      2: 'gem-orange',
+    }
+
+    collectables.playAnimation(collectablesColor[this.getCurrentLevel()]);
 
     return collectables;
   }
