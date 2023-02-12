@@ -208,7 +208,7 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"Mushroom"
+                         "value":"Snake"
                         }],
                  "rotation":0,
                  "visible":true,
