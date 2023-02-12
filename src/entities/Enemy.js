@@ -2,6 +2,8 @@ import Phaser from "phaser";
 import collidable from "../mixins/collidable";
 import anims from '../mixins/anims';
 
+import EventEmitter from "../events/Emitter";
+
 export default class Enemies extends Phaser.Physics.Arcade.Sprite {
   constructor(scene, x, y, key) {
     super(scene, x, y, key);
@@ -61,6 +63,7 @@ export default class Enemies extends Phaser.Physics.Arcade.Sprite {
       this.setActive(false);
       this.rayGraphics.clear();
       this.destroy();
+      EventEmitter.emit('ENEMY_KILLED');
       return;
     }
 

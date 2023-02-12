@@ -91,13 +91,13 @@ export default class Hud extends Phaser.GameObjects.Container {
   }
 
   /**
-   * Updates the scoreBoard container with the given score value
-   * @param {number} score Player score
+   * Updates the killBoard container with the given kill value
+   * @param {number} kills Player kills
    */
-  updateKillBoard(score) {
+  updateKillBoard(kills) {
     const [killText, killImage] = this.getByName('killBoard').list;
-    killText.setText(score);
-    killText.setX(scoreText.width + 5);
+    killText.setText(kills);
+    killText.setX(killText.width + 5);
   }
 
 }

@@ -187,6 +187,10 @@ export default class Play extends Phaser.Scene {
     EventEmitter.on('PLAYER_LOSE', () => {
       this.scene.restart({ gameStatus: 'PLAYER_LOSE' });
     });
+
+    EventEmitter.on('ENEMY_KILLED', () => {
+      this.hud.updateKillBoard(this.kills += 1)
+    });
   }
 
   /**
