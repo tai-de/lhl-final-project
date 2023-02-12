@@ -6,12 +6,21 @@
 
   <title>Labber's Fantasy Adventure</title>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+    integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+
 
   <style>
     body {
@@ -21,32 +30,23 @@
       flex-direction: column;
       justify-content: space-between;
       background-color: #333;
-      margin:auto;
-      font-family: 'Press Start 2P', cursive;
+      margin: auto;
+      font-family: 'Silkscreen', cursive;
 
       max-width: 1280px;
       /* max-height: 400px; */
     }
 
-    .modal {
-      max-height: 75%;
-    }
-
-    article,
-    article>* {
-      /* border: 1px solid black; */
-    }
-
     .enemy-section {
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
+      justify-content: space-around;
       align-items: center;
     }
 
     .enemy-image-container {
-      width: 20%;
-      height: 100%;
+      width: 140px;
+      height: 140px;
       text-align: center;
     }
 
@@ -59,11 +59,6 @@
 
     .enemy-info-container {
       width: 80%;
-    }
-
-    .credits-section,
-    .credits-section>* {
-      /* border: 1px solid black; */
     }
 
     .credits-section {
@@ -86,7 +81,7 @@
       flex-grow: 2;
     }
 
-    .credits-img>img {
+    .sprite {
       transform: scale(2);
       image-rendering: pixelated;
       image-rendering: -moz-crisp-edges;
@@ -105,8 +100,8 @@
       max-width: 1280px;
       background-color: #333;
     }
-
   </style>
+
 </head>
 
 <body>
@@ -134,15 +129,45 @@
     </div>
   </nav>
 
+  <!-- WELCOME MODAL -->
+  <div class="modal fade" id="welcomeModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="welcomeModal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-md">
+      <div class="modal-content bg-light"> <!-- bg color of modal-->
+        <div class="modal-header">
+          <p class="modal-title fs-4 mx-auto" id="welcomeModal">Congratulations, friends!</p>
+        </div>
+        <div class="modal-body px-3 lh-lg">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <img class="sprite mx-3" src="/assets/Website/player-idle.png" />
+            <p>You are <strong>Labber</strong>, a recent Lighthouse Labs graduate who, after 3 months of
+              extensive study, have finally found some time to close your eyes and get some well-deserved sleep.</p>
+          </div>
+          <p>But just as you're about to drift off, you find yourself thrown into a fantasy world, full of
+            monsters, traps, and other mysterious dangers.</p>
+          <p>Missing curly braces, recursion, and undefined variables don't sound too bad now, do they?</p>
+          <button type="button" class="btn btn-sm btn-success w-100" data-bs-dismiss="modal">Let the adventure begin!</button>
+        </div>
+        <div class="modal-footer">
+          <p class="text-black-50 mx-auto">Thanks for playing!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- CONTROLS MODAL -->
   <div class="modal fade" id="controlsModal" tabindex="-1" aria-labelledby="controlsModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-md">
-      <div class="modal-content bg-light"> <!-- bg color of modal-->
+      <div class="modal-content bg-light w-80"> <!-- bg color of modal-->
         <div class="modal-header">
           <h1 class="modal-title text-black-50 fs-5" id="controlsModal">Controls</h1>
           <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
         <div class="modal-body">
+          <div class="enemy-image-container">
+            <h5>Labber</h5>
+            <img class="sprite" src="/assets/Website/player-idle.png" />
+          </div>
           <h5>Movement</h5>
           <ul>
             <li>LEFT / RIGHT - Move</li>
@@ -150,10 +175,21 @@
           </ul>
 
           <h5>Attacks</h5>
-          <p>Your current attack changes depending on the level.</p>
           <ul>
-            <li>SPACE - Attack</li>
+            <li>SPACE - Basic</li>
+            <li>X - Fireball</li>
           </ul>
+          <p class="text-black-50">Available attacks unlock as you progress.</p>
+          <article class="enemy-section">
+            <div class="enemy-image-container">
+              <h5>L1 Basic</h5>
+              <img class="sprite" src="/assets/Website/player-sword.png" />
+            </div>
+            <div class="enemy-image-container">
+              <h5>L2+ Fireball</h5>
+              <img class="sprite" src="/assets/Website/player-fireball.png" />
+            </div>
+          </article>
         </div>
         <div class="modal-footer">
         </div>
@@ -170,14 +206,32 @@
           <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
         <div class="modal-body">
+          <p class="fs-2 text-info">Patrol</p>
+          <p class="fs-6 text-black-50">These enemies won't go out of their way to attack you, but they will do damage
+            on contact. Watch your footing and be careful how close you get!</p>
           <article class="enemy-section">
             <div class="enemy-image-container">
-              <img class="enemy-image" src="/assets/Enemies/Enemy01/fly07.png" />
+              <h5>Bat</h5>
+              <img class="sprite" src="/assets/Website/bat.png" />
+            </div>
+            <div class="enemy-image-container">
+              <h5>Mushroom</h5>
+              <img class="sprite" src="/assets/Website/mushroom.png" />
+            </div>
+          </article>
+
+          <p class="fs-2 text-danger">Ranged</p>
+          <p class="fs-6 text-black-50">These enemies are ranged attackers. In addition to doing damage on contact, they
+            shoot/throw a variety of projectiles.</p>
+          <article class="enemy-section">
+            <div class="enemy-image-container">
+              <br />
+              <img class="sprite" src="/assets/Website/snake.png" />
             </div>
             <div class="enemy-info-container">
-              <h5>Bat</h5>
-              <p>The bat is a patroling enemy. It won't go out of its way to attack you, but getting hit by a bat will
-                leave you with some damage.</p>
+              <h5>Snake</h5>
+              <p>The snake is a magical being with the ability to shoot ice beams. Watch out, as it shoots icy
+                projectiles which do significant damage!</p>
             </div>
           </article>
 
@@ -185,13 +239,28 @@
 
           <article class="enemy-section">
             <div class="enemy-image-container">
-              <img class="enemy-image" src="/assets/Enemies/Enemy05/idle00.png" />
+              <br />
+              <img class="sprite" src="/assets/Website/flying-eye.png" />
             </div>
             <div class="enemy-info-container">
-              <h5>Snake</h5>
-              <p>The snake is a magical being with the ability to shoot ice beams. Watch out, as it shoots icy
-                projectiles which do significant damage!</p>
+              <h5>Flying Eye</h5>
+              <p>The flying eye patrols from the sky and throws explosive bombs made from the eyes of its fallen
+                siblings.</p>
             </div>
+          </article>
+
+          <hr />
+
+          <article class="enemy-section">
+            <div class="enemy-image-container">
+              <br />
+              <img class="sprite" src="/assets/Website/goblin.png" />
+            </div>
+            <div class="enemy-info-container">
+              <h5>Goblin</h5>
+              <p>The goblin is a fast enemy. It runs chaotically as it throws bombs, keeping threats at a distance.</p>
+            </div>
+          </article>
         </div>
         <div class="modal-footer">
         </div>
@@ -212,7 +281,7 @@
             <div class="credits-img w-100">
               <img src="/assets/Enemies/Enemy03/idle01.png"" />
             </div>
-            <div class="credits-bio">
+            <div class=" credits-bio">
               <div class="credits-bio-header">
                 <span class="fs-5">Tai Delisle</span>
 
@@ -245,9 +314,12 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-    crossorigin="anonymous"></script>
+
+  <script>
+    $().ready(() => {
+      $('#welcomeModal').modal('toggle');
+    })
+  </script>
 
 </body>
 
