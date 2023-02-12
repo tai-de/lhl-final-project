@@ -3,6 +3,7 @@ import BaseScene from './BaseScene';
 export default class LevelScene extends BaseScene {
   constructor(config) {
     super('LevelScene', { ...config, canGoBack: true });
+    this.finalLevel = config.finalLevel;
   }
 
   create() {
@@ -12,11 +13,11 @@ export default class LevelScene extends BaseScene {
 
     const levelsCompleted = localStorage.getItem('levels-completed') || 0;
 
-    for (let i = 1; i <= levelsCompleted; i++) {
+    for (let i = 0; i <= levelsCompleted && i < this.finalLevel; i++) {
       this.menu.push({
         scene: 'PlayScene',
-        text: `Level ${i}`,
-        level: i
+        text: `Level ${i+1}`,
+        level: i + 1
       });
     }
 
