@@ -12,11 +12,10 @@ export default anims => {
 
   anims.create({
     key: 'bat-hurt',
-    frames: [
-      { key: 'bat-hit1' },
-      { key: 'bat-hit2' },
-      { key: 'bat-hit3' }
-    ],
+    frames: anims.generateFrameNumbers('bat', {
+      start: 7,
+      end: 9,
+    }),
     frameRate: 6,
     repeat: 0
   });
