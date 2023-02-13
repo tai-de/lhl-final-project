@@ -5,7 +5,7 @@
   <meta charset="utf-8">
 
   <title>Labber's Fantasy Adventure</title>
-  <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/Website/favicon.ico">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
     integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
@@ -152,7 +152,7 @@
           <p>But just as you're about to drift off, you find yourself thrown into a fantasy world, full of
             monsters, traps, and other mysterious dangers.</p>
           <p>Missing curly braces, recursion, and undefined variables don't sound too bad now, do they?</p>
-          <button type="button" class="btn btn-sm btn-success w-100" data-bs-dismiss="modal">Let the adventure
+          <button type="button" id="see-welcome" class="btn btn-sm btn-success w-100" data-bs-dismiss="modal">Let the adventure
             begin!</button>
         </div>
         <div class="modal-footer">
@@ -178,13 +178,13 @@
           <h5>Movement</h5>
           <ul>
             <li>LEFT / RIGHT - Move</li>
-            <li>UP - Jump</li>
+            <li>SPACE - Jump</li>
           </ul>
 
           <h5>Attacks</h5>
           <ul>
-            <li>SPACE - Basic</li>
-            <li>X - Fireball</li>
+            <li>X - Basic</li>
+            <li>Z - Fireball</li>
           </ul>
           <p class="text-black-50">Available attacks unlock as you progress.</p>
           <article class="enemy-section">
@@ -351,9 +351,15 @@
 
 
   <script>
-    // $().ready(() => {
-    //   $('#welcomeModal').modal('toggle');
-    // })
+    $().ready(() => {
+      const seeWelcomeBtn = document.getElementById('see-welcome');
+      seeWelcomeBtn.addEventListener('click', () => {
+        localStorage.setItem('welcome-read', true);
+      });
+
+      const hasSeenWelcome = localStorage.getItem('welcome-read')
+      !hasSeenWelcome && $('#welcomeModal').modal('toggle');
+    })
   </script>
 
 </body>
