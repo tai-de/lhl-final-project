@@ -8,7 +8,7 @@ import CreditsScene from './scenes/Credits';
 
 const WIDTH = document.body.offsetWidth;
 const HEIGHT = 600;
-const MAPWIDTH = 4800;
+const MAPWIDTH = 1600;
 const ZOOMFACTOR = 1.5;
 
 // Shared configuration object will be passed through to all scenes
@@ -30,7 +30,7 @@ const SHARED_CONFIG = {
     x: (WIDTH / ZOOMFACTOR) + ((WIDTH - (WIDTH / ZOOMFACTOR)) / 2),
     y: (HEIGHT / ZOOMFACTOR) + ((HEIGHT - (HEIGHT / ZOOMFACTOR)) / 2)
   },
-  finalLevel: 2,
+  finalLevel: 3,
 };
 
 const Scenes = [
