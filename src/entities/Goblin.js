@@ -13,8 +13,11 @@ export default class Goblin extends Enemy {
   init() {
     super.init();
 
+    this.health = 80;
     this.speed = 80;
+    this.maxDistance = 175;
     this.setSize(18, 32);
+    this.setOffset(10, 16)
     this.timeFromLastAttack = null;
     this.attackDelay = Phaser.Math.Between(250, 500);
     this.lastDirection = null;

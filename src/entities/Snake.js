@@ -13,7 +13,6 @@ export default class Snake extends Enemy {
   init() {
     super.init();
 
-    this.speed = 30;
     this.setSize(18, 45);
     this.setOffset(8, 15);
     this.timeFromLastAttack = null;

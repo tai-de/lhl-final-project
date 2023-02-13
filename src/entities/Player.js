@@ -70,7 +70,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.playerHit = this.scene.sound.add('player-hit');
     this.playerDeath = this.scene.sound.add('player-death');
 
-    this.scene.input.keyboard.on('keydown-SPACE', () => {
+    this.scene.input.keyboard.on('keydown-X', () => {
       if (this.timeFromLastSwing && this.timeFromLastSwing + this.meleeWeapon.attackSpeed > getTimestamp()) {
         return;
       }
@@ -81,7 +81,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
       this.timeFromLastSwing = getTimestamp();
     });
 
-    this.scene.input.keyboard.on('keydown-X', () => {
+    this.scene.input.keyboard.on('keydown-Z', () => {
       if (this.completedLevels < 1) { return; } // Restricts fireball to having completed level 1
 
       this.play('throw', true);
@@ -105,12 +105,12 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
       EventEmitter.emit('PLAYER_LOSE');
       return;
     }
-    const { left, right, up } = this.cursors;
+    const { left, right, space } = this.cursors;
 
     const onFloor = this.body.onFloor();
 
-    // Checking if up was just pressed to prevent duplicate
-    const isUpJustDown = Phaser.Input.Keyboard.JustDown(up);
+    // Checking if jump was just pressed to prevent duplicate
+    const isSpaceJustDown = Phaser.Input.Keyboard.JustDown(space);
 
     // Regular L/R movement
     if (left.isDown) {
@@ -128,7 +128,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     }
 
     // Jumping only when on the floor
-    if (isUpJustDown && onFloor) {
+    if (isSpaceJustDown && onFloor) {
       this.setVelocityY(-this.playerSpeed * 2);
       this.jump.play();
     }

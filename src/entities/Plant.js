@@ -12,6 +12,8 @@ export default class Plant extends Enemy {
   init () {
     super.init();
 
+    this.health = 100;
+    this.damage = 30;
     this.speed = 0;
     this.maxDistance = 0;
     this.setSize(28, 40);

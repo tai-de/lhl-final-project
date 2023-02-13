@@ -13,6 +13,7 @@ export default class Mushroom extends Enemy {
     super.init();
 
     this.speed = 40;
+    this.maxDistance = 150;
     this.setSize(24, 35);
     this.setOffset(12, 12)
   }
