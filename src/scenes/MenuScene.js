@@ -59,9 +59,9 @@ export default class MenuScene extends BaseScene {
   }
 
   createPlayButton() {
-    const playButton = this.add.image((this.config.width / 2) - 200, (this.config.height / 10) * 4  , 'play')
+    const playButton = this.add.image((this.config.width / 2), (this.config.height / 10) * 4  , 'play')
       .setDepth(100)
-      .setOrigin(0, 1)
+      .setOrigin(0.5, 1)
       .setInteractive()
       .setScale(0.8);
 
@@ -73,9 +73,9 @@ export default class MenuScene extends BaseScene {
   }
 
   createLevelsButton() {
-    const levelsButton = this.add.image((this.config.width / 2) - 200, (this.config.height / 10) * 5.5, 'levels')
+    const levelsButton = this.add.image((this.config.width / 2), (this.config.height / 10) * 5.5, 'levels')
       .setDepth(100)
-      .setOrigin(0, 1)
+      .setOrigin(0.5, 1)
       .setInteractive()
       .setScale(0.8);
 
@@ -87,9 +87,9 @@ export default class MenuScene extends BaseScene {
   }
 
   createCreditsButton() {
-    const creditsButton = this.add.image((this.config.width / 2) - 200, (this.config.height / 10) * 7, 'credits')
+    const creditsButton = this.add.image((this.config.width / 2), (this.config.height / 10) * 7, 'credits')
       .setDepth(100)
-      .setOrigin(0, 1)
+      .setOrigin(0.5, 1)
       .setInteractive()
       .setScale(0.8);
 
