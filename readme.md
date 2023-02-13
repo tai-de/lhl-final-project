@@ -27,6 +27,14 @@ Once all of the base functionality had been implemented, we were able to further
 
    https://user-images.githubusercontent.com/106140388/218383859-33586cf3-0b47-4e04-ba1b-bfd9cc03e266.mp4
 
+## Take-aways
+
+Due to a limited development window of one week, we ensured that our focus was on core functionality and having a working demo. Given more time, some additional features that would have been added include:
+
+* Database for high scores / high kill counts
+* Database for user accounts / saving game progress
+* Further refinement of the look & feel of the game
+
 ## Set up
 
 1. Download or clone this repo to your machine
