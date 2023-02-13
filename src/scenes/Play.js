@@ -230,6 +230,7 @@ export default class Play extends Phaser.Scene {
     const collectablesColor = {
       1: 'gem-blue',
       2: 'gem-orange',
+      3: 'gem-purple',
     };
 
     collectables.playAnimation(collectablesColor[this.getCurrentLevel()] || 'gem-blue');
