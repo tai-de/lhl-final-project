@@ -47,11 +47,18 @@ export default class BaseScene extends Phaser.Scene {
     let lastMenuYPosition = 0;
 
     menu.forEach(menuItem => {
-      const menuPosition = [this.screenCenter.x, this.screenCenter.y + lastMenuYPosition];
+      const menuPosition = [this.screenCenter.x, this.screenCenter.y - 100 + lastMenuYPosition];
 
       menuItem.textObject = this.add.text(...menuPosition, menuItem.text, this.fontStyles)
-        .setOrigin(0.5, 1);
+        .setOrigin(0.5, 1)
+        .setDepth(10);
+
+      this.add.rectangle(this.screenCenter.x, this.screenCenter.y - 100 + lastMenuYPosition, menuItem.textObject.width + 50, menuItem.textObject.height, 0x000000)
+        .setOrigin(0.5, 1)
+        .setAlpha(0.5);
+
       lastMenuYPosition += this.lineHeight;
+
       setupMenuEvents(menuItem);
     });
   }
