@@ -351,8 +351,9 @@ export default class Play extends Phaser.Scene {
    */
   setupCameraOn(player) {
     const { width, height, mapOffset, zoomFactor } = this.config;
-    this.physics.world.setBounds(0, 0, width + mapOffset, height + 200);
-    this.cameras.main.setBounds(0, 0, width + mapOffset, height).setZoom(zoomFactor);
+    this.physics.world.setBounds(0, 0, width + mapOffset, height + 250);
+    //Added +40 so that bottom of level is not cut off
+    this.cameras.main.setBounds(0, 0, width + mapOffset, height + 40).setZoom(zoomFactor);
     this.cameras.main.startFollow(player);
     this.cameras.main.roundPixels = true;
   }
