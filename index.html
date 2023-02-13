@@ -152,7 +152,8 @@
           <p>But just as you're about to drift off, you find yourself thrown into a fantasy world, full of
             monsters, traps, and other mysterious dangers.</p>
           <p>Missing curly braces, recursion, and undefined variables don't sound too bad now, do they?</p>
-          <button type="button" id="see-welcome" class="btn btn-sm btn-success w-100" data-bs-dismiss="modal">Let the adventure
+          <button type="button" id="see-welcome" class="btn btn-sm btn-success w-100" data-bs-dismiss="modal">Let the
+            adventure
             begin!</button>
         </div>
         <div class="modal-footer">
@@ -171,23 +172,26 @@
           <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
         <div class="modal-body">
-          <div class="enemy-image-container">
-            <h5>Labber</h5>
-            <img class="sprite" src="/assets/Website/player-idle.png" />
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="enemy-image-container">
+              <br />
+              <img class="sprite" src="/assets/Website/player-idle.png" />
+            </div>
+            <div>
+              <h5>Movement</h5>
+              <ul>
+                <li>A / D or LEFT / RIGHT - Move</li>
+                <li>SPACE or UP - Jump</li>
+              </ul>
+            </div>
           </div>
-          <h5>Movement</h5>
-          <ul>
-            <li>A / D or LEFT / RIGHT - Move</li>
-            <li>SPACE or UP - Jump</li>
-          </ul>
-
           <h5>Attacks</h5>
           <ul>
             <li>X - Basic</li>
             <li>Z - Fireball</li>
           </ul>
-          <p class="text-black-50">Available attacks unlock as you progress.</p>
-          <article class="enemy-section">
+          <p class="text-black-50">Attacks unlock as you progress.</p>
+          <article class="enemy-section py-2 bg-secondary bg-opacity-25">
             <div class="enemy-image-container">
               <h5>L1 Basic</h5>
               <img class="sprite" src="/assets/Website/player-sword.png" />
@@ -303,7 +307,9 @@
               </div>
 
               <div class="credits-bio-content">
-                <span class="credits-bio ps-3">A full-stack developer with a passion for learning, problem solving, and finding new ways to put his skills to the test. This was Tai's first entry into game development and, after learning how Phaser works, he is looking forward to diving into other game dev tools.</span>
+                <span class="credits-bio ps-3">A full-stack developer with a passion for learning, problem solving, and
+                  finding new ways to put his skills to the test. This was Tai's first entry into game development and,
+                  after learning how Phaser works, he is looking forward to diving into other game dev tools.</span>
               </div>
             </div>
           </article>
@@ -325,7 +331,9 @@
               </div>
 
               <div class="credits-bio-content">
-                <span class="credits-bio ps-3">A Software Developer and Technical Support Specialist, that enjoys learning new skills and working with others. Always striving for excellence. Happy to share this game with others.</span>
+                <span class="credits-bio ps-3">A Software Developer and Technical Support Specialist, that enjoys
+                  learning new skills and working with others. Always striving for excellence. Happy to share this game
+                  with others.</span>
               </div>
             </div>
           </article>
@@ -335,7 +343,8 @@
           <!-- ART & RESOURCES CREDIT SECTION -->
           <h5>Art & Resources</h5>
           <ul>
-            <li><a target="_blank" href="https://szadiart.itch.io/">Szadi</a>: Enemy sprites (bat/snake) & level tilesets</li>
+            <li><a target="_blank" href="https://szadiart.itch.io/">Szadi</a>: Enemy sprites (bat/snake) & level
+              tilesets</li>
             <li><a target="_blank" href="https://dreamir.itch.io/">Dreamir</a>: Player sprites</li>
             <li><a target="_blank" href="https://luizmelo.itch.io/">LuizMelo</a>: Enemy sprites (goblin, flying eye,
               mushroom)</li>
@@ -357,7 +366,7 @@
         localStorage.setItem('welcome-read', true);
       });
 
-      const hasSeenWelcome = localStorage.getItem('welcome-read')
+      const hasSeenWelcome = localStorage.getItem('welcome-read');
       !hasSeenWelcome && $('#welcomeModal').modal('toggle');
     })
   </script>
