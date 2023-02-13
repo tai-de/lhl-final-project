@@ -42,7 +42,15 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.setOrigin(0.5, 1);
     this.setScale(1.1);
 
-    this.cursors = this.scene.input.keyboard.createCursorKeys();
+    this.cursors = this.scene.input.keyboard.addKeys({
+      'a': Phaser.Input.Keyboard.KeyCodes.A,
+      'd': Phaser.Input.Keyboard.KeyCodes.D,
+      'space': Phaser.Input.Keyboard.KeyCodes.SPACE,
+      'left': Phaser.Input.Keyboard.KeyCodes.LEFT,
+      'right': Phaser.Input.Keyboard.KeyCodes.RIGHT,
+      'up': Phaser.Input.Keyboard.KeyCodes.UP,
+    });
+    // this.cursors = this.scene.input.keyboard.createCursorKeys();
 
     this.body.setGravityY(this.gravity);
     this.setCollideWorldBounds(true);
@@ -105,20 +113,20 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
       EventEmitter.emit('PLAYER_LOSE');
       return;
     }
-    const { left, right, space } = this.cursors;
+    const { left, right, up, space, a, d } = this.cursors;
 
     const onFloor = this.body.onFloor();
 
     // Checking if jump was just pressed to prevent duplicate
-    const isSpaceJustDown = Phaser.Input.Keyboard.JustDown(space);
+    const isJumpActive = Phaser.Input.Keyboard.JustDown(space) || Phaser.Input.Keyboard.JustDown(up);
 
     // Regular L/R movement
-    if (left.isDown) {
+    if (left.isDown || a.isDown) {
       this.setVelocityX(-this.playerSpeed);
       this.setFlipX(true);
       this.setOrigin(0, 1);
       this.lastDirection = Phaser.Physics.Arcade.FACING_LEFT;
-    } else if (right.isDown) {
+    } else if (right.isDown || d.isDown) {
       this.setVelocityX(this.playerSpeed);
       this.setFlipX(false);
       this.setOrigin(0, 1);
@@ -128,7 +136,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     }
 
     // Jumping only when on the floor
-    if (isSpaceJustDown && onFloor) {
+    if (isJumpActive && onFloor) {
       this.setVelocityY(-this.playerSpeed * 2);
       this.jump.play();
     }
