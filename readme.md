@@ -17,9 +17,8 @@ We coded 90% of the game via Live Share / pair programming. It was crucial for u
 
 ## Screenshots
 
-TBD
+[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://github.com/tai-de/lhl-final-project/blob/main/trailer/labberstrailer%20.mp4)
 
-https://github.com/tai-de/lhl-final-project/blob/main/trailer/labberstrailer%20.mp4
 ## Set up
 
 1. Download or clone this repo to your machine
