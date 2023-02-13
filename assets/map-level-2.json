@@ -976,6 +976,19 @@
                  "imagewidth":640
                 }],
          "tilewidth":640
+        }, 
+        {
+         "columns":64,
+         "firstgid":6404,
+         "image":"Environment\/crystal_world_tiles.png",
+         "imageheight":1024,
+         "imagewidth":1024,
+         "margin":0,
+         "name":"crystal_world_tiles",
+         "spacing":0,
+         "tilecount":4096,
+         "tileheight":16,
+         "tilewidth":16
         }],
  "tilewidth":16,
  "type":"map",

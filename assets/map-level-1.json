@@ -974,15 +974,21 @@
                 }, 
                 {
                  "id":3,
-                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/4.png"
+                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/4.png",
+                 "imageheight":1080,
+                 "imagewidth":1980
                 }, 
                 {
                  "id":4,
-                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/7.png"
+                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/7.png",
+                 "imageheight":1080,
+                 "imagewidth":1980
                 }, 
                 {
                  "id":5,
-                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/8.png"
+                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/8.png",
+                 "imageheight":1080,
+                 "imagewidth":1980
                 }],
          "tilewidth":1980
         }, 
@@ -1021,17 +1027,36 @@
                 }, 
                 {
                  "id":3,
-                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/4.png"
+                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/4.png",
+                 "imageheight":1080,
+                 "imagewidth":1980
                 }, 
                 {
                  "id":4,
-                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/7.png"
+                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/7.png",
+                 "imageheight":1080,
+                 "imagewidth":1980
                 }, 
                 {
                  "id":5,
-                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/8.png"
+                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/8.png",
+                 "imageheight":1080,
+                 "imagewidth":1980
                 }],
          "tilewidth":1980
+        }, 
+        {
+         "columns":64,
+         "firstgid":6415,
+         "image":"Environment\/crystal_world_tiles.png",
+         "imageheight":1024,
+         "imagewidth":1024,
+         "margin":0,
+         "name":"crystal_world_tiles",
+         "spacing":0,
+         "tilecount":4096,
+         "tileheight":16,
+         "tilewidth":16
         }],
  "tilewidth":16,
  "type":"map",
