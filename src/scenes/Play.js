@@ -89,8 +89,11 @@ export default class Play extends Phaser.Scene {
   createMap() {
     const map = this.make.tilemap({ key: `level-${this.getCurrentLevel()}` });
 
+    // Associate tileset image with Tiled data
+    // First key is the name of the tileset per Tiled, second is the Phaser preload key
     map.addTilesetImage('mainlevbuild', 'tileset-1-main');
     map.addTilesetImage('decorative_obj', 'tileset-1-objs');
+    map.addTilesetImage('crystal_world_tiles', 'crystal-world-tiles');
 
     return map;
   }
@@ -102,16 +105,35 @@ export default class Play extends Phaser.Scene {
    * @returns object referencing the tilemap's layers
    */
   createLayers(map) {
-    // Gets tileset image that was created in prev helper function
-    const tileset1 = map.getTileset('mainlevbuild');
-    const tileset2 = map.getTileset('decorative_obj');
-    const environment = map.createLayer('environment', tileset2).setDepth(-2);
-    const platforms2 = map.createLayer('platforms_collider', tileset1).setAlpha(0); // Collider layer for platforms/world objects
-    const platforms = map.createLayer('platforms', tileset1);
+    const currentLevel = this.getCurrentLevel();
+    
+    // Object holding info about levels & their respective tilesets
+    const levelTilesets = {
+      1: { // These are the defaults, will be used by any levels that don't explicitly specify a different tileset
+        platforms: 'mainlevbuild',
+        platformColliders: 'mainlevbuild',
+        environment: 'decorative_obj',
+        traps: 'mainlevbuild'
+      },
+      3: {
+        platforms: 'crystal_world_tiles',
+        platformColliders: 'crystal_world_tiles',
+        environment: 'crystal_world_tiles',
+        traps: 'crystal_world_tiles'
+      }
+    }
+    const platformsTiles = map.getTileset(levelTilesets[currentLevel] && levelTilesets[currentLevel].platforms || 'mainlevbuild');
+    const platformCollidersTiles = map.getTileset(levelTilesets[currentLevel] && levelTilesets[currentLevel].platformColliders || 'mainlevbuild');
+    const environmentTiles = map.getTileset(levelTilesets[currentLevel] && levelTilesets[currentLevel].environment || 'decorative_obj');
+    const trapsTiles = map.getTileset(levelTilesets[currentLevel] && levelTilesets[currentLevel].traps || 'mainlevbuild');
+
+    const platforms2 = map.createLayer('platforms_collider', platformCollidersTiles).setAlpha(0); // Collider layer for platforms/world objects
+    const platforms = map.createLayer('platforms', platformsTiles);
+    const environment = map.createLayer('environment', environmentTiles);
     const gameZones = map.getObjectLayer('game_zones');
     const enemySpawns = map.getObjectLayer('enemy_spawns');
     const collectables = map.getObjectLayer('collectables');
-    const traps = map.createLayer('traps', tileset1);
+    const traps = map.createLayer('traps', trapsTiles);
 
     platforms2.setCollisionByExclusion(-1, true);
     traps.setCollisionByExclusion(-1);
