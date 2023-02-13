@@ -4,6 +4,8 @@ export default class MenuScene extends BaseScene {
   constructor(config) {
     super('MenuScene', config);
 
+    this.config = config;
+
     this.menu = [
       { scene: 'PlayScene', text: 'Start' },
       { scene: 'LevelScene', text: 'Levels' },
@@ -16,7 +18,7 @@ export default class MenuScene extends BaseScene {
 
     // this.createMenu(this.menu, this.setupMenuEvents.bind(this));
 
-    this.createResetButton();
+    this.config.debug && this.createResetButton();
     this.createPlayButton();
     this.createLevelsButton();
     this.createCreditsButton();
