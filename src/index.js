@@ -8,7 +8,7 @@ import CreditsScene from './scenes/Credits';
 
 const WIDTH = document.body.offsetWidth;
 const HEIGHT = 600;
-const MAPWIDTH = 1600;
+const MAPWIDTH = 4800;
 const ZOOMFACTOR = 1.5;
 
 // Shared configuration object will be passed through to all scenes
