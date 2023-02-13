@@ -18,7 +18,7 @@ We coded 90% of the game via Live Share / pair programming. It was crucial for u
 ## Screenshots
 
 ## Video Trailer
-<img https://user-images.githubusercontent.com/106140388/218383859-33586cf3-0b47-4e04-ba1b-bfd9cc03e266.mp4 width="600"/>
+<img src="https://user-images.githubusercontent.com/106140388/218383859-33586cf3-0b47-4e04-ba1b-bfd9cc03e266.mp4" width="600"/>
 
 ## Set up
 
