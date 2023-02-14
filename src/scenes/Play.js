@@ -92,10 +92,10 @@ export default class Play extends Phaser.Scene {
     // Get the tilsets for the current level (pulled from the Tiled JSON)
     const levelTilesets = map.tilesets;
 
-    // List of all the tileset names we are using
+    // List of all the tileset names we are using (file names as displayed in Tiled)
     const tilesetNames = ['mainlevbuild', 'decorative_obj', 'crystal_world_tiles', 'grave_world_tileset', 'gravebg', 'Mine_Tile_tileset'];
 
-    // Go through the levelTilesets and if the tileset is used, create a tilesetImage
+    // Go through the levelTilesets and if the tileset is used, create a tilesetImage using the file name & Preload image key
     levelTilesets.forEach(tileset => {
       if (tilesetNames.includes(tileset.name)) {
         tileset.name === 'mainlevbuild' && map.addTilesetImage(tileset.name, 'tileset-1-main');
