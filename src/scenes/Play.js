@@ -122,9 +122,9 @@ export default class Play extends Phaser.Scene {
     // Object holding info about levels & their respective tilesets
     const levelTilesets = {
       1: { // These are the defaults, will be used by any levels that don't explicitly specify a different tileset
-        platforms: 'grave_world_tileset',
+        platforms: 'gravebg',
         platformColliders: 'mainlevbuild',
-        environment: 'gravebg',
+        environment: 'grave_world_tileset',
         traps: 'mainlevbuild'
       },
 
