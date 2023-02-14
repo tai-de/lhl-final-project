@@ -89,14 +89,23 @@ export default class Play extends Phaser.Scene {
   createMap() {
     const map = this.make.tilemap({ key: `level-${this.getCurrentLevel()}` });
 
-    // Associate tileset image with Tiled data
-    // First key is the name of the tileset per Tiled, second is the Phaser preload key
-    map.addTilesetImage('mainlevbuild', 'tileset-1-main');
-    map.addTilesetImage('decorative_obj', 'tileset-1-objs');
-    map.addTilesetImage('crystal_world_tiles', 'crystal-world-tiles');
-    map.addTilesetImage('grave_world_tileset', 'grave_world_tileset1');
-    map.addTilesetImage('gravebg', 'grave_background1');
-    map.addTilesetImage('Mine_Tile_tileset', 'mine_tileset');
+    // Get the tilsets for the current level (pulled from the Tiled JSON)
+    const levelTilesets = map.tilesets;
+
+    // List of all the tileset names we are using
+    const tilesetNames = ['mainlevbuild', 'decorative_obj', 'crystal_world_tiles', 'grave_world_tileset', 'gravebg', 'Mine_Tile_tileset'];
+
+    // Go through the levelTilesets and if the tileset is used, create a tilesetImage
+    levelTilesets.forEach(tileset => {
+      if (tilesetNames.includes(tileset.name)) {
+        tileset.name === 'mainlevbuild' && map.addTilesetImage(tileset.name, 'tileset-1-main');
+        tileset.name === 'decorative_obj' && map.addTilesetImage(tileset.name, 'tileset-1-objs');
+        tileset.name === 'crystal_world_tiles' && map.addTilesetImage(tileset.name, 'crystal-world-tiles');
+        tileset.name === 'grave_world_tileset' && map.addTilesetImage(tileset.name, 'grave_world_tileset1');
+        tileset.name === 'gravebg' && map.addTilesetImage(tileset.name, 'grave_background1');
+        tileset.name === 'Mine_Tile_tileset' && map.addTilesetImage(tileset.name, 'mine_tileset');
+      }
+    });
 
     return map;
   }
@@ -109,7 +118,7 @@ export default class Play extends Phaser.Scene {
    */
   createLayers(map) {
     const currentLevel = this.getCurrentLevel();
-    
+
     // Object holding info about levels & their respective tilesets
     const levelTilesets = {
       1: { // These are the defaults, will be used by any levels that don't explicitly specify a different tileset
@@ -139,7 +148,7 @@ export default class Play extends Phaser.Scene {
         environment: 'crystal_world_tiles',
         traps: 'crystal_world_tiles'
       }
-    }
+    };
     const platformsTiles = map.getTileset(levelTilesets[currentLevel] && levelTilesets[currentLevel].platforms || 'mainlevbuild');
     const platformCollidersTiles = map.getTileset(levelTilesets[currentLevel] && levelTilesets[currentLevel].platformColliders || 'mainlevbuild');
     const environmentTiles = map.getTileset(levelTilesets[currentLevel] && levelTilesets[currentLevel].environment || 'decorative_obj');
