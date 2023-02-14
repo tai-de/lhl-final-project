@@ -94,6 +94,7 @@ export default class Play extends Phaser.Scene {
     map.addTilesetImage('mainlevbuild', 'tileset-1-main');
     map.addTilesetImage('decorative_obj', 'tileset-1-objs');
     map.addTilesetImage('crystal_world_tiles', 'crystal-world-tiles');
+    map.addTilesetImage('grave_world_tileset', 'grave_world_tileset1');
 
     return map;
   }
@@ -110,12 +111,12 @@ export default class Play extends Phaser.Scene {
     // Object holding info about levels & their respective tilesets
     const levelTilesets = {
       1: { // These are the defaults, will be used by any levels that don't explicitly specify a different tileset
-        platforms: 'mainlevbuild',
+        platforms: 'grave_world_tileset',
         platformColliders: 'mainlevbuild',
-        environment: 'decorative_obj',
+        environment: 'grave_bg',
         traps: 'mainlevbuild'
       },
-      3: {
+      4: {
         platforms: 'crystal_world_tiles',
         platformColliders: 'crystal_world_tiles',
         environment: 'crystal_world_tiles',

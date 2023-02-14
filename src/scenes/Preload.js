@@ -76,12 +76,14 @@ export default class Preload extends Phaser.Scene {
     this.load.tilemapTiledJSON('level-1', 'assets/map-level-1.json');
     this.load.tilemapTiledJSON('level-2', 'assets/map-level-2.json');
     this.load.tilemapTiledJSON('level-3', 'assets/map-level-3.json');
-
+    this.load.tilemapTiledJSON('level-4', 'assets/map-level-4.json');
     // Loading tilesets
     this.load.image('tileset-1-main', 'assets/Environment/mainlevbuild.png');
     this.load.image('tileset-1-objs', 'assets/Environment/decorative_obj.png');
     this.load.image('crystal-world-tiles', 'assets/Environment/crystal_world_tiles.png');
-
+    this.load.image('grave_world_tileset1', 'assets/Environment/Tiles.png');
+    this.load.image('grave_background1', 'assets/Environment/grave_background.png');
+   
     this.load.image('background-day1', 'assets/Environment/background_day1.png');
     this.load.image('background-day3', 'assets/Environment/background_day3.png');
     this.load.image('background-night1', 'assets/Environment/2.png');
@@ -99,6 +101,7 @@ export default class Preload extends Phaser.Scene {
     this.load.audio('music-level-1', 'assets/Music/stranger-things.mp3');
     this.load.audio('music-level-2', 'assets/Music/neon-gaming.mp3');
     this.load.audio('music-level-3', 'assets/Music/neon-gaming.mp3');
+    this.load.audio('music-level-4', 'assets/Music/neon-gaming.mp3');
     this.load.audio('fireball', 'assets/Music/fireball-woosh.mp3');
     this.load.audio('slash', 'assets/Music/slash.mp3');
     this.load.audio('jump', 'assets/Music/jump.mp3');
