@@ -20,7 +20,7 @@ export default class FlyingEye extends Enemy {
     this.lastDirection = null;
     this.maxDistance = 200;
 
-    this.projectiles = new Projectiles(this.scene, 'eye');
+    this.projectiles = new Projectiles(this.scene, 'eye', 25);
   }
 
   update(time, delta) {

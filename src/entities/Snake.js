@@ -19,7 +19,7 @@ export default class Snake extends Enemy {
     this.attackDelay = Phaser.Math.Between(1000, 3000);
     this.lastDirection = null;
 
-    this.projectiles = new Projectiles(this.scene, 'iceball1');
+    this.projectiles = new Projectiles(this.scene, 'iceball1', 10);
   }
 
   update(time, delta) {

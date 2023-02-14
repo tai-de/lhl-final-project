@@ -14,7 +14,6 @@ export default class Projectile extends Phaser.Physics.Arcade.Sprite {
     this.maxDistance = 200;
     this.traveledDistance = 0;
     this.cooldown = 1000;
-    this.damage = 20;
     this.body.setSize(this.width - 13, this.height - 20);
     this.effectManager = new EffectManager(scene);
   }

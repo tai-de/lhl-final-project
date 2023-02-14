@@ -7,6 +7,7 @@
 * Health: 40
 * Damage: 20
 * Projectiles: NONE
+  * Damage: 10 (default, cannot be easily changed)
 
 ### Bat
 

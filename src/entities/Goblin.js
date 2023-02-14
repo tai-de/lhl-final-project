@@ -22,7 +22,7 @@ export default class Goblin extends Enemy {
     this.attackDelay = Phaser.Math.Between(250, 500);
     this.lastDirection = null;
 
-    this.projectiles = new Projectiles(this.scene, 'bomb');
+    this.projectiles = new Projectiles(this.scene, 'bomb', 50);
   }
 
   update(time, delta) {
