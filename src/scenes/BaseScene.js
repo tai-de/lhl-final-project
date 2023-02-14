@@ -19,23 +19,23 @@ export default class BaseScene extends Phaser.Scene {
       .setScale(1.25);
 
     if (this.config.canGoBack) {
-      const backText = this.add.text(this.config.width - 30, this.config.height - 10, 'Back to Menu', { fontSize: '18px', fill: '#fff' })
-        .setDepth(100)
-        .setScrollFactor(0)
-        .setOrigin(1)
-        .setInteractive();
+      // const backText = this.add.text(this.config.width - 30, this.config.height - 10, 'Back to Menu', { fontSize: '18px', fill: '#fff' })
+      //   .setDepth(100)
+      //   .setScrollFactor(0)
+      //   .setOrigin(1)
+      //   .setInteractive();
 
       const backButton = this.add.image(this.config.width, this.config.height - 5, 'back')
         .setOrigin(1)
-        .setScale(this.config.zoomFactor)
+        .setScale(2)
         .setInteractive();
 
-      backText.input.cursor = 'pointer';
+      // backText.input.cursor = 'pointer';
       backButton.input.cursor = 'pointer';
 
-      backText.on('pointerup', () => {
-        this.scene.start('MenuScene');
-      });
+      // backText.on('pointerup', () => {
+      //   this.scene.start('MenuScene');
+      // });
 
       backButton.on('pointerup', () => {
         this.scene.start('MenuScene');
