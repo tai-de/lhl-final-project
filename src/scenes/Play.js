@@ -129,9 +129,9 @@ export default class Play extends Phaser.Scene {
       },
 
       2: {
-        platforms: 'grave_world_tileset',
+        platforms: 'gravebg',
         platformColliders: 'mainlevbuild',
-        environment: 'grave_bg',
+        environment: 'grave_world_tileset',
         traps: 'mainlevbuild'
       },
 
