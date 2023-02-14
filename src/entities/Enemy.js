@@ -133,7 +133,7 @@ export default class Enemies extends Phaser.Physics.Arcade.Sprite {
       ease: 'linear',
       onComplete: () => {
         this.damageTextAnim.stop();
-        this.damageText = null;
+        this.damageText.x = -100
       }
     });
 
