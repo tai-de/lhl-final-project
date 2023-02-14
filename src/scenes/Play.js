@@ -96,6 +96,7 @@ export default class Play extends Phaser.Scene {
     map.addTilesetImage('crystal_world_tiles', 'crystal-world-tiles');
     map.addTilesetImage('grave_world_tileset', 'grave_world_tileset1');
     map.addTilesetImage('gravebg', 'grave_background1');
+    map.addTilesetImage('Mine_Tile_tileset', 'mine_tileset');
 
     return map;
   }
@@ -125,7 +126,14 @@ export default class Play extends Phaser.Scene {
         traps: 'mainlevbuild'
       },
 
-      5: {
+      3: {
+        platforms: 'Mine_Tile_tileset',
+        platformColliders: 'mainlevbuild',
+        environment: 'Mine_Tile_tileset',
+        traps: 'mainlevbuild'
+      },
+
+      6: {
         platforms: 'crystal_world_tiles',
         platformColliders: 'crystal_world_tiles',
         environment: 'crystal_world_tiles',
