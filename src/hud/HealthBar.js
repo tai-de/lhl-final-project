@@ -10,7 +10,7 @@ export default class HealthBar {
       .setDepth(9)
       .setScrollFactor(0, 0);
 
-    this.barFrame = scene.add.image(scene.config.topLeftCorner.x + 10, scene.config.topLeftCorner.y + 25, 'hp-bar-frame')
+    this.barFrame = scene.add.image(scene.config.topLeftCorner.x + 10, scene.config.topLeftCorner.y + 24, 'hp-bar-frame')
       .setOrigin(0, 0)
       .setDepth(9)
       .setScale(3)
@@ -24,7 +24,7 @@ export default class HealthBar {
     this.scale = scale;
     this.maxHealth = health;
     this.health = health;
-    this.size = { width: 70, height: 7 };
+    this.size = { width: 70, height: 10 };
     this.pixelsPerHealth = this.size.width / this.health;
 
     scene.add.existing(this.bar);
@@ -40,7 +40,7 @@ export default class HealthBar {
    */
   draw(x, y, scale) {
     const { width, height } = this.size;
-    const margin = 3;
+    const margin = 4;
 
     // this.bar.fillStyle(0x727872);
     // this.bar.fillRect(x, y, width + margin, height + margin);
