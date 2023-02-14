@@ -18,8 +18,11 @@ Once all of the base functionality had been implemented, we were able to further
 ### Credits: Art & Resources
 
 * [**Szadi**](https://szadiart.itch.io/): Enemy sprites (bat/snake) & level tilesets
+* [**Anokolisa**](https://anokolisa.itch.io/): Additional level tilesets
 * [**Dreamir**](https://dreamir.itch.io/): Player sprites
 * [**LuizMelo**](https://luizmelo.itch.io/): Enemy sprites (goblin, flying eye, mushroom)
+* [**RavenTale**](https://raventale.itch.io/): Gem sprites
+* [**Mounir Tohami**](https://mounirtohami.itch.io/): Misc UI elements
 * [**Saurabh Chaudhary**](https://saurabhkgp.itch.io/): Background images
 * [**Pixabay, misc creators**](https://pixabay.com/): Music and sound effects
 
@@ -29,8 +32,11 @@ Once all of the base functionality had been implemented, we were able to further
 
 ## Take-aways
 
-Due to a limited development window of one week, we ensured that our focus was on core functionality and having a working demo. Given more time, some additional features that would have been added include:
+Due to a limited development window of one week, we ensured that our focus was on core functionality and having a working demo. Given more time we would have liked to include:
 
+* More robust website and/or integration of React components to enhance the game menus/HUD
+* Additional rewards for level completion (more damage/weapons/abilities)
+* Additional enemy types & boss levels
 * Database for high scores / high kill counts
 * Database for user accounts / saving game progress
 * Further refinement of the look & feel of the game
