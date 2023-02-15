@@ -200,8 +200,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     if (this.health <= 0) {
       this.playerDeath.play();
 
-      setTimeout(
-        EventEmitter.emit('PLAYER_LOSE'), 3000);
+        EventEmitter.emit('PLAYER_LOSE');
 
       return;
 
