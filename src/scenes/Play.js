@@ -150,7 +150,7 @@ export default class Play extends Phaser.Scene {
         traps: 'mainlevbuild'
       },
 
-      6: {
+      7: {
         platforms: 'crystal_world_tiles',
         platformColliders: 'crystal_world_tiles',
         environment: 'crystal_world_tiles',
