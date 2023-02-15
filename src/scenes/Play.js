@@ -93,7 +93,7 @@ export default class Play extends Phaser.Scene {
     const levelTilesets = map.tilesets;
 
     // List of all the tileset names we are using (file names as displayed in Tiled)
-    const tilesetNames = ['mainlevbuild', 'decorative_obj', 'crystal_world_tiles', 'grave_world_tileset', 'gravebg', 'Mine_Tile_tileset'];
+    const tilesetNames = ['mainlevbuild', 'decorative_obj', 'crystal_world_tiles', 'grave_world_tileset', 'gravebg', 'Mine_Tile_tileset', 'minebg'];
 
     // Go through the levelTilesets and if the tileset is used, create a tilesetImage using the file name & Preload image key
     levelTilesets.forEach(tileset => {
@@ -104,6 +104,7 @@ export default class Play extends Phaser.Scene {
         tileset.name === 'grave_world_tileset' && map.addTilesetImage(tileset.name, 'grave_world_tileset1');
         tileset.name === 'gravebg' && map.addTilesetImage(tileset.name, 'grave_background1');
         tileset.name === 'Mine_Tile_tileset' && map.addTilesetImage(tileset.name, 'mine_tileset');
+        tileset.name === 'minebg' && map.addTilesetImage(tileset.name, 'mine_bg');
       }
     });
 
@@ -136,7 +137,7 @@ export default class Play extends Phaser.Scene {
       },
 
       3: {
-        platforms: 'Mine_Tile_tileset',
+        platforms: 'minebg',
         platformColliders: 'mainlevbuild',
         environment: 'Mine_Tile_tileset',
         traps: 'mainlevbuild'

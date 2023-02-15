@@ -87,6 +87,7 @@ export default class Preload extends Phaser.Scene {
     this.load.image('grave_background1', 'assets/Environment/gravebg.png');
     this.load.image('grave_world_tileset1', 'assets/Environment/Tiles.png');
     this.load.image('mine_tileset', 'assets/Environment/Mine_Tile.png');
+    this.load.image('mine_bg', 'assets/Environment/minebg.png');
    
     this.load.image('background-day1', 'assets/Environment/background_day1.png');
     this.load.image('background-day3', 'assets/Environment/background_day3.png');
