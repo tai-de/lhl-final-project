@@ -46,14 +46,29 @@ export default class BaseScene extends Phaser.Scene {
   createMenu(menu, setupMenuEvents) {
     let lastMenuYPosition = 0;
 
-    menu.forEach(menuItem => {
-      const menuPosition = [this.screenCenter.x, this.screenCenter.y - 100 + lastMenuYPosition];
+    let { x: centerX, y: centerY } = this.screenCenter;
+
+    if (menu.length > 6) {
+      lastMenuYPosition = -this.lineHeight;
+    }
+
+    menu.forEach((menuItem, i) => {
+      if (menu.length > 6) {
+        centerX = this.screenCenter.x - 150;
+      }
+
+      if (i === 6) { // Reset to next column on index 6 (lv 7)
+        lastMenuYPosition = -this.lineHeight;
+        centerX = this.screenCenter.x + 150;
+      }
+
+      const menuPosition = [centerX, centerY - 100 + lastMenuYPosition];
 
       menuItem.textObject = this.add.text(...menuPosition, menuItem.text, this.fontStyles)
         .setOrigin(0.5, 1)
         .setDepth(10);
 
-      this.add.rectangle(this.screenCenter.x, this.screenCenter.y - 100 + lastMenuYPosition, menuItem.textObject.width + 50, menuItem.textObject.height, 0x000000)
+      this.add.rectangle(centerX, centerY - 100 + lastMenuYPosition, menuItem.textObject.width + 50, menuItem.textObject.height, 0x000000)
         .setOrigin(0.5, 1)
         .setAlpha(0.5);
 
