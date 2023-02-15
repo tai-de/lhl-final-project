@@ -35,7 +35,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.jumpCount = 0;
     this.hasBeenHit = false;
     this.bounceVelocity = 250;
-    this.fireballDamage = localStorage.getItem('levels-completed') >= 3 ? 40 : 20;
+    this.fireballDamage = localStorage.getItem('levels-completed') >= 3 ? 30 : 20;
     this.swordType = localStorage.getItem('levels-completed') >= this.scene.config.finalLevel ? 'fire' : 'normal';
 
     this.lastDirection = Phaser.Physics.Arcade.FACING_RIGHT;
