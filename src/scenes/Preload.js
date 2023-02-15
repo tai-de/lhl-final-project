@@ -9,68 +9,68 @@ export default class Preload extends Phaser.Scene {
   preload() {
     //Add progress bar to prevent black screen while loading assets on website
     var progressBar = this.add.graphics();
-            var progressBox = this.add.graphics();
-            progressBox.fillStyle(0x222222, 0.8);
-            progressBox.fillRect(240, 270, 320, 50);
-            
-            var width = this.cameras.main.width;
-            var height = this.cameras.main.height;
-            var loadingText = this.make.text({
-                x: width / 2,
-                y: height / 2 - 50,
-                text: 'Loading...',
-                style: {
-                    font: '20px monospace',
-                    fill: '#ffffff'
-                }
-            });
-            loadingText.setOrigin(0.5, 0.5);
-            
-            var percentText = this.make.text({
-                x: width / 2,
-                y: height / 2 - 5,
-                text: '0%',
-                style: {
-                    font: '18px monospace',
-                    fill: '#ffffff'
-                }
-            });
-            percentText.setOrigin(0.5, 0.5);
-            
-            var assetText = this.make.text({
-                x: width / 2,
-                y: height / 2 + 50,
-                text: '',
-                style: {
-                    font: '18px monospace',
-                    fill: '#ffffff'
-                }
-            });
-            assetText.setOrigin(0.5, 0.5);
-            
-            this.load.on('progress', function (value) {
-                percentText.setText(parseInt(value * 100) + '%');
-                progressBar.clear();
-                progressBar.fillStyle(0xffffff, 1);
-                progressBar.fillRect(250, 280, 300 * value, 30);
-            });
-            
-            this.load.on('fileprogress', function (file) {
-                assetText.setText('Loading asset: ' + file.key);
-            });
-            this.load.on('complete', function () {
-                progressBar.destroy();
-                progressBox.destroy();
-                loadingText.destroy();
-                percentText.destroy();
-                assetText.destroy();
-            });
-            
+    var progressBox = this.add.graphics();
+    progressBox.fillStyle(0x222222, 0.8);
+    progressBox.fillRect(240, 270, 320, 50);
+
+    var width = this.cameras.main.width;
+    var height = this.cameras.main.height;
+    var loadingText = this.make.text({
+      x: width / 2,
+      y: height / 2 - 50,
+      text: 'Loading...',
+      style: {
+        font: '20px monospace',
+        fill: '#ffffff'
+      }
+    });
+    loadingText.setOrigin(0.5, 0.5);
+
+    var percentText = this.make.text({
+      x: width / 2,
+      y: height / 2 - 5,
+      text: '0%',
+      style: {
+        font: '18px monospace',
+        fill: '#ffffff'
+      }
+    });
+    percentText.setOrigin(0.5, 0.5);
+
+    var assetText = this.make.text({
+      x: width / 2,
+      y: height / 2 + 50,
+      text: '',
+      style: {
+        font: '18px monospace',
+        fill: '#ffffff'
+      }
+    });
+    assetText.setOrigin(0.5, 0.5);
+
+    this.load.on('progress', function(value) {
+      percentText.setText(parseInt(value * 100) + '%');
+      progressBar.clear();
+      progressBar.fillStyle(0xffffff, 1);
+      progressBar.fillRect(250, 280, 300 * value, 30);
+    });
+
+    this.load.on('fileprogress', function(file) {
+      assetText.setText('Loading asset: ' + file.key);
+    });
+    this.load.on('complete', function() {
+      progressBar.destroy();
+      progressBox.destroy();
+      loadingText.destroy();
+      percentText.destroy();
+      assetText.destroy();
+    });
+
     this.load.image('menu-bg', 'assets/menu-bg.png');
     this.load.image('back', 'assets/UI/back-to-menu.png');
-    this.load.image('play', 'assets/Menu/play.png')
-    this.load.image('levels', 'assets/Menu/levels.png')
-    this.load.image('credits', 'assets/Menu/credits.png')
+    this.load.image('play', 'assets/Menu/play.png');
+    this.load.image('levels', 'assets/Menu/levels.png');
+    this.load.image('credits', 'assets/Menu/credits.png');
 
     // Loading maps
     this.load.tilemapTiledJSON('level-1', 'assets/map-level-1.json');
@@ -89,7 +89,7 @@ export default class Preload extends Phaser.Scene {
     this.load.image('grave_world_tileset1', 'assets/Environment/Tiles.png');
     this.load.image('mine_tileset', 'assets/Environment/Mine_Tile.png');
     this.load.image('mine_bg', 'assets/Environment/minebg.png');
-   
+
     this.load.image('background-day1', 'assets/Environment/background_day1.png');
     this.load.image('background-day3', 'assets/Environment/background_day3.png');
     this.load.image('background-night1', 'assets/Environment/2.png');
@@ -99,7 +99,7 @@ export default class Preload extends Phaser.Scene {
     this.load.image('background3', 'assets/Environment/6.png');
     this.load.image('background4', 'assets/Environment/7.png');
     this.load.image('background5', 'assets/Environment/8.png');
- 
+
     // UI elements
     this.load.image('hp-bar-frame', 'assets/UI/bar-frame.png');
 
@@ -146,6 +146,32 @@ export default class Preload extends Phaser.Scene {
       frameHeight: 48
     });
 
+    // Fire Sword Player sprites
+    this.load.spritesheet('player-fire-idle', 'assets/Player/player-fire-idle.png', {
+      frameWidth: 64,
+      frameHeight: 48
+    });
+
+    this.load.spritesheet('player-fire-run', 'assets/Player/player-fire-run.png', {
+      frameWidth: 64,
+      frameHeight: 48
+    });
+
+    this.load.spritesheet('player-fire-jump', 'assets/Player/player-fire-jump.png', {
+      frameWidth: 64,
+      frameHeight: 58
+    });
+
+    this.load.spritesheet('player-fire-swing', 'assets/Player/player-fire-swing.png', {
+      frameWidth: 64,
+      frameHeight: 48
+    });
+
+    this.load.spritesheet('player-fire-spell', 'assets/Player/player-fire-spell.png', {
+      frameWidth: 64,
+      frameHeight: 48
+    });
+
     // Enemy sprites
     // Bat / enemy01
     this.load.spritesheet('bat', 'assets/Enemies/Enemy01/enemy01_sheet.png', {
@@ -159,7 +185,7 @@ export default class Preload extends Phaser.Scene {
       frameHeight: 64,
       spacing: 32
     });
-    
+
     // Goblin
     this.load.spritesheet('goblin', 'assets/Enemies/Goblin/goblin-sheet.png', {
       frameWidth: 48,
@@ -251,8 +277,8 @@ export default class Preload extends Phaser.Scene {
     this.load.once('complete', () => {
       this.startGame();
     });
-            
-    
+
+
   }
 
   startGame() {

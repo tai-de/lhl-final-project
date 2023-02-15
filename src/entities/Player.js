@@ -15,6 +15,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
   constructor(scene, x, y) {
     super(scene, x, y, 'player');
+    this.scene = scene;
 
     // Binds 'this' context to the scene
     scene.add.existing(this);
@@ -34,6 +35,8 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.jumpCount = 0;
     this.hasBeenHit = false;
     this.bounceVelocity = 250;
+    this.fireballDamage = localStorage.getItem('levels-completed') >= 3 ? 40 : 20;
+    this.swordType = localStorage.getItem('levels-completed') >= this.scene.config.finalLevel ? 'fire' : 'normal';
 
     this.lastDirection = Phaser.Physics.Arcade.FACING_RIGHT;
 
@@ -66,7 +69,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
     initAnimations(this.scene.anims);
 
-    this.projectiles = new Projectiles(this.scene, 'fireball1');
+    this.projectiles = new Projectiles(this.scene, 'fireball1', this.fireballDamage);
     this.meleeWeapon = new MeleeWeapon(this.scene, 0, 0, 'sword-attack');
     this.timeFromLastSwing = null;
 
@@ -83,16 +86,22 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         return;
       }
 
-      this.play('sword', true);
+      this.play(`${this.swordType}-sword`, true);
       this.slash.play();
       this.meleeWeapon.swing(this);
       this.timeFromLastSwing = getTimestamp();
+
+      if (this.completedLevels < this.scene.config.finalLevel) { return; } // Restricts sword + fireball to having completed all levels
+
+      this.fireball.play();
+        this.projectiles.shootProjectile(this, 'fireball');
+
     });
 
     this.scene.input.keyboard.on('keydown-Z', () => {
       if (this.completedLevels < 1) { return; } // Restricts fireball to having completed level 1
 
-      this.play('throw', true);
+      this.play(`${this.swordType}-throw`, true);
 
       setTimeout(() => {
         this.fireball.play();
@@ -141,15 +150,15 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
       this.jump.play();
     }
 
-    if (this.isPlayingAnims('throw') || this.isPlayingAnims('sword')) {
+    if (this.isPlayingAnims('normal-throw') || this.isPlayingAnims('normal-sword') || this.isPlayingAnims('fire-throw') || this.isPlayingAnims('fire-sword')) {
       return;
     }
 
     // Player animations
     onFloor ?
       this.body.velocity.x !== 0 ?
-        this.play('run', true) : this.play('idle', true) :
-      this.play('jump', true);
+        this.play(`${this.swordType}-run`, true) : this.play(`${this.swordType}-idle`, true) :
+      this.play(`${this.swordType}-jump`, true);
   }
 
   /**
