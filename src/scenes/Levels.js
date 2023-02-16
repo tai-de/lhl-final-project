@@ -13,8 +13,8 @@ export default class LevelScene extends BaseScene {
 
     const levelsCompleted = localStorage.getItem('levels-completed') || 0;
 
-    for (let i = 0; i < levelsCompleted; i++) {
-      if (i > this.finalLevel) { break; }
+    for (let i = 0; i <= levelsCompleted; i++) {
+      if (i >= this.finalLevel) { break; }
       this.menu.push({
         scene: 'PlayScene',
         text: `Level ${i+1}`,
