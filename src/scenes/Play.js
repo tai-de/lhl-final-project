@@ -470,7 +470,8 @@ export default class Play extends Phaser.Scene {
     const endSprite = this.physics.add.sprite(end.x, end.y, 'end')
       .setAlpha(0)
       .setSize(10, 200)
-      .setOrigin(0.5, 1);
+      .setOrigin(0.5, 1)
+      .setOffset(0, -150);
 
     const endOverlap = this.physics.add.overlap(endSprite, player, () => {
       endOverlap.active = false;
