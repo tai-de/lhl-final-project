@@ -127,8 +127,8 @@ export default class Preload extends Phaser.Scene {
     this.load.audio('music-level-8', 'assets/Music/stardust-vision-ii.mp3');
     this.load.audio('music-level-9', 'assets/Music/kim-lightyear-legends.mp3');
     this.load.audio('music-level-10', 'assets/Music/kim-lightyear-legends.mp3');
-    this.load.audio('music-level-11', 'assets/Music/kim-lightyear-legends.mp3');
-    this.load.audio('music-level-12', 'assets/Music/kim-lightyear-legends.mp3');
+    this.load.audio('music-level-11', 'assets/Music/hero-80s.ogg');
+    this.load.audio('music-level-12', 'assets/Music/hero-80s.ogg');
     
     // SFX
     this.load.audio('fireball', 'assets/Music/fireball-woosh.mp3');
