@@ -299,12 +299,15 @@ export default class Play extends Phaser.Scene {
    * Method to set up event listeners on the custom EventEmitter instance
    */
   createGameEvents() {
+    EventEmitter.removeAllListeners();
+    
     EventEmitter.on('PLAYER_LOSE', () => {
       // this.scene.restart({ gameStatus: 'PLAYER_LOSE' });
       this.scene.start('DeathScene');
     });
 
     EventEmitter.on('ENEMY_KILLED', () => {
+      console.log('enemy killed');
       this.hud.updateKillBoard(this.kills += 1);
     });
   }

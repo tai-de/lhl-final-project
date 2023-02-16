@@ -71,7 +71,7 @@ export default class DeathScene extends BaseScene {
     playButton.input.cursor = 'pointer';
 
     playButton.on('pointerup', () => {
-      this.scene.start('PlayScene');
+      this.scene.start('PlayScene', { gameStatus: 'PLAYER_LOSE' });
     });
   }
 
