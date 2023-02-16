@@ -31,7 +31,7 @@ const SHARED_CONFIG = {
     x: (WIDTH / ZOOMFACTOR) + ((WIDTH - (WIDTH / ZOOMFACTOR)) / 2),
     y: (HEIGHT / ZOOMFACTOR) + ((HEIGHT - (HEIGHT / ZOOMFACTOR)) / 2)
   },
-  finalLevel: 7,
+  finalLevel: 8,
 };
 
 const Scenes = [

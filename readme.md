@@ -20,6 +20,7 @@ Once all of the base functionality had been implemented, we were able to further
 * [**Szadi**](https://szadiart.itch.io/): Enemy sprites (bat/snake) & level tilesets
 * [**Anokolisa**](https://anokolisa.itch.io/): Additional level tilesets
 * [**Sagak Art**](https://sagak-art-pururu.itch.io/): Additional level tilesets
+* [**Cainos Art**](https://cainos.itch.io/): Additional level tilesets
 * [**Dreamir**](https://dreamir.itch.io/): Player sprites
 * [**LuizMelo**](https://luizmelo.itch.io/): Enemy sprites (goblin, flying eye, mushroom)
 * [**RavenTale**](https://raventale.itch.io/): Gem sprites
