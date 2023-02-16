@@ -107,7 +107,7 @@ export default class Hud extends Phaser.GameObjects.Container {
   updateKillBoard(kills) {
     const [killText, killImage] = this.getByName('killBoard').list;
     killText.setText(kills);
-    killText.setX(killText.width + 5);
+    killImage.setX(killText.width + 5);
   }
 
 }
