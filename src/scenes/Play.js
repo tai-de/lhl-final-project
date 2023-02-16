@@ -428,7 +428,10 @@ export default class Play extends Phaser.Scene {
 
       localStorage.setItem('score', this.score);
       localStorage.setItem('kills', this.kills);
-      localStorage.setItem('levels-completed', this.getCurrentLevel());
+
+      this.getCurrentLevel() <= localStorage.getItem('levels-completed') ?
+        localStorage.setItem('levels-completed', localStorage.getItem('levels-completed')) :
+        localStorage.setItem('levels-completed', this.getCurrentLevel());
 
       if (this.registry.get('level') === this.config.finalLevel) {
         this.scene.start('CreditsScene');
