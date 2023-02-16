@@ -61,6 +61,7 @@ export default class DeathScene extends BaseScene {
   }
 
   createRestartButton() {
+    //I put 9.07 because when I created the retry button the spacing is different than the levels button
     const playButton = this.add.image((this.config.width / 10) * 4, (this.config.height / 10) * 9.07, 'retry')
       .setDepth(100)
       .setOrigin(0.5, 1)
