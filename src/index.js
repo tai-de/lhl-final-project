@@ -5,6 +5,7 @@ import PlayScene from './scenes/Play';
 import MenuScene from './scenes/MenuScene';
 import LevelScene from './scenes/Levels';
 import CreditsScene from './scenes/Credits';
+import DeathScene from './scenes/DeathScene';
 
 const WIDTH = document.body.offsetWidth;
 const HEIGHT = 600;
@@ -39,6 +40,7 @@ const Scenes = [
   LevelScene,
   PlayScene,
   CreditsScene,
+  DeathScene
 ];
 
 // Function to create Scene instances for all of the Scenes imported above

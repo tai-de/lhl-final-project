@@ -119,6 +119,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     if (this.hasBeenHit || !this.body) { return; }
 
     if (this.getBounds().top > this.scene.config.height) {
+      this.playerDeath.play();
       EventEmitter.emit('PLAYER_LOSE');
       return;
     }

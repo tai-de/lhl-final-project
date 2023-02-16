@@ -67,10 +67,12 @@ export default class Preload extends Phaser.Scene {
     });
 
     this.load.image('menu-bg', 'assets/menu-bg.png');
+    this.load.image('game-over-bg', 'assets/game-over.jpg');
     this.load.image('back', 'assets/UI/back-to-menu.png');
     this.load.image('play', 'assets/Menu/play.png');
     this.load.image('levels', 'assets/Menu/levels.png');
     this.load.image('credits', 'assets/Menu/credits.png');
+    this.load.image('retry', 'assets/Menu/retry.png');
 
     // Loading maps
     this.load.tilemapTiledJSON('level-1', 'assets/map-level-1.json');
@@ -104,14 +106,6 @@ export default class Preload extends Phaser.Scene {
     this.load.image('hp-bar-frame', 'assets/UI/bar-frame.png');
 
     // Music
-    // this.load.audio('music-level-1', 'assets/Music/stranger-things.mp3');
-    // this.load.audio('music-level-2', 'assets/Music/stardust-vision-ii.mp3');
-    // this.load.audio('music-level-3', 'assets/Music/hero-80s.mp3');
-    // this.load.audio('music-level-4', 'assets/Music/epic.mp3');
-    // this.load.audio('music-level-5', 'assets/Music/neon-gaming.mp3');
-    // this.load.audio('music-level-6', 'assets/Music/area12.mp3');
-    // this.load.audio('music-level-7', 'assets/Music/kim-lightyear-legends.mp3');
-    // this.load.audio('fireball', 'assets/Music/fireball-woosh.mp3');
     this.load.audio('music-level-1', 'assets/Music/stranger-things.mp3');
     this.load.audio('music-level-2', 'assets/Music/stranger-things.mp3');
     this.load.audio('music-level-3', 'assets/Music/epic.mp3');
