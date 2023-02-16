@@ -160,6 +160,13 @@ export default class Play extends Phaser.Scene {
       },
 
       8: {
+        platforms: 'village_bg',
+        platformColliders: 'mainlevbuild',
+        environment: 'village_tileset',
+        traps: 'mainlevbuild'
+      },
+
+      9: {
         platforms: 'crystal_world_tiles',
         platformColliders: 'crystal_world_tiles',
         environment: 'crystal_world_tiles',

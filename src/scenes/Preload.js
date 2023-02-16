@@ -83,6 +83,7 @@ export default class Preload extends Phaser.Scene {
     this.load.tilemapTiledJSON('level-6', 'assets/map-level-6.json');
     this.load.tilemapTiledJSON('level-7', 'assets/map-level-7.json');
     this.load.tilemapTiledJSON('level-8', 'assets/map-level-8.json');
+    this.load.tilemapTiledJSON('level-9', 'assets/map-level-9.json');
     // Loading tilesets
     this.load.image('tileset-1-main', 'assets/Environment/mainlevbuild.png');
     this.load.image('tileset-1-objs', 'assets/Environment/decorative_obj.png');
@@ -116,7 +117,9 @@ export default class Preload extends Phaser.Scene {
     this.load.audio('music-level-5', 'assets/Music/neon-gaming.mp3');
     this.load.audio('music-level-6', 'assets/Music/neon-gaming.mp3');
     this.load.audio('music-level-7', 'assets/Music/stardust-vision-ii.mp3');
-    this.load.audio('music-level-8', 'assets/Music/kim-lightyear-legends.mp3');
+    this.load.audio('music-level-8', 'assets/Music/stardust-vision-ii.mp3');
+    this.load.audio('music-level-9', 'assets/Music/kim-lightyear-legends.mp3');
+    // this.load.audio('music-level-10', 'assets/Music/kim-lightyear-legends.mp3');
     this.load.audio('fireball', 'assets/Music/fireball-woosh.mp3');
     this.load.audio('slash', 'assets/Music/slash.mp3');
     this.load.audio('jump', 'assets/Music/jump.mp3');
