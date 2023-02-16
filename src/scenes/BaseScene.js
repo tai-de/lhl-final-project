@@ -49,14 +49,11 @@ export default class BaseScene extends Phaser.Scene {
     let { x: centerX, y: centerY } = this.screenCenter;
 
     if (menu.length > 6) {
+      centerX = this.screenCenter.x - 150;
       lastMenuYPosition = -this.lineHeight;
     }
 
     menu.forEach((menuItem, i) => {
-      if (menu.length > 6) {
-        centerX = this.screenCenter.x - 150;
-      }
-
       if (i === 6) { // Reset to next column on index 6 (lv 7)
         lastMenuYPosition = -this.lineHeight;
         centerX = this.screenCenter.x + 150;
