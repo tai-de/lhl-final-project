@@ -174,6 +174,13 @@ export default class Play extends Phaser.Scene {
         traps: 'crystal_world_tiles'
       },
 
+      10: {
+        platforms: 'crystal_world_tiles',
+        platformColliders: 'crystal_world_tiles',
+        environment: 'crystal_world_tiles',
+        traps: 'crystal_world_tiles'
+      },
+
       11: {
         platforms: 'fantasy-swamp',
         platformColliders: 'fantasy-swamp',
