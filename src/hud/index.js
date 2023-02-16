@@ -16,8 +16,14 @@ export default class Hud extends Phaser.GameObjects.Container {
 
   addLevel(bottomLeftCorner) {
     const levelText = this.scene.add.text(bottomLeftCorner.x + 16, bottomLeftCorner.y - 8, `Level ${this.scene.registry.get('level')}`, {
-      fontSize: `12px`,
-      fill: '#fff'
+      fontSize: `14px`,
+      fill: '#fff',
+      shadow: {
+        offsetX: 0,
+        offsetY: 0,
+        blur: 3,
+        fill: true,
+      }
     });
 
     levelText
@@ -57,7 +63,13 @@ export default class Hud extends Phaser.GameObjects.Container {
 
     const scoreText = this.scene.add.text(0, 0, localStorage.getItem('score') || 0, {
       fontSize: `${this.fontSize}px`,
-      fill: '#fff'
+      fill: '#fff',
+      shadow: {
+        offsetX: 0,
+        offsetY: 0,
+        blur: 3,
+        fill: true,
+      }
     });
     const scoreImage = this.scene.add.image(scoreText.width + 5, 0, 'diamond')
       .setOrigin(0)
@@ -86,7 +98,13 @@ export default class Hud extends Phaser.GameObjects.Container {
 
     const killText = this.scene.add.text(25, 0, localStorage.getItem('kills') || 0, {
       fontSize: `${this.fontSize}px`,
-      fill: '#fff'
+      fill: '#fff',
+      shadow: {
+        offsetX: 0,
+        offsetY: 0,
+        blur: 3,
+        fill: true,
+      }
     })
       .setOrigin(1, 0);
     // const killImage = this.scene.add.image(killText.width + 5, 0, 'diamond')
@@ -94,7 +112,13 @@ export default class Hud extends Phaser.GameObjects.Container {
     //   .setScale(1.3);
     const killImage = this.scene.add.text(30, 5, 'kills', {
       fontSize: `14px`,
-      fill: '#fff'
+      fill: '#fff',
+      shadow: {
+        offsetX: 0,
+        offsetY: 0,
+        blur: 3,
+        fill: true,
+      }
     });
 
     const killBoard = this.scene.add.container(0, 0, [killText, killImage]);

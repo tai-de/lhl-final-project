@@ -4,7 +4,13 @@ export default class HealthBar {
   constructor(scene, x, y, scale = 1, health) {
     this.healthText = scene.add.text(scene.config.topLeftCorner.x + 15, scene.config.topLeftCorner.y + 10, `Health: ${health}/${health}`, {
       fontSize: `14px`,
-      fill: '#fff'
+      fill: '#fff',
+      shadow: {
+        offsetX: 0,
+        offsetY: 0,
+        blur: 3,
+        fill: true,
+      }
     })
       .setOrigin(0, 0)
       .setDepth(9)
