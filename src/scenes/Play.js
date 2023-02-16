@@ -93,7 +93,7 @@ export default class Play extends Phaser.Scene {
     const levelTilesets = map.tilesets;
 
     // List of all the tileset names we are using (file names as displayed in Tiled)
-    const tilesetNames = ['mainlevbuild', 'decorative_obj', 'crystal_world_tiles', 'grave_world_tileset', 'gravebg', 'Mine_Tile_tileset', 'minebg', 'village_tileset', 'village_bg'];
+    const tilesetNames = ['mainlevbuild', 'decorative_obj', 'crystal_world_tiles', 'grave_world_tileset', 'gravebg', 'Mine_Tile_tileset', 'minebg', 'village_tileset', 'village_bg', 'fantasy-swamp'];
 
     // Go through the levelTilesets and if the tileset is used, create a tilesetImage using the file name & Preload image key
     levelTilesets.forEach(tileset => {
@@ -107,6 +107,7 @@ export default class Play extends Phaser.Scene {
         tileset.name === 'minebg' && map.addTilesetImage(tileset.name, 'mine_bg');
         tileset.name === 'village_tileset' && map.addTilesetImage(tileset.name, 'village_tileset');
         tileset.name === 'village_bg' && map.addTilesetImage(tileset.name, 'village_bg');
+        tileset.name === 'fantasy-swamp' && map.addTilesetImage(tileset.name, 'fantasy-swamp');
       }
     });
 
@@ -171,7 +172,14 @@ export default class Play extends Phaser.Scene {
         platformColliders: 'crystal_world_tiles',
         environment: 'crystal_world_tiles',
         traps: 'crystal_world_tiles'
-      }
+      },
+
+      11: {
+        platforms: 'fantasy-swamp',
+        platformColliders: 'fantasy-swamp',
+        environment: 'fantasy-swamp',
+        traps: 'fantasy-swamp'
+      },
     };
     const platformsTiles = map.getTileset(levelTilesets[currentLevel] && levelTilesets[currentLevel].platforms || 'mainlevbuild');
     const platformCollidersTiles = map.getTileset(levelTilesets[currentLevel] && levelTilesets[currentLevel].platformColliders || 'mainlevbuild');
@@ -250,6 +258,26 @@ export default class Play extends Phaser.Scene {
       .setOrigin(0)
       .setDepth(-8)
       .setScale(.6)
+      .setScrollFactor(0.90, 1);
+
+    if (this.getCurrentLevel() < 11) { return; }
+
+    this.add.tileSprite(0, 0, 1600, 600, 'fantasy-swamp-bg3')
+      .setOrigin(0)
+      .setDepth(-8)
+      .setScale(1.6)
+      .setScrollFactor(0.75, 1);
+
+    this.add.tileSprite(0, 0, 1600, 600, 'fantasy-swamp-bg2')
+      .setOrigin(0)
+      .setDepth(-7)
+      .setScale(1.6)
+      .setScrollFactor(0.85, 1);
+
+    this.add.tileSprite(0, 0, 1600, 600, 'fantasy-swamp-bg1')
+      .setOrigin(0)
+      .setDepth(-6)
+      .setScale(1.6)
       .setScrollFactor(0.90, 1);
   }
 

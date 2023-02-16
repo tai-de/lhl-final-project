@@ -84,6 +84,8 @@ export default class Preload extends Phaser.Scene {
     this.load.tilemapTiledJSON('level-7', 'assets/map-level-7.json');
     this.load.tilemapTiledJSON('level-8', 'assets/map-level-8.json');
     this.load.tilemapTiledJSON('level-9', 'assets/map-level-9.json');
+
+    this.load.tilemapTiledJSON('level-11', 'assets/map-level-11.json');
     // Loading tilesets
     this.load.image('tileset-1-main', 'assets/Environment/mainlevbuild.png');
     this.load.image('tileset-1-objs', 'assets/Environment/decorative_obj.png');
@@ -95,6 +97,7 @@ export default class Preload extends Phaser.Scene {
     this.load.image('mine_bg', 'assets/Environment/minebg.png');
     this.load.image('village_tileset', 'assets/Environment/village_tileset.png');
     this.load.image('village_bg', 'assets/Environment/village_bg.png');
+    this.load.image('fantasy-swamp', 'assets/Environment/fantasy-swamp.png');
 
     this.load.image('background-day1', 'assets/Environment/background_day1.png');
     this.load.image('background-day3', 'assets/Environment/background_day3.png');
@@ -105,6 +108,9 @@ export default class Preload extends Phaser.Scene {
     this.load.image('background3', 'assets/Environment/6.png');
     this.load.image('background4', 'assets/Environment/7.png');
     this.load.image('background5', 'assets/Environment/8.png');
+    this.load.image('fantasy-swamp-bg1', 'assets/Environment/fantasy-swamp-bg1.png');
+    this.load.image('fantasy-swamp-bg2', 'assets/Environment/fantasy-swamp-bg2.png');
+    this.load.image('fantasy-swamp-bg3', 'assets/Environment/fantasy-swamp-bg3.png');
 
     // UI elements
     this.load.image('hp-bar-frame', 'assets/UI/bar-frame.png');
@@ -120,6 +126,9 @@ export default class Preload extends Phaser.Scene {
     this.load.audio('music-level-8', 'assets/Music/stardust-vision-ii.mp3');
     this.load.audio('music-level-9', 'assets/Music/kim-lightyear-legends.mp3');
     // this.load.audio('music-level-10', 'assets/Music/kim-lightyear-legends.mp3');
+    this.load.audio('music-level-11', 'assets/Music/kim-lightyear-legends.mp3');
+    
+    // SFX
     this.load.audio('fireball', 'assets/Music/fireball-woosh.mp3');
     this.load.audio('slash', 'assets/Music/slash.mp3');
     this.load.audio('jump', 'assets/Music/jump.mp3');
