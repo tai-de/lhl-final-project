@@ -121,6 +121,7 @@ export default class Preload extends Phaser.Scene {
     this.load.audio('player-hit', 'assets/Music/player-hit.mp3');
     this.load.audio('enemy-death', 'assets/Music/enemy-death.mp3');
     this.load.audio('player-death', 'assets/Music/player-death.mp3');
+    this.load.audio('music-credits', 'assets/Music/dontyou.mp3')
 
     // New Player sprites
     this.load.spritesheet('player-normal-idle', 'assets/Player/player-normal-idle.png', {
