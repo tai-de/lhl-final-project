@@ -44,9 +44,9 @@ export default anims => {
     key: 'bomb',
     frames: anims.generateFrameNumbers('bomb', {
       start: 0,
-      end: 18,
+      end: 19,
     }),
-    frameRate: 19,
+    frameRate: 21,
     repeat: 0,
   });
 
@@ -54,9 +54,9 @@ export default anims => {
     key: 'eye',
     frames: anims.generateFrameNumbers('eye', {
       start: 0,
-      end: 7,
+      end: 8,
     }),
-    frameRate: 8,
+    frameRate: 10,
     repeat: 0,
   });
 
