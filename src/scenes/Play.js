@@ -180,6 +180,13 @@ export default class Play extends Phaser.Scene {
         environment: 'fantasy-swamp',
         traps: 'fantasy-swamp'
       },
+
+      12: {
+        platforms: 'fantasy-swamp',
+        platformColliders: 'fantasy-swamp',
+        environment: 'fantasy-swamp',
+        traps: 'fantasy-swamp'
+      },
     };
     const platformsTiles = map.getTileset(levelTilesets[currentLevel] && levelTilesets[currentLevel].platforms || 'mainlevbuild');
     const platformCollidersTiles = map.getTileset(levelTilesets[currentLevel] && levelTilesets[currentLevel].platformColliders || 'mainlevbuild');
@@ -265,13 +272,13 @@ export default class Play extends Phaser.Scene {
     this.add.tileSprite(0, 0, 1600, 600, 'fantasy-swamp-bg3')
       .setOrigin(0)
       .setDepth(-8)
-      .setScale(1.6)
+      .setScale(1)
       .setScrollFactor(0.75, 1);
 
     this.add.tileSprite(0, 0, 1600, 600, 'fantasy-swamp-bg2')
       .setOrigin(0)
       .setDepth(-7)
-      .setScale(1.6)
+      .setScale(1.5)
       .setScrollFactor(0.85, 1);
 
     this.add.tileSprite(0, 0, 1600, 600, 'fantasy-swamp-bg1')
@@ -308,9 +315,16 @@ export default class Play extends Phaser.Scene {
 
     // Customize the gem color per level (orange, blue, yellow, purple, red, or green)
     const collectablesColor = {
-      1: 'gem-blue',
-      2: 'gem-orange',
+      2: 'gem-red',
       3: 'gem-purple',
+      4: 'gem-green',
+      5: 'gem-orange',
+      6: 'gem-yellow',
+      8: 'gem-orange',
+      9: 'gem-red',
+      10: 'gem-green',
+      11: 'gem-purple',
+      12: 'gem-yellow',
     };
 
     collectables.playAnimation(collectablesColor[this.getCurrentLevel()] || 'gem-blue');
