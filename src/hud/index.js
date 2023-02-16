@@ -6,11 +6,21 @@ export default class Hud extends Phaser.GameObjects.Container {
 
     scene.add.existing(this);
 
-    const { topRightCorner } = scene.config;
+    const { topRightCorner, width } = scene.config;
     this.setPosition(topRightCorner.x - 80, topRightCorner.y + 5);
     this.setScrollFactor(0);
 
     this.setupList();
+    this.addLevel(width);
+  }
+
+  addLevel(width) {
+    const levelText = this.scene.add.text(width / 2, 110, `Level ${this.scene.registry.get('level')}`, {
+      fontSize: `12px`,
+      fill: '#fff'
+    });
+
+    levelText.setScrollFactor(0);
   }
 
   /**
