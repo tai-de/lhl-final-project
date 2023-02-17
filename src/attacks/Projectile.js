@@ -39,7 +39,7 @@ export default class Projectile extends Phaser.Physics.Arcade.Sprite {
     this.activateProjectile(true);
     this.body.reset(x, y);
     this.setVelocityX(this.speed);
-    anim && this.play(anim, true);
+    anim && this.play(anim, false);
     this.scene.tweens.add({
       targets: this,
       scaleY: 0.75,
