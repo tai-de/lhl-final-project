@@ -481,7 +481,7 @@
                  "rotation":0,
                  "visible":true,
                  "width":0,
-                 "x":1568,
+                 "x":1600,
                  "y":496
                 }, 
                 {
@@ -974,21 +974,15 @@
                 }, 
                 {
                  "id":3,
-                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/4.png",
-                 "imageheight":1080,
-                 "imagewidth":1980
+                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/4.png"
                 }, 
                 {
                  "id":4,
-                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/7.png",
-                 "imageheight":1080,
-                 "imagewidth":1980
+                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/7.png"
                 }, 
                 {
                  "id":5,
-                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/8.png",
-                 "imageheight":1080,
-                 "imagewidth":1980
+                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/8.png"
                 }],
          "tilewidth":1980
         }, 
@@ -1027,21 +1021,15 @@
                 }, 
                 {
                  "id":3,
-                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/4.png",
-                 "imageheight":1080,
-                 "imagewidth":1980
+                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/4.png"
                 }, 
                 {
                  "id":4,
-                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/7.png",
-                 "imageheight":1080,
-                 "imagewidth":1980
+                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/7.png"
                 }, 
                 {
                  "id":5,
-                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/8.png",
-                 "imageheight":1080,
-                 "imagewidth":1980
+                 "image":"..\/..\/..\/..\/Desktop\/The Dawn\/Layers\/8.png"
                 }],
          "tilewidth":1980
         }, 
