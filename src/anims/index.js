@@ -46,7 +46,7 @@ export default anims => {
       start: 0,
       end: 19,
     }),
-    frameRate: 21,
+    frameRate: 20,
     repeat: 0,
   });
 
@@ -54,9 +54,9 @@ export default anims => {
     key: 'eye',
     frames: anims.generateFrameNumbers('eye', {
       start: 0,
-      end: 8,
+      end: 10,
     }),
-    frameRate: 10,
+    frameRate: 5,
     repeat: 0,
   });
 
