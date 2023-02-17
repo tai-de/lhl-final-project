@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import HealthBar from '../hud/healthbar';
+import HealthBar from '../hud/HealthBar';
 import initAnimations from './anims/playerAnims';
 import Projectiles from '../attacks/Projectiles';
 import MeleeWeapon from '../attacks/MeleeWeapon';
