@@ -243,8 +243,8 @@ export default class Preload extends Phaser.Scene {
 
     //Load bomb
     this.load.spritesheet('bomb', 'assets/Enemies/Goblin/Bomb_sprite.png', {
-      frameWidth: 100,
-      frameHeight: 100
+      frameWidth: 80,
+      frameHeight: 65
     });
 
     //Load bomb2 (eye for flying-eye enemy)
