@@ -3,6 +3,8 @@
 
 > Created by: [Tai Delisle](https://github.com/tai-de/) & [Edward Lee](https://github.com/edwardkinglee/)
 
+### Warning: This is an unmanaged repo. We are aware that there may be bugs or unexpected behaviors in the game. We appreciate you checking it out!
+
 You are **Labber**, a recent [Lighthouse Labs](https://www.lighthouselabs.ca/) graduate who, after 3 months of extensive study, have finally found some time to close your eyes and get some well-deserved sleep.
 
 But just as you're about to drift off, you find yourself thrown into a fantasy world, full of monsters, traps, and other mysterious dangers.
